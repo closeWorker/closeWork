@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-
-interface iPropsLink {
-  variant: "blueDark" | "blueLight" | "icon";
-}
+import { iPropsLink } from "./type";
 
 const switchStyleLink = (style: string) => {
   switch (style) {

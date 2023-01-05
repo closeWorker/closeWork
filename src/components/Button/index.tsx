@@ -1,15 +1,5 @@
-import { ReactNode } from "react";
 import { StyledButton } from "./style";
-
-interface iButtonProps {
-  name?: string;
-  type: "button" | "submit";
-  action?: () => void;
-  disabled?: boolean;
-  arialLabel?: string;
-  style: "blueDark" | "blueLight" | "delete" | "icon";
-  children?: ReactNode;
-}
+import { iButtonProps } from "./type";
 
 export const Button = ({
   name,

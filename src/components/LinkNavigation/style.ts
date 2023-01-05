@@ -58,12 +58,16 @@ const switchStyleLink = (style: string) => {
 export const StyledLink = styled(Link)<iPropsLink>`
   cursor: pointer;
 
-  height: 40px;
+  height: 50px;
 
   text-decoration: none;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   border-radius: 4px;
-  padding: 10px 20px;
+  padding: 0px 20px;
 
   font-weight: 600;
   font-size: 16px;
@@ -76,7 +80,7 @@ export const StyledLink = styled(Link)<iPropsLink>`
   }}
 
   @media (min-width: 1400px) {
-    height: 50px;
+    height: 60px;
     padding: 15px 20px;
   }
 `;

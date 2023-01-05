@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const StyledFooter = styled.footer`
   height: 40px;
@@ -14,4 +14,4 @@ export const StyledFooter = styled.footer`
     font-weight: 400;
     color: #111c31;
   }
-`
+`;

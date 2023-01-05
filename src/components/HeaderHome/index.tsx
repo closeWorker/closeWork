@@ -10,10 +10,10 @@ export const HeaderHome = () => {
       <ContinerHome>
         <img src={LogoSmall} alt="Logo Close Workers" />
         <div>
-          <LinkNavigation to="register" style="blueDark">
+          <LinkNavigation linkTo="/register" style="blueDark">
             Cadastrar
           </LinkNavigation>
-          <LinkNavigation to="login" style="blueLight">
+          <LinkNavigation linkTo="/login" style="blueLight">
             Login
           </LinkNavigation>
         </div>

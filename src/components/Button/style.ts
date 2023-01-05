@@ -89,6 +89,6 @@ export const StyledButton = styled.button<iPropsButton>`
   }}
 
   @media (min-width: 1400px) {
-    height: 50px;
+    height: 60px;
   }
 `;

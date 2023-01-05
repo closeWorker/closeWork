@@ -1,3 +1,10 @@
+import React from "react";
+import { HeaderHome } from "../../components/HeaderHome";
+
 export const Home = () => {
-  return <h1>Home</h1>;
+  return (
+    <>
+      <HeaderHome />
+    </>
+  );
 };

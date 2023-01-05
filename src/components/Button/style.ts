@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-interface iPropsButton {
-  variant: "blueDark" | "blueLight" | "delete" | "icon";
-}
+import { iPropsButton } from "./type";
 
 const switchStyleButton = (style: string) => {
   switch (style) {

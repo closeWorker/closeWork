@@ -1,12 +1,5 @@
-import { ReactNode } from "react";
+import { iLinkProps } from "./type";
 import { StyledLink } from "./style";
-
-interface iLinkProps {
-  name: string;
-  linkTo: string;
-  style: "blueDark" | "blueLight" | "icon";
-  children?: ReactNode;
-}
 
 export const LinkNavigation = ({
   name,

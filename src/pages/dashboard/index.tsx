@@ -1,3 +1,16 @@
+import { HeaderDashboard } from "../../components/HeaderDashboard";
+import { ProfileDashboard } from "../../components/ProfileDashboard";
+import { ServicesDashboard } from "../../components/ServicesDashboard";
+import { Footer } from "../../components/Footer";
+import { StyledDashboard } from "./style";
+
 export const Dashboard = () => {
-  return <h1>Dashboard</h1>;
+  return (
+    <StyledDashboard>
+      <HeaderDashboard />
+      <ProfileDashboard />
+      <ServicesDashboard />
+      <Footer />
+    </StyledDashboard>
+  );
 };

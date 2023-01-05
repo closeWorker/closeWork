@@ -9,42 +9,42 @@ const switchStyleLink = (style: string) => {
   switch (style) {
     case "blueDark":
       return `
-          color: #ffffff;
-          background-color: #3a60a6;
-          border: 2px solid #3a60a6;
+          color: var(--color-neutral-white);
+          background-color: var(--color-blue-3);
+          border: 2px solid var(--color-blue-3);
         
           &:hover {
-            border: 2px solid #263f6d;
-            background-color: #263f6d;
+            border: 2px solid var(--color-blue-2);
+            background-color: var(--color-blue-2);
           }
         
           &:disabled {
-            border: 2px solid var(--color-primary-disableb);
-            background-color: var(--color-primary-disableb);
+            border: 2px solid var(--color-blue-1);
+            background-color: var(--color-blue-1);
           }
           `;
       break;
     case "blueLight":
       return `
-          color: #111c31;
-          background-color: #d5def0;
-          border: 2px solid #d5def0;
+          color: var(--color-blue-1);
+          background-color: var(--color-blue-6);
+          border: 2px solid var(--color-blue-6);
         
           &:hover {
-            border: 2px solid #a0b6dd;
-            background-color: #a0b6dd;
+            border: 2px solid var(--color-blue-5);
+            background-color: var(--color-blue-5);
           }
           `;
       break;
     case "icon":
       return `
           border: none;
-          background-color: #ffffff;
+          background-color: var(--color-neutral-white);
           border-radius: 100%;
           padding: 0 10px;
         
           &:hover {
-            background-color: #f1f3f5;
+            background-color: var(--color-gray-9);
           }
           svg {
             width: 2em;
@@ -59,10 +59,6 @@ export const StyledLink = styled(Link)<iPropsLink>`
   cursor: pointer;
 
   height: 40px;
-
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
 
   text-decoration: none;
 

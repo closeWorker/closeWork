@@ -16,38 +16,42 @@ export const ServicesDashboard = () => {
       </StyledService>
       <StyledServices>
         <li>
-          <div className="content">
-            <StyledHeaderServices>
-              <div></div>
-              <h2>Móvel planejado</h2>
-              <IoEyeSharp size={30} />
-            </StyledHeaderServices>
-            <Buttons>
-              <Button style="delete" type="button">
-                Excluir
-              </Button>
-              <Button style="blueLight" type="button">
-                Editar
-              </Button>
-            </Buttons>
-          </div>
+          <StyledHeaderServices>
+            <div></div>
+            <h2>Móvel planejado</h2>
+            <Button
+              style="icon"
+              type="button"
+              children={<IoEyeSharp size={30} />}
+            />
+          </StyledHeaderServices>
+          <Buttons>
+            <Button style="delete" type="button">
+              Excluir
+            </Button>
+            <Button style="blueDark" type="button">
+              Editar
+            </Button>
+          </Buttons>
         </li>
         <li>
-          <div className="content">
-            <StyledHeaderServices>
-              <div></div>
-              <h2>Montagem de móvel</h2>
-              <IoEyeSharp size={30} />
-            </StyledHeaderServices>
-            <Buttons>
-              <Button style="delete" type="button">
-                Excluir
-              </Button>
-              <Button style="blueLight" type="button">
-                Editar
-              </Button>
-            </Buttons>
-          </div>
+          <StyledHeaderServices>
+            <div></div>
+            <h2>Montagem de móvel</h2>
+            <Button
+              style="icon"
+              type="button"
+              children={<IoEyeSharp size={30} />}
+            />
+          </StyledHeaderServices>
+          <Buttons>
+            <Button style="delete" type="button">
+              Excluir
+            </Button>
+            <Button style="blueDark" type="button">
+              Editar
+            </Button>
+          </Buttons>
         </li>
       </StyledServices>
     </StyledServicesDashboard>

@@ -1,13 +1,14 @@
 import { Button } from "../Button";
 import { Buttons, StyledHeaderServices } from "../ServicesDashboard/style";
 import { IoEyeSharp } from "react-icons/io5";
+import { Title } from "../Title";
 
 export const CardDashboard = () => {
   return (
     <li>
       <StyledHeaderServices>
         <div></div>
-        <h2>Móvel planejado</h2>
+        <Title children="Móvel planejado" type="Heading1" colorTitle="blue-1" />
         <Button
           style="icon"
           type="button"

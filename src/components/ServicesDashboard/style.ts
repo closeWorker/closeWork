@@ -11,21 +11,26 @@ export const StyledService = styled.div`
   display: flex;
   justify-content: center;
   background-color: var(--color-blue-2);
-  color: var(--color-blue-6);
 `;
 
 export const StyledServices = styled.ul`
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: var(--color-neutral-white);
   gap: 10px;
   padding: 20px 10px;
-  border-radius: 4px;
+  overflow-y: scroll;
+  max-height: 450px;
   @media (min-width: 666px) {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    max-width: 100%;
+  }
+  @media (min-width: 1100px) {
+    overflow-y: hidden;
   }
   li {
     background-color: var(--color-blue-6);
@@ -36,6 +41,7 @@ export const StyledServices = styled.ul`
     width: 100%;
     max-width: 340px;
     text-align: center;
+    border-radius: 4px;
   }
 `;
 
@@ -58,6 +64,10 @@ export const Buttons = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
+  @media (max-width: 375px) {
+    flex-direction: column;
+    align-items: center;
+  }
   button {
     padding: 10px 40px;
     height: max-content;
@@ -69,11 +79,12 @@ export const StyledRegisterServices = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  padding: 20px 0;
-  p {
+  padding: 20px 10px;
+  text-align: center;
+  /* p {
     font-weight: 600;
     font-style: 16px;
-  }
+  } */
   button {
     padding: 10px 60px;
     height: max-content;

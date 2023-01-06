@@ -8,6 +8,7 @@ import {
 import icon from "../../assets/icon-profile.svg";
 import { Button } from "../Button";
 import { ContainerHome } from "../../styles/Container";
+import { Title } from "../Title";
 
 export const ProfileDashboard = () => {
   return (
@@ -22,10 +23,14 @@ export const ProfileDashboard = () => {
           <img src={icon} alt="imagem de perfil do usuário" />
           <StyledName>
             <div>
-              <h2>João Pedro</h2>
-              <p>Marceneiro</p>
+              <Title children="João Pedro" colorTitle="white" type="Heading1" />
+              <Title children="Marceneiro" colorTitle="white" type="Body" />
             </div>
-            <p>joaopedro@mail.com</p>
+            <Title
+              children="joaopedro@mail.com"
+              colorTitle="white"
+              type="Body"
+            />
           </StyledName>
         </StyledProfileDescription>
       </ContainerHome>

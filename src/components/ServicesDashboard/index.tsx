@@ -1,59 +1,33 @@
 import {
-  Buttons,
-  StyledHeaderServices,
+  StyledRegisterServices,
   StyledService,
   StyledServices,
   StyledServicesDashboard,
 } from "./style";
-import { IoEyeSharp } from "react-icons/io5";
 import { Button } from "../Button";
+import { ContainerHome } from "../../styles/Container";
+import { CardDashboard } from "../cardDashboard";
 
 export const ServicesDashboard = () => {
   return (
     <StyledServicesDashboard>
+      <StyledRegisterServices>
+        <p>Para cadastrar um novo serviço pressione o botão abaixo</p>
+        <Button style="blueDark" type="button" name="Cadastar" />
+      </StyledRegisterServices>
       <StyledService>
         <h2>Serviços</h2>
       </StyledService>
-      <StyledServices>
-        <li>
-          <StyledHeaderServices>
-            <div></div>
-            <h2>Móvel planejado</h2>
-            <Button
-              style="icon"
-              type="button"
-              children={<IoEyeSharp size={30} />}
-            />
-          </StyledHeaderServices>
-          <Buttons>
-            <Button style="delete" type="button">
-              Excluir
-            </Button>
-            <Button style="blueDark" type="button">
-              Editar
-            </Button>
-          </Buttons>
-        </li>
-        <li>
-          <StyledHeaderServices>
-            <div></div>
-            <h2>Montagem de móvel</h2>
-            <Button
-              style="icon"
-              type="button"
-              children={<IoEyeSharp size={30} />}
-            />
-          </StyledHeaderServices>
-          <Buttons>
-            <Button style="delete" type="button">
-              Excluir
-            </Button>
-            <Button style="blueDark" type="button">
-              Editar
-            </Button>
-          </Buttons>
-        </li>
-      </StyledServices>
+      <ContainerHome>
+        <StyledServices>
+          <CardDashboard />
+          <CardDashboard />
+          <CardDashboard />
+          <CardDashboard />
+          <CardDashboard />
+          <CardDashboard />
+        </StyledServices>
+      </ContainerHome>
     </StyledServicesDashboard>
   );
 };

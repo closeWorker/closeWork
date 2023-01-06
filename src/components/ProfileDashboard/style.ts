@@ -28,7 +28,12 @@ export const StyledProfileDescription = styled.div`
   align-items: center;
   gap: 10px;
   margin-bottom: 10px;
-  div {
+  @media (min-width: 666px) {
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+  }
+  div > div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,4 +51,10 @@ export const StyledProfileDescription = styled.div`
     font-size: 14px;
     font-weight: 400;
   }
+`;
+
+export const StyledName = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;

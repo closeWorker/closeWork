@@ -2,12 +2,12 @@ import React from "react";
 import { StyledHeader } from "./style";
 import LogoSmall from "../../assets/logo-reduzida.svg";
 import { LinkNavigation } from "../LinkNavigation";
-import { ContinerHome } from "../../styles/Container";
+import { ContainerHome } from "../../styles/Container";
 
 export const HeaderHome = () => {
   return (
     <StyledHeader>
-      <ContinerHome>
+      <ContainerHome>
         <img src={LogoSmall} alt="Logo Close Workers" />
         <div>
           <LinkNavigation linkTo="/register" style="blueDark">
@@ -17,7 +17,7 @@ export const HeaderHome = () => {
             Login
           </LinkNavigation>
         </div>
-      </ContinerHome>
+      </ContainerHome>
     </StyledHeader>
   );
 };

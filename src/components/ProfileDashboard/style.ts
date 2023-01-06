@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const StyledProfile = styled.div`
   width: 100%;
   padding: 10px;
-  background-color: var(--color-blue-6);
+  background-color: var(--color-blue-2);
+  color: var(--color-neutral-white);
   display: flex;
   flex-direction: column;
 `;
@@ -36,5 +37,13 @@ export const StyledProfileDescription = styled.div`
   h2,
   p {
     width: max-content;
+  }
+  h2 {
+    font-size: 22px;
+    font-weight: 600;
+  }
+  p {
+    font-size: 14px;
+    font-weight: 400;
   }
 `;

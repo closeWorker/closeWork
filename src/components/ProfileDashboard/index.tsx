@@ -1,13 +1,14 @@
 import { MdEdit } from "react-icons/md";
 import { StyledEdit, StyledProfile, StyledProfileDescription } from "./style";
 import icon from "../../assets/icon-profile.svg";
+import { Button } from "../Button";
 
 export const ProfileDashboard = () => {
   return (
     <StyledProfile>
       <StyledEdit>
         <div>
-          <MdEdit size={30} />
+          <Button style="icon" type="button" children={<MdEdit size={5} />} />
         </div>
       </StyledEdit>
       <StyledProfileDescription>

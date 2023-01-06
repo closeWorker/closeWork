@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const StyledProfile = styled.div`
   width: 100%;
-  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 55px;
   background-color: var(--color-blue-2);
   color: var(--color-neutral-white);
   display: flex;
@@ -20,6 +21,10 @@ export const StyledEdit = styled.div`
     padding: 2px;
     background-color: var(--color-neutral-white);
   }
+  button {
+    height: max-content;
+    padding: 5px;
+  }
 `;
 
 export const StyledProfileDescription = styled.div`
@@ -28,7 +33,12 @@ export const StyledProfileDescription = styled.div`
   align-items: center;
   gap: 10px;
   margin-bottom: 10px;
-  div {
+  @media (min-width: 666px) {
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+  }
+  div > div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,12 +48,10 @@ export const StyledProfileDescription = styled.div`
   p {
     width: max-content;
   }
-  h2 {
-    font-size: 22px;
-    font-weight: 600;
-  }
-  p {
-    font-size: 14px;
-    font-weight: 400;
-  }
+`;
+
+export const StyledName = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;

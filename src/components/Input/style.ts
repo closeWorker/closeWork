@@ -23,6 +23,11 @@ export const Fieldset = styled.fieldset`
     border: 0;
     padding: 20px 15px;
     border-radius: 4px;
+    /* Caso de problema no mobile usar isso */
+    /* @media (max-width: 700px) {
+      width: 95%;
+      margin: 0 auto;
+    } */
   }
   input::placeholder {
     color: var(--color-blue-1);

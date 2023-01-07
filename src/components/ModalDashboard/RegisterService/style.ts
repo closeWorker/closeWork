@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-export const DivEdit = styled.div`
+export const DivRegister = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-export const FormEdit = styled.form`
+export const FormRegister = styled.form`
   display: flex;
   flex-direction: column;
   background-color: var(--color-blue-2);

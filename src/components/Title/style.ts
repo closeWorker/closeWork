@@ -6,6 +6,9 @@ const functionSelectTitleColor = (props: string) => {
     case "blue-1":
       return "var(--color-blue-1)";
       break;
+    case "blue-2":
+      return "var(--color-blue-6)";
+      break;
     case "white":
       return "var(--color-neutral-white)";
       break;

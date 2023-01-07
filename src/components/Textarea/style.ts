@@ -12,8 +12,8 @@ export const Fieldset = styled.fieldset`
     font-weight: 700;
     line-height: 27px;
   }
-  input {
-    height: 60px;
+  textarea {
+    height: 175px;
     background-color: var(--color-blue-5);
     color: var(--color-blue-1);
     font-size: 22px;
@@ -23,11 +23,12 @@ export const Fieldset = styled.fieldset`
     border: 0;
     padding: 20px 15px;
     border-radius: 4px;
+    resize: none;
   }
-  input::placeholder {
+  textarea::placeholder {
     color: var(--color-blue-1);
   }
-  input::focus {
+  textarea::focus {
     border: 2px solid var(--color-blue-1);
   }
 `;

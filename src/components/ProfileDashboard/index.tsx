@@ -9,14 +9,25 @@ import icon from "../../assets/icon-profile.svg";
 import { Button } from "../Button";
 import { ContainerHome } from "../../styles/Container";
 import { Title } from "../Title";
+import { useContext } from "react";
+import { ServiceContext } from "../../context/ServiceContext";
 
 export const ProfileDashboard = () => {
+  const { setOpenModal, setTypeModal } = useContext(ServiceContext);
   return (
     <StyledProfile>
       <ContainerHome>
         <StyledEdit>
           <div>
-            <Button style="icon" type="button" children={<MdEdit size={5} />} />
+            <Button
+              style="icon"
+              type="button"
+              children={<MdEdit size={5} />}
+              action={() => {
+                setOpenModal(true);
+                setTypeModal("EditUser");
+              }}
+            />
           </div>
         </StyledEdit>
         <StyledProfileDescription>

@@ -47,8 +47,8 @@ const switchStyleButton = (style: string) => {
       break;
     case "icon":
       return `
-        border: none;
-        background-color: var(--color-neutral-white);;
+        border: 0;
+        background-color: var(--color-neutral-white);
         border-radius: 100%;
         padding: 0 10px;
       
@@ -58,6 +58,33 @@ const switchStyleButton = (style: string) => {
         svg {
           width: 2em;
           height: 2em;
+        }
+        `;
+      break;
+    case "transparent":
+      return `
+        border: 0;
+        background-color: transparent;
+        border-radius: 100%;
+        padding: 0 10px;
+      
+        &:hover {
+          background-color: transparent;
+        }
+        svg {
+          width: 2em;
+          height: 2em;
+        }
+        `;
+      break;
+    case "grey1":
+      return `
+        color: var(--color-neutral-white);
+        border: 0;
+        background-color: var(--color-gray-1);
+      
+        &:hover {
+          background-color: var(--color-gray-1);
         }
         `;
       break;

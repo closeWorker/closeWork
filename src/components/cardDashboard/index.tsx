@@ -2,8 +2,11 @@ import { Button } from "../Button";
 import { Buttons, StyledHeaderServices } from "../ServicesDashboard/style";
 import { IoEyeSharp } from "react-icons/io5";
 import { Title } from "../Title";
+import { useContext } from "react";
+import { ServiceContext } from "../../context/ServiceContext";
 
 export const CardDashboard = () => {
+  const { setOpenModal, setTypeModal } = useContext(ServiceContext);
   return (
     <li>
       <StyledHeaderServices>
@@ -19,7 +22,14 @@ export const CardDashboard = () => {
         <Button style="delete" type="button">
           Excluir
         </Button>
-        <Button style="blueDark" type="button">
+        <Button
+          style="blueDark"
+          type="button"
+          action={() => {
+            setOpenModal(true);
+            setTypeModal("EditService");
+          }}
+        >
           Editar
         </Button>
       </Buttons>

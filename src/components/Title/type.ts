@@ -9,9 +9,9 @@ export interface iTitle {
     | "Body"
     | "Body-600"
     | "Caption";
-  colorTitle: "blue-1" | "white" | "negative" | "sucess";
+  colorTitle: "blue-1" | "blue-2" | "white" | "negative" | "sucess";
 }
 
 export interface iPropsTitle {
-  colorTitle: "blue-1" | "white" | "negative" | "sucess";
+  colorTitle: "blue-1" | "blue-2" | "white" | "negative" | "sucess";
 }

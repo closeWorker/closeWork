@@ -7,6 +7,8 @@ export const StyledFooter = styled.footer`
   justify-content: center;
   align-items: center;
 
+  background-color: var(--color-blue-2);
+
   p {
     font-size: 12px;
     font-weight: 400;

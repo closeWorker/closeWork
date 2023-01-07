@@ -6,10 +6,16 @@ export interface iButtonProps {
   action?: () => void;
   disabled?: boolean;
   arialLabel?: string;
-  style: "blueDark" | "blueLight" | "delete" | "icon";
+  style: "blueDark" | "blueLight" | "delete" | "icon" | "transparent" | "grey1";
   children?: ReactNode;
 }
 
 export interface iPropsButton {
-  variant: "blueDark" | "blueLight" | "delete" | "icon";
+  variant:
+    | "blueDark"
+    | "blueLight"
+    | "delete"
+    | "icon"
+    | "transparent"
+    | "grey1";
 }

@@ -1,20 +1,18 @@
-import React, { forwardRef, InputHTMLAttributes } from "react";
+import React, { forwardRef, TextareaHTMLAttributes } from "react";
 import { Fieldset } from "./style";
 
-interface iInputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface iTextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label: string;
-  type: string;
   placeholder: string;
   value?: string | number;
 }
 
-export const Input = forwardRef<HTMLInputElement, iInputProps>(
-  ({ label, type, placeholder, value, ...rest }, ref) => {
+export const Textarea = forwardRef<HTMLTextAreaElement, iTextareaProps>(
+  ({ label, placeholder, value, ...rest }, ref) => {
     return (
       <Fieldset>
         <label>{label}</label>
-        <input
-          type={type}
+        <textarea
           placeholder={placeholder}
           ref={ref}
           defaultValue={value}

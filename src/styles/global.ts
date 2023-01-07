@@ -37,7 +37,7 @@ export const GlobalStyle = createGlobalStyle`
   --color-neutral-black: #000000;
 
   --color-sucess: #168821;
-  --color-negative: #E60000;
+  --color-negative: #ADB5BD;
   --color-negative-hover: #E60000;
  
  

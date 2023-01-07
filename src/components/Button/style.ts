@@ -35,7 +35,7 @@ const switchStyleButton = (style: string) => {
       break;
     case "delete":
       return `
-        color: var(--color-neutral-white);
+        color: var(--color-neutral-black);
         background-color: var(--color-negative);
         border: 2px solid var(--color-negative);
       

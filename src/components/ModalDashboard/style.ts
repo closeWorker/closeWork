@@ -15,6 +15,19 @@ export const DivModal = styled.div`
   width: 100%;
   max-width: 660px;
   @media (max-width: 700px) {
-    margin: 0 60px;
+    width: 90%;
+    margin: 0 auto;
+  }
+  input {
+    @media (max-width: 700px) {
+      width: 95%;
+      margin: 0 auto;
+    }
+  }
+  textarea {
+    @media (max-width: 700px) {
+      width: 95%;
+      margin: 0 auto;
+    }
   }
 `;

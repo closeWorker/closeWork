@@ -4,8 +4,8 @@ import { iProviders } from "./type";
 
 export const Providers = ({ children }: iProviders) => {
   return (
-    <UserProvider>
-      <ServiceProvider>{children}</ServiceProvider>
-    </UserProvider>
+    <ServiceProvider>
+      <UserProvider>{children}</UserProvider>
+    </ServiceProvider>
   );
 };

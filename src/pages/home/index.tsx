@@ -9,6 +9,7 @@ import worker5 from "../../assets/worker-5.svg";
 import { Title } from "../../components/Title";
 import { Footer } from "../../components/Footer";
 import { Button } from "../../components/Button";
+import { Select } from "../../components/Select";
 
 export const Home = () => {
   return (
@@ -29,9 +30,13 @@ export const Home = () => {
             <Title type="Heading3" colorTitle="blue-1">
               Filtrar por tipo de serviço
             </Title>
-            <select>
+            <Select>
               <option value="">Serviço</option>
-            </select>
+              <option value="">Serviço</option>
+              <option value="">Serviço</option>
+              <option value="">Serviço</option>
+              <option value="">Serviço</option>
+            </Select>
           </div>
         </div>
         <ContainerHome>

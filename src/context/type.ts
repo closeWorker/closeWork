@@ -43,6 +43,9 @@ export interface iServiceContext {
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   typeModal: string;
   setTypeModal: React.Dispatch<React.SetStateAction<string>>;
+  requestRegisteredUserServices: () => void;
+  validatelistServiceUserLogged: boolean;
+  loadingListServiceDashboard: boolean;
 }
 
 export interface iListServiceUserLogged {

@@ -23,3 +23,5 @@ export const Login = () => {
     </>
   );
 };
+
+/* A senha do usercoments@gmail.com é 123456 */

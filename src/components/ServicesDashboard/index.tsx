@@ -12,7 +12,13 @@ import { useContext } from "react";
 import { ServiceContext } from "../../context/ServiceContext";
 
 export const ServicesDashboard = () => {
-  const { setOpenModal, setTypeModal } = useContext(ServiceContext);
+  const {
+    setOpenModal,
+    setTypeModal,
+    validatelistServiceUserLogged,
+    listServiceUserLogged,
+    loadingListServiceDashboard,
+  } = useContext(ServiceContext);
   return (
     <StyledServicesDashboard>
       <StyledRegisterServices>
@@ -35,14 +41,19 @@ export const ServicesDashboard = () => {
         <Title children="Serviços" type="Heading2" colorTitle="blue-2" />
       </StyledService>
       <ContainerHome>
-        <StyledServices>
-          <CardDashboard />
-          <CardDashboard />
-          <CardDashboard />
-          <CardDashboard />
-          <CardDashboard />
-          <CardDashboard />
-        </StyledServices>
+        {loadingListServiceDashboard ? (
+          validatelistServiceUserLogged ? (
+            <StyledServices>
+              {listServiceUserLogged.map((item, index) => {
+                return <CardDashboard key={index} item={item} />;
+              })}
+            </StyledServices>
+          ) : (
+            <h1>Não existe serviços cadastrados</h1>
+          )
+        ) : (
+          <h1>Carregando ....</h1>
+        )}
       </ContainerHome>
     </StyledServicesDashboard>
   );

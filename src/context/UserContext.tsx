@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 import { api } from "../services/api";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -10,6 +10,7 @@ import {
   iDefaultErrorResponse,
 } from "./type";
 import { AxiosError } from "axios";
+import { ServiceContext } from "./ServiceContext";
 
 export const UserContext = createContext({} as iUserContext);
 
@@ -19,6 +20,7 @@ export const UserProvider = ({ children }: iPropsUserProvider) => {
   const [tokenIsValid, setTokenIsValid] = useState(false);
   const [userValid, setUserValid] = useState(false);
 
+  const { requestRegisteredUserServices } = useContext(ServiceContext);
   const navigate = useNavigate();
 
   const onSubmitLogin = async (data: iLoginSubmit) => {
@@ -31,8 +33,8 @@ export const UserProvider = ({ children }: iPropsUserProvider) => {
         "@closework:userId",
         JSON.stringify(response.data.user.id)
       );
-
       setUserProfile(response.data.user);
+      requestRegisteredUserServices();
       setTokenIsValid(true);
       setUserValid(true);
 
@@ -77,11 +79,11 @@ export const UserProvider = ({ children }: iPropsUserProvider) => {
 
   const requestUserProfile = async () => {
     const token = localStorage.getItem("@closework:token");
-    const user = localStorage.getItem("@closework:userId");
+    const userId = localStorage.getItem("@closework:userId");
     if (token) {
-      if (user) {
+      if (userId) {
         try {
-          const response = await api.get(`users/${user}`, {
+          const response = await api.get(`users/${userId}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -98,6 +100,7 @@ export const UserProvider = ({ children }: iPropsUserProvider) => {
     const test = await validationToken();
     if (test) {
       requestUserProfile();
+      requestRegisteredUserServices();
       setTokenIsValid(true);
       setUserValid(true);
       navigate("/dashboard");

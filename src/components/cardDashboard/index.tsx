@@ -4,14 +4,17 @@ import { IoEyeSharp } from "react-icons/io5";
 import { Title } from "../Title";
 import { useContext } from "react";
 import { ServiceContext } from "../../context/ServiceContext";
+import { iCardProps } from "./type";
 
-export const CardDashboard = () => {
+export const CardDashboard = ({ item }: iCardProps) => {
   const { setOpenModal, setTypeModal } = useContext(ServiceContext);
   return (
     <li>
       <StyledHeaderServices>
         <div></div>
-        <Title children="Móvel planejado" type="Heading1" colorTitle="blue-1" />
+        <Title type="Heading1" colorTitle="blue-1">
+          {item.kind_of_service}
+        </Title>
         <Button
           style="icon"
           type="button"

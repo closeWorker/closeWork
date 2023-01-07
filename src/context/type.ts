@@ -5,6 +5,8 @@ export interface iUserContext {
   userProfile: iUserProfile;
   onSubmitLogin: (data: iLoginSubmit) => void;
   handleLogout: () => void;
+  tokenIsValid: boolean;
+  userValid: boolean;
 }
 
 export interface iPropsUserProvider {

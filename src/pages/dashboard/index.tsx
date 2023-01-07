@@ -12,7 +12,6 @@ export const Dashboard = () => {
   const { openModal } = useContext(ServiceContext);
   const { userProfile } = useContext(UserContext);
 
-  console.log(userProfile);
   return (
     <StyledDashboard>
       {openModal ? <ModalDashboard /> : ""}

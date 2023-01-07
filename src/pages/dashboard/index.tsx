@@ -13,12 +13,18 @@ export const Dashboard = () => {
   const { userProfile } = useContext(UserContext);
 
   return (
-    <StyledDashboard>
-      {openModal ? <ModalDashboard /> : ""}
-      <HeaderDashboard />
-      <ProfileDashboard />
-      <ServicesDashboard />
-      <Footer />
-    </StyledDashboard>
+    <>
+      {Object.keys(userProfile).length > 0 ? (
+        <StyledDashboard>
+          {openModal ? <ModalDashboard /> : ""}
+          <HeaderDashboard />
+          <ProfileDashboard />
+          <ServicesDashboard />
+          <Footer />
+        </StyledDashboard>
+      ) : (
+        <h1>Carregando...</h1>
+      )}
+    </>
   );
 };

@@ -1,5 +1,18 @@
 import styled from "styled-components";
 
+export const PageContainer = styled.div`
+  position: relative;
+  min-height: 100vh;
+  height: 100%;
+
+  footer {
+    width: 100%;
+
+    position: absolute;
+    bottom: 0;
+  }
+`;
+
 export const ContainerHome = styled.div`
   width: 1320px;
   max-width: 100%;
@@ -35,7 +48,7 @@ export const StyledHome = styled.main`
     justify-content: center;
     align-items: center;
 
-    @media (min-width: 631px) {
+    @media (min-width: 740px) {
       border-bottom: 60px solid var(--color-blue-2);
       margin-bottom: 30px;
     }
@@ -58,29 +71,33 @@ export const StyledHome = styled.main`
     margin-bottom: 12px;
   }
   > div:nth-child(3) > ul {
-    max-height: 380px;
-
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
     gap: 21px;
 
+    padding-bottom: 62px;
+
+    max-height: 438px;
+
     overflow-y: scroll;
+    overflow-x: unset;
 
-    padding-bottom: 40px;
+    @media (min-width: 420px) {
+      display: grid;
+      grid-gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(298px, 1fr));
+      justify-items: center;
+    }
 
-    @media (min-width: 631px) {
-      justify-content: space-evenly;
+    @media (min-width: 740px) {
       overflow: unset;
       max-height: none;
     }
-    @media (min-width: 941px) {
-      justify-content: space-between;
-    }
   }
   > div:nth-child(3) > ul > li {
-    width: 289px;
+    width: 298px;
+    max-width: 100%;
     height: 375px;
 
     padding: 14px 12px 27px 12px;

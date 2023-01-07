@@ -12,6 +12,10 @@ export const GlobalStyle = createGlobalStyle`
   ul{
     list-style-type: none;
   }
+
+  body,html{
+    height: 100%;
+  }
   
 :root {
  

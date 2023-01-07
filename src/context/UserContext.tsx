@@ -21,6 +21,7 @@ export const UserProvider = ({ children }: iPropsUserProvider) => {
   const [userValid, setUserValid] = useState(false);
 
   const { requestRegisteredUserServices } = useContext(ServiceContext);
+
   const navigate = useNavigate();
 
   const onSubmitLogin = async (data: iLoginSubmit) => {

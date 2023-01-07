@@ -7,6 +7,7 @@ import { Textarea } from "../../Textarea";
 import { useContext, useEffect, useRef } from "react";
 import { ServiceContext } from "../../../context/ServiceContext";
 import { useOutClick } from "../../../hooks/useOutClick";
+import { UserContext } from "../../../context/UserContext";
 
 export const EditService = () => {
   const { setOpenModal } = useContext(ServiceContext);

@@ -6,26 +6,15 @@ import { HeaderModal } from "../HeaderModal";
 import { Textarea } from "../../Textarea";
 import { ElementType, useContext, useEffect, useRef } from "react";
 import { ServiceContext } from "../../../context/ServiceContext";
+import { useOutClick } from "../../../hooks/useOutClick";
 
 export const RegisterService = () => {
   const { setOpenModal } = useContext(ServiceContext);
 
-  const modalRef = useRef(null);
-
-  useEffect(() => {
-    const modalOutClick = (elem: MouseEvent) => {
-      const target = elem.target;
-      const element = modalRef.current;
-      if (element) {
-        element.contains(target);
-        setOpenModal(false);
-      }
-    };
-    window.addEventListener("mousedown", modalOutClick);
-    return () => {
-      window.removeEventListener("mousedown", modalOutClick);
-    };
+  const modalRef = useOutClick(() => {
+    setOpenModal(false);
   });
+
   return (
     <DivModal ref={modalRef}>
       <DivRegister>

@@ -6,6 +6,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { ServiceContext } from "../../../context/ServiceContext";
 import { useContext } from "react";
 import { UserContext } from "../../../context/UserContext";
+import { ImgProfile } from "../../ImgProfile";
 
 export const HeaderModal = () => {
   const { setOpenModal } = useContext(ServiceContext);
@@ -13,12 +14,16 @@ export const HeaderModal = () => {
   return (
     <Header>
       <UserInfo>
-        <img src={icon} alt="imagem de perfil do usuário" />
+        <ImgProfile
+          alt="imagem de perfil do usuário"
+          type="modal"
+          srcLink={userProfile.avatar}
+        />
         <div>
-          <Title type="Heading2" colorTitle="white">
+          {/* <Title type="Heading2" colorTitle="white">
             {userProfile.email}
           </Title>
-          {/* <Title type="Body" colorTitle="white">
+          <Title type="Body" colorTitle="white">
             {userProfile.name}
           </Title> */}
         </div>

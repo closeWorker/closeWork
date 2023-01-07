@@ -9,13 +9,15 @@ import icon from "../../assets/icon-profile.svg";
 import { Button } from "../Button";
 import { ContainerHome } from "../../styles/Container";
 import { Title } from "../Title";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { ServiceContext } from "../../context/ServiceContext";
 import { UserContext } from "../../context/UserContext";
+import { ImgProfile } from "../ImgProfile";
 
 export const ProfileDashboard = () => {
   const { setOpenModal, setTypeModal } = useContext(ServiceContext);
   const { userProfile } = useContext(UserContext);
+
   return (
     <StyledProfile>
       <ContainerHome>
@@ -33,7 +35,11 @@ export const ProfileDashboard = () => {
           </div>
         </StyledEdit>
         <StyledProfileDescription>
-          <img src={icon} alt="imagem de perfil do usuário" />
+          <ImgProfile
+            alt="imagem de perfil do usuário"
+            type="profile"
+            srcLink={userProfile.avatar}
+          />
           <StyledName>
             <div>
               <Title colorTitle="white" type="Heading1">

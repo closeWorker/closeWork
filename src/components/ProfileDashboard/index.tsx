@@ -11,9 +11,11 @@ import { ContainerHome } from "../../styles/Container";
 import { Title } from "../Title";
 import { useContext } from "react";
 import { ServiceContext } from "../../context/ServiceContext";
+import { UserContext } from "../../context/UserContext";
 
 export const ProfileDashboard = () => {
   const { setOpenModal, setTypeModal } = useContext(ServiceContext);
+  const { userProfile } = useContext(UserContext);
   return (
     <StyledProfile>
       <ContainerHome>
@@ -34,14 +36,16 @@ export const ProfileDashboard = () => {
           <img src={icon} alt="imagem de perfil do usuário" />
           <StyledName>
             <div>
-              <Title children="João Pedro" colorTitle="white" type="Heading1" />
-              <Title children="Marceneiro" colorTitle="white" type="Body" />
+              <Title colorTitle="white" type="Heading1">
+                {userProfile.name}
+              </Title>
+              <Title colorTitle="white" type="Body">
+                {userProfile.email}
+              </Title>
+              <Title colorTitle="white" type="Body">
+                {userProfile.contact}
+              </Title>
             </div>
-            <Title
-              children="joaopedro@mail.com"
-              colorTitle="white"
-              type="Body"
-            />
           </StyledName>
         </StyledProfileDescription>
       </ContainerHome>

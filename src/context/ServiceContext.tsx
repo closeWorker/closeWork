@@ -20,6 +20,42 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
   >([]);
   const [openModal, setOpenModal] = useState(false);
   const [typeModal, setTypeModal] = useState("");
+  const [validatelistServiceUserLogged, setValidatelistServiceUserLogged] =
+    useState(false);
+  const [loadingListServiceDashboard, setLoadingListServiceDashboard] =
+    useState(false);
+
+  const requestRegisteredUserServices = async () => {
+    const token = localStorage.getItem("@closework:token");
+    const userId = localStorage.getItem("@closework:userId");
+    if (token) {
+      if (userId) {
+        try {
+          setLoadingListServiceDashboard(false);
+          const response = await api.get(`/users/${userId}?_embed=services`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          if (response.data.services.length > 0) {
+            console.log("existe serviços cadastrados");
+            setServiceUserLogged(response.data.services);
+            setValidatelistServiceUserLogged(true);
+          } else {
+            console.log("Não existe serviços cadastrados");
+            setServiceUserLogged(response.data.services);
+            setValidatelistServiceUserLogged(false);
+          }
+        } catch (error) {
+          setLoadingListServiceDashboard(false);
+          console.log(error);
+        } finally {
+          setLoadingListServiceDashboard(true);
+        }
+      }
+    }
+  };
 
   useEffect(() => {}, []);
   return (
@@ -33,6 +69,9 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
         setOpenModal,
         typeModal,
         setTypeModal,
+        requestRegisteredUserServices,
+        validatelistServiceUserLogged,
+        loadingListServiceDashboard,
       }}
     >
       {children}

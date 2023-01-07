@@ -3,6 +3,10 @@ import React, { ReactNode } from "react";
 export interface iUserContext {
   loadingButton: boolean;
   userProfile: iUserProfile;
+  onSubmitLogin: (data: iLoginSubmit) => void;
+  handleLogout: () => void;
+  tokenIsValid: boolean;
+  userValid: boolean;
 }
 
 export interface iPropsUserProvider {
@@ -39,6 +43,9 @@ export interface iServiceContext {
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   typeModal: string;
   setTypeModal: React.Dispatch<React.SetStateAction<string>>;
+  requestRegisteredUserServices: () => void;
+  validatelistServiceUserLogged: boolean;
+  loadingListServiceDashboard: boolean;
 }
 
 export interface iListServiceUserLogged {
@@ -49,4 +56,13 @@ export interface iListServiceUserLogged {
   phone_number: string;
   link_instagram: string;
   id: number;
+}
+
+export interface iLoginSubmit {
+  email: string;
+  password: string;
+}
+
+export interface iDefaultErrorResponse {
+  message: string;
 }

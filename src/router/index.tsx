@@ -4,6 +4,7 @@ import { Dashboard } from "../pages/dashboard";
 import { Home } from "../pages/home";
 import { Login } from "../pages/login";
 import { Register } from "../pages/register";
+import { ViewMore } from "../pages/ViewMore";
 
 export const RoutesApp = () => {
   return (
@@ -15,6 +16,10 @@ export const RoutesApp = () => {
 
         <Route element={<ProtectedRoutes />}>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route
+            path="/dashboard/view-more/movel-planejado"
+            element={<ViewMore />}
+          />
         </Route>
 
         <Route path="*" element={<Navigate to="/home" />} />

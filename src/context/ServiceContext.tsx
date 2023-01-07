@@ -25,6 +25,8 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
   const [loadingListServiceDashboard, setLoadingListServiceDashboard] =
     useState(false);
 
+  const navigate = useNavigate();
+
   const requestRegisteredUserServices = async () => {
     const token = localStorage.getItem("@closework:token");
     const userId = localStorage.getItem("@closework:userId");

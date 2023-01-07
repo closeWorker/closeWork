@@ -3,6 +3,8 @@ import React, { ReactNode } from "react";
 export interface iUserContext {
   loadingButton: boolean;
   userProfile: iUserProfile;
+  onSubmitLogin: (data: iLoginSubmit) => void;
+  handleLogout: () => void;
 }
 
 export interface iPropsUserProvider {
@@ -49,4 +51,13 @@ export interface iListServiceUserLogged {
   phone_number: string;
   link_instagram: string;
   id: number;
+}
+
+export interface iLoginSubmit {
+  email: string;
+  password: string;
+}
+
+export interface iDefaultErrorResponse {
+  message: string;
 }

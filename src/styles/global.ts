@@ -44,9 +44,4 @@ export const GlobalStyle = createGlobalStyle`
 
 }
 
-body{
-  background-color: var(--color-neutral-white);
-}
-
-
 `;

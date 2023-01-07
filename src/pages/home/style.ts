@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerHome = styled.div`
-  width: 1251px;
+  width: 1320px;
   max-width: 100%;
   min-width: 261px;
 
@@ -35,11 +35,10 @@ export const StyledHome = styled.main`
     justify-content: center;
     align-items: center;
 
-    @media (min-width: 666px) {
+    @media (min-width: 631px) {
       border-bottom: 60px solid var(--color-blue-2);
+      margin-bottom: 30px;
     }
-
-    margin-bottom: 30px;
   }
   > div:nth-child(2) > div {
     width: 375px;
@@ -59,13 +58,24 @@ export const StyledHome = styled.main`
     margin-bottom: 12px;
   }
   > div:nth-child(3) > ul {
+    max-height: 380px;
+
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 21px;
 
-    @media (min-width: 648px) {
+    overflow-y: scroll;
+
+    padding-bottom: 40px;
+
+    @media (min-width: 631px) {
+      justify-content: space-evenly;
+      overflow: unset;
+      max-height: none;
+    }
+    @media (min-width: 941px) {
       justify-content: space-between;
     }
   }

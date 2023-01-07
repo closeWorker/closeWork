@@ -11,6 +11,24 @@ import { Footer } from "../../components/Footer";
 import { Button } from "../../components/Button";
 
 export const Home = () => {
+  const options = (
+    <>
+      <option value="">Todos</option>
+      <option value="Pedreiro">Pedreiro</option>
+      <option value="Servente de Pedreiro">Servente de Pedreiro</option>
+      <option value="Encanador">Encanador</option>
+      <option value="Doceira">Doceira</option>
+      <option value="Diarista">Diarista</option>
+      <option value="Costureira">Costureira</option>
+      <option value="Eletricista">Eletricista</option>
+      <option value="Babá">Babá</option>
+      <option value="Cozinheira">Cozinheira</option>
+      <option value="Manicure e Pedicure">Manicure e Pedicure</option>
+      <option value="Barbeiro">Barbeiro</option>
+      <option value="Cabelereira">Cabelereira</option>
+      <option value="Outros">Outros</option>
+    </>
+  );
   return (
     <>
       <HeaderHome />
@@ -29,13 +47,146 @@ export const Home = () => {
             <Title type="Heading3" colorTitle="blue-1">
               Filtrar por tipo de serviço
             </Title>
-            <select>
-              <option value="">Serviço</option>
-            </select>
+            <select>{options}</select>
           </div>
         </div>
         <ContainerHome>
           <ul>
+            <li>
+              <div>
+                <Title type="Headline" colorTitle="blue-1">
+                  Nome do prestador
+                </Title>
+                <Title type="Body-600" colorTitle="blue-1">
+                  Antonio Santos
+                </Title>
+              </div>
+              <div>
+                <Title type="Headline" colorTitle="blue-1">
+                  Nome do prestador
+                </Title>
+                <Title type="Body-600" colorTitle="blue-1">
+                  Antonio Santos
+                </Title>
+              </div>
+              <div>
+                <Title type="Headline" colorTitle="blue-1">
+                  Nome do prestador
+                </Title>
+                <Title type="Body-600" colorTitle="blue-1">
+                  Antonio Santos
+                </Title>
+              </div>
+              <Button name="Ver mais" type="button" style="blueDark" />
+            </li>
+            <li>
+              <div>
+                <Title type="Headline" colorTitle="blue-1">
+                  Nome do prestador
+                </Title>
+                <Title type="Body-600" colorTitle="blue-1">
+                  Antonio Santos
+                </Title>
+              </div>
+              <div>
+                <Title type="Headline" colorTitle="blue-1">
+                  Nome do prestador
+                </Title>
+                <Title type="Body-600" colorTitle="blue-1">
+                  Antonio Santos
+                </Title>
+              </div>
+              <div>
+                <Title type="Headline" colorTitle="blue-1">
+                  Nome do prestador
+                </Title>
+                <Title type="Body-600" colorTitle="blue-1">
+                  Antonio Santos
+                </Title>
+              </div>
+              <Button name="Ver mais" type="button" style="blueDark" />
+            </li>
+            <li>
+              <div>
+                <Title type="Headline" colorTitle="blue-1">
+                  Nome do prestador
+                </Title>
+                <Title type="Body-600" colorTitle="blue-1">
+                  Antonio Santos
+                </Title>
+              </div>
+              <div>
+                <Title type="Headline" colorTitle="blue-1">
+                  Nome do prestador
+                </Title>
+                <Title type="Body-600" colorTitle="blue-1">
+                  Antonio Santos
+                </Title>
+              </div>
+              <div>
+                <Title type="Headline" colorTitle="blue-1">
+                  Nome do prestador
+                </Title>
+                <Title type="Body-600" colorTitle="blue-1">
+                  Antonio Santos
+                </Title>
+              </div>
+              <Button name="Ver mais" type="button" style="blueDark" />
+            </li>
+            <li>
+              <div>
+                <Title type="Headline" colorTitle="blue-1">
+                  Nome do prestador
+                </Title>
+                <Title type="Body-600" colorTitle="blue-1">
+                  Antonio Santos
+                </Title>
+              </div>
+              <div>
+                <Title type="Headline" colorTitle="blue-1">
+                  Nome do prestador
+                </Title>
+                <Title type="Body-600" colorTitle="blue-1">
+                  Antonio Santos
+                </Title>
+              </div>
+              <div>
+                <Title type="Headline" colorTitle="blue-1">
+                  Nome do prestador
+                </Title>
+                <Title type="Body-600" colorTitle="blue-1">
+                  Antonio Santos
+                </Title>
+              </div>
+              <Button name="Ver mais" type="button" style="blueDark" />
+            </li>
+            <li>
+              <div>
+                <Title type="Headline" colorTitle="blue-1">
+                  Nome do prestador
+                </Title>
+                <Title type="Body-600" colorTitle="blue-1">
+                  Antonio Santos
+                </Title>
+              </div>
+              <div>
+                <Title type="Headline" colorTitle="blue-1">
+                  Nome do prestador
+                </Title>
+                <Title type="Body-600" colorTitle="blue-1">
+                  Antonio Santos
+                </Title>
+              </div>
+              <div>
+                <Title type="Headline" colorTitle="blue-1">
+                  Nome do prestador
+                </Title>
+                <Title type="Body-600" colorTitle="blue-1">
+                  Antonio Santos
+                </Title>
+              </div>
+              <Button name="Ver mais" type="button" style="blueDark" />
+            </li>
             <li>
               <div>
                 <Title type="Headline" colorTitle="blue-1">

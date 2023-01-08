@@ -1,13 +1,27 @@
 import styled from "styled-components";
 
-export const StyledImgProfile = styled.img`
+export const StyledContainerImgProfile = styled.div`
   width: 210px;
   height: 210px;
-  border-radius: 100%;
+  background-color: transparent;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 100%;
+  }
 `;
 
-export const StyledImgProfileModal = styled.img`
-  width: 90px;
-  height: 90px;
-  border-radius: 100%;
+export const StyledContainerImgModal = styled.div`
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 100%;
+  }
 `;

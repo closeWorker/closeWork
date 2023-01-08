@@ -35,9 +35,8 @@ export interface iListServiceHome {
 }
 
 export interface iServiceContext {
-  listServiceHome: iListServiceHome[];
-  filterServiceActived: string;
-  setFilterServiceActived: React.Dispatch<React.SetStateAction<string>>;
+  filteredServicesHome: iListServiceHome[];
+  setKindOfServicesSelectedHome: React.Dispatch<React.SetStateAction<string>>;
   listServiceUserLogged: iListServiceUserLogged[];
   openModal: boolean;
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -46,6 +45,7 @@ export interface iServiceContext {
   requestRegisteredUserServices: () => void;
   validatelistServiceUserLogged: boolean;
   loadingListServiceDashboard: boolean;
+  loadingListServiceHome: boolean;
 }
 
 export interface iListServiceUserLogged {

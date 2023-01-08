@@ -7,6 +7,7 @@ import {
   iServiceContext,
   iListServiceUserLogged,
 } from "./type";
+import { kindOfServices } from "./kindOfServices";
 
 export const ServiceContext = createContext({} as iServiceContext);
 
@@ -14,7 +15,10 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
   const [listServiceHome, setListServiceHome] = useState<iListServiceHome[]>(
     []
   );
-  const [filterServiceActived, setFilterServiceActived] = useState("Todos");
+  const [loadingListServiceHome, setLoadingListServiceHome] = useState(true);
+  const [kindOfServiceSelectedHome, setKindOfServicesSelectedHome] =
+    useState("Todos");
+
   const [listServiceUserLogged, setServiceUserLogged] = useState<
     iListServiceUserLogged[]
   >([]);
@@ -59,20 +63,45 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
     }
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const requestServices = async () => {
+      try {
+        const response = await api.get("services");
+        setListServiceHome(response.data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoadingListServiceHome(false);
+      }
+    };
+    requestServices();
+  }, []);
+
+  const filteredServicesHome = listServiceHome.filter((service) => {
+    if (kindOfServiceSelectedHome === "Todos") {
+      return true;
+    } else if (kindOfServiceSelectedHome !== "Outros") {
+      return service.kind_of_service === kindOfServiceSelectedHome;
+    } else {
+      return kindOfServices.every(
+        (servicesDefault) => servicesDefault !== kindOfServiceSelectedHome
+      );
+    }
+  });
+
   return (
     <ServiceContext.Provider
       value={{
-        listServiceHome,
-        filterServiceActived,
-        setFilterServiceActived,
+        filteredServicesHome,
         listServiceUserLogged,
+        setKindOfServicesSelectedHome,
         openModal,
         setOpenModal,
         typeModal,
         setTypeModal,
         requestRegisteredUserServices,
         validatelistServiceUserLogged,
+        loadingListServiceHome,
         loadingListServiceDashboard,
       }}
     >

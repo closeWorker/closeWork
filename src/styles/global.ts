@@ -12,6 +12,10 @@ export const GlobalStyle = createGlobalStyle`
   ul{
     list-style-type: none;
   }
+
+  body,html{
+    height: 100%;
+  }
   
 :root {
  
@@ -43,10 +47,5 @@ export const GlobalStyle = createGlobalStyle`
  
 
 }
-
-body{
-  background-color: var(--color-neutral-white);
-}
-
 
 `;

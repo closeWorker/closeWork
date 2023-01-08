@@ -12,7 +12,7 @@ export const StyledHeader = styled.header`
 
   margin-bottom: 55px;
 
-  @media (min-width: 666px) {
+  @media (min-width: 518) {
     height: 89px;
 
     box-shadow: none;
@@ -25,7 +25,7 @@ export const StyledHeader = styled.header`
     display: flex;
     flex-direction: column;
     gap: 18px;
-    @media (min-width: 666px) {
+    @media (min-width: 518px) {
       flex-direction: row-reverse;
       justify-content: space-between;
       align-items: center;

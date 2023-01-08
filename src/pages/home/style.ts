@@ -1,7 +1,20 @@
 import styled from "styled-components";
 
+export const PageContainer = styled.div`
+  position: relative;
+  min-height: 100vh;
+  height: 100%;
+
+  footer {
+    width: 100%;
+
+    position: absolute;
+    bottom: 0;
+  }
+`;
+
 export const ContainerHome = styled.div`
-  width: 1251px;
+  width: 1320px;
   max-width: 100%;
   min-width: 261px;
 
@@ -35,11 +48,10 @@ export const StyledHome = styled.main`
     justify-content: center;
     align-items: center;
 
-    @media (min-width: 666px) {
+    @media (min-width: 420px) {
       border-bottom: 60px solid var(--color-blue-2);
+      margin-bottom: 30px;
     }
-
-    margin-bottom: 30px;
   }
   > div:nth-child(2) > div {
     width: 375px;
@@ -57,47 +69,5 @@ export const StyledHome = styled.main`
 
   > div:nth-child(3) {
     margin-bottom: 12px;
-  }
-  > div:nth-child(3) > ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 21px;
-
-    @media (min-width: 648px) {
-      justify-content: space-between;
-    }
-  }
-  > div:nth-child(3) > ul > li {
-    width: 289px;
-    height: 375px;
-
-    padding: 14px 12px 27px 12px;
-
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-    border: 1px solid var(--color-blue-3);
-
-    border-bottom: 1px solid var(--color-blue-3);
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  > div:nth-child(3) > ul > li > div:nth-child(1),
-  > div:nth-child(3) > ul > li > div:nth-child(2),
-  > div:nth-child(3) > ul > li > div:nth-child(3) {
-    border-bottom: 1px solid var(--color-blue-3);
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  > div:nth-child(3) > ul > li > div:nth-child(1) > p:nth-child(2),
-  > div:nth-child(3) > ul > li > div:nth-child(2) > p:nth-child(2),
-  > div:nth-child(3) > ul > li > div:nth-child(3) > p:nth-child(2) {
-    margin-bottom: 15px;
   }
 `;

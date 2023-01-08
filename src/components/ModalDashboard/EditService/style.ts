@@ -11,13 +11,4 @@ export const FormEdit = styled.form`
   background-color: var(--color-blue-2);
   padding: 20px;
   gap: 10px;
-  /* input {
-    margin: 0 10px;
-  }
-  textarea {
-    margin: 0 10px;
-  }
-  button {
-    margin: 0 10px;
-  } */
 `;

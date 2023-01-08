@@ -53,7 +53,6 @@ export const EditService = () => {
       phone_number: infosModalEditService.phone_number,
       id: infosModalEditService.id,
     };
-    // console.log(data);
     const token = localStorage.getItem("@closework:token");
     const serviceId = infosModalEditService.id;
     if (token) {

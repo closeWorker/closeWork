@@ -5,7 +5,7 @@ export const Header = styled.div`
   display: flex;
   padding: 15px 20px;
   justify-content: space-between;
-  img {
+  & > img {
     width: 90px;
   }
   button {

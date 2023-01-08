@@ -49,6 +49,10 @@ export interface iServiceContext {
   loadingListServiceHome: boolean;
   loadingButtonModal: boolean;
   setLoadingButtonModal: React.Dispatch<React.SetStateAction<boolean>>;
+  infosModalEditService: iInfoModalEditService;
+  setInfosModalEditService: React.Dispatch<
+    React.SetStateAction<iInfoModalEditService>
+  >;
 }
 
 export interface iListServiceUserLogged {
@@ -57,7 +61,7 @@ export interface iListServiceUserLogged {
   service_provider_avatar: string;
   kind_of_service: string;
   phone_number: string;
-  link_instagram: string;
+  description: string;
   id: number;
 }
 
@@ -68,4 +72,14 @@ export interface iLoginSubmit {
 
 export interface iDefaultErrorResponse {
   message: string;
+}
+
+export interface iInfoModalEditService {
+  userId: number;
+  service_provider: string;
+  service_provider_avatar: string;
+  kind_of_service: string;
+  phone_number: string;
+  description: string;
+  id: number;
 }

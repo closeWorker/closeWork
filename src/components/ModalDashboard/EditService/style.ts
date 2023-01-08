@@ -10,8 +10,8 @@ export const FormEdit = styled.form`
   flex-direction: column;
   background-color: var(--color-blue-2);
   padding: 20px;
-  gap: 20px;
-  input {
+  gap: 10px;
+  /* input {
     margin: 0 10px;
   }
   textarea {
@@ -19,5 +19,5 @@ export const FormEdit = styled.form`
   }
   button {
     margin: 0 10px;
-  }
+  } */
 `;

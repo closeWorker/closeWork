@@ -1,6 +1,6 @@
-import { HeaderDashboard } from "../../components/HeaderDashboard";
-import { ProfileDashboard } from "../../components/ProfileDashboard";
-import { ServicesDashboard } from "../../components/ServicesDashboard";
+import { HeaderDashboard } from "./HeaderDashboard";
+import { ProfileDashboard } from "./ProfileDashboard";
+import { ServicesDashboard } from "./ServicesDashboard";
 import { Footer } from "../../components/Footer";
 import { StyledDashboard } from "./style";
 import { ModalDashboard } from "../../components/ModalDashboard";

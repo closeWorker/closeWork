@@ -1,9 +1,9 @@
-import { Button } from "../Button";
+import { Button } from "../../../components/Button";
 import { Buttons, StyledHeaderServices } from "../ServicesDashboard/style";
 import { IoEyeSharp } from "react-icons/io5";
-import { Title } from "../Title";
+import { Title } from "../../../components/Title";
 import { useContext } from "react";
-import { ServiceContext } from "../../context/ServiceContext";
+import { ServiceContext } from "../../../context/ServiceContext";
 import { iCardProps } from "./type";
 
 export const CardDashboard = ({ item }: iCardProps) => {

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { HeaderHome } from "./HeaderHome";
 import { ContainerHome, PageContainer, StyledHome } from "./style";
 import worker1 from "../../assets/worker-1.svg";
@@ -8,8 +8,6 @@ import worker4 from "../../assets/worker-4.svg";
 import worker5 from "../../assets/worker-5.svg";
 import { Title } from "../../components/Title";
 import { Footer } from "../../components/Footer";
-import { Button } from "../../components/Button";
-import { api } from "../../services/api";
 import { ServicesList } from "./ServicesList";
 import { ServiceContext } from "../../context/ServiceContext";
 import { kindOfServices } from "../../context/kindOfServices";

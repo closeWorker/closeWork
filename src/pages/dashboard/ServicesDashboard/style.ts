@@ -31,6 +31,7 @@ export const StyledServices = styled.ul`
   }
   @media (min-width: 1100px) {
     overflow-y: hidden;
+    max-height: fit-content;
   }
   li {
     background-color: var(--color-blue-6);

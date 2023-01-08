@@ -5,7 +5,7 @@ import {
   StyledServicesDashboard,
 } from "./style";
 import { Button } from "../../../components/Button";
-import { ContainerHome } from "../../../styles/Container";
+import { ContainerHome } from "../style";
 import { CardDashboard } from "../cardDashboard";
 import { Title } from "../../../components/Title";
 import { useContext } from "react";

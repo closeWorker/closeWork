@@ -4,7 +4,7 @@ import { ServicesDashboard } from "./ServicesDashboard";
 import { Footer } from "../../components/Footer";
 import { StyledDashboard } from "./style";
 import { ModalDashboard } from "../../components/ModalDashboard";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { ServiceContext } from "../../context/ServiceContext";
 import { UserContext } from "../../context/UserContext";
 

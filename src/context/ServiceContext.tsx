@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useContext } from "react";
+import { createContext, useState, useEffect } from "react";
 import { api } from "../services/api";
 import { useNavigate } from "react-router-dom";
 import {
@@ -8,8 +8,6 @@ import {
   iListServiceUserLogged,
 } from "./type";
 import { kindOfServices } from "./kindOfServices";
-import { SubmitHandler } from "react-hook-form";
-import { UserContext } from "./UserContext";
 
 export const ServiceContext = createContext({} as iServiceContext);
 
@@ -48,11 +46,9 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
           });
 
           if (response.data.services.length > 0) {
-            console.log("existe serviços cadastrados");
             setServiceUserLogged(response.data.services);
             setValidatelistServiceUserLogged(true);
           } else {
-            console.log("Não existe serviços cadastrados");
             setServiceUserLogged(response.data.services);
             setValidatelistServiceUserLogged(false);
           }

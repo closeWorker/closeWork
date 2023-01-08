@@ -1,5 +1,3 @@
-import React, { forwardRef, InputHTMLAttributes } from "react";
-import { UseFormRegisterReturn } from "react-hook-form";
 import { Title } from "../Title";
 import { Fieldset } from "./style";
 import { iInput } from "./type";

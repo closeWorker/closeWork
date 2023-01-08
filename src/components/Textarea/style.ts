@@ -24,16 +24,8 @@ export const Fieldset = styled.fieldset`
     padding: 20px 15px;
     border-radius: 4px;
     resize: none;
-    /* Caso de problema no mobile usar isso */
-    /* @media (max-width: 700px) {
-      width: 95%;
-      margin: 0 auto;
-    } */
   }
   textarea::placeholder {
     color: var(--color-blue-1);
-  }
-  textarea::focus {
-    border: 2px solid var(--color-blue-1);
   }
 `;

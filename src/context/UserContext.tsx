@@ -57,7 +57,7 @@ export const UserProvider = ({ children }: iPropsUserProvider) => {
     localStorage.removeItem("@closework:userId");
     setTokenIsValid(false);
     setUserValid(false);
-    navigate("/login");
+    navigate("/home");
   };
 
   const validationToken = async () => {

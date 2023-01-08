@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import { SubmitHandler } from "react-hook-form";
 
 export interface iUserContext {
   loadingButton: boolean;

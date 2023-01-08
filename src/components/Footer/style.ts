@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledFooter = styled.footer`
   height: 40px;
+  width: 100%;
 
   display: flex;
   justify-content: center;
@@ -9,9 +10,6 @@ export const StyledFooter = styled.footer`
 
   background-color: var(--color-blue-2);
 
-  p {
-    font-size: 12px;
-    font-weight: 400;
-    color: var(--color-neutral-white);
-  }
+  position: absolute;
+  bottom: 0;
 `;

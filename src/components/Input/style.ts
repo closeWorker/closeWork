@@ -24,19 +24,8 @@ export const Fieldset = styled.fieldset`
     padding: 20px 15px;
     border-radius: 4px;
     border: 2px solid var(--color-blue-5);
-    /* Caso de problema no mobile usar isso */
-    /* @media (max-width: 700px) {
-      width: 95%;
-      margin: 0 auto;
-    } */
   }
   input::placeholder {
     color: var(--color-blue-1);
   }
-  /* input:focus {
-    outline-color: var(--color-blue-1);
-    outline-style: solid;
-    outline-width: 4px;
-    outline-offset: 0px;
-  } */
 `;

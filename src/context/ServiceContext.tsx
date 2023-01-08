@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 import { api } from "../services/api";
 import { useNavigate } from "react-router-dom";
 import {
@@ -8,6 +8,8 @@ import {
   iListServiceUserLogged,
 } from "./type";
 import { kindOfServices } from "./kindOfServices";
+import { SubmitHandler } from "react-hook-form";
+import { UserContext } from "./UserContext";
 
 export const ServiceContext = createContext({} as iServiceContext);
 
@@ -28,6 +30,7 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
     useState(false);
   const [loadingListServiceDashboard, setLoadingListServiceDashboard] =
     useState(false);
+  const [loadingButtonModal, setLoadingButtonModal] = useState(false);
 
   const navigate = useNavigate();
 
@@ -103,6 +106,8 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
         validatelistServiceUserLogged,
         loadingListServiceHome,
         loadingListServiceDashboard,
+        loadingButtonModal,
+        setLoadingButtonModal,
       }}
     >
       {children}

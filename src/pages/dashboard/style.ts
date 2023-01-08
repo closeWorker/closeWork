@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const StyledDashboard = styled.div`
   position: relative;
   min-height: 100vh;
-  height: 100%;
 `;
 
 export const ContainerHome = styled.div`

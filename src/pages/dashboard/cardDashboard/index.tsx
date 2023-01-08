@@ -7,7 +7,8 @@ import { ServiceContext } from "../../../context/ServiceContext";
 import { iCardProps } from "./type";
 
 export const CardDashboard = ({ item }: iCardProps) => {
-  const { setOpenModal, setTypeModal } = useContext(ServiceContext);
+  const { setOpenModal, setTypeModal, setInfosModalEditService } =
+    useContext(ServiceContext);
   return (
     <li>
       <StyledHeaderServices>
@@ -31,6 +32,7 @@ export const CardDashboard = ({ item }: iCardProps) => {
           action={() => {
             setOpenModal(true);
             setTypeModal("EditService");
+            setInfosModalEditService(item);
           }}
         >
           Editar

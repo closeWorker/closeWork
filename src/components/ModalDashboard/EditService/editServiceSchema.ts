@@ -1,5 +1,5 @@
 import * as yup from "yup";
-export const registerServiceSchema = yup.object().shape({
+export const editServiceSchema = yup.object().shape({
   kind_of_service: yup
     .string()
     .required("Serviço é obrigatório")

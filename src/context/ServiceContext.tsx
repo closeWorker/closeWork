@@ -6,6 +6,7 @@ import {
   iListServiceHome,
   iServiceContext,
   iListServiceUserLogged,
+  iInfoModalEditService,
 } from "./type";
 import { kindOfServices } from "./kindOfServices";
 
@@ -29,6 +30,9 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
   const [loadingListServiceDashboard, setLoadingListServiceDashboard] =
     useState(false);
   const [loadingButtonModal, setLoadingButtonModal] = useState(false);
+  const [infosModalEditService, setInfosModalEditService] = useState(
+    {} as iInfoModalEditService
+  );
 
   const navigate = useNavigate();
 
@@ -104,6 +108,8 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
         loadingListServiceDashboard,
         loadingButtonModal,
         setLoadingButtonModal,
+        infosModalEditService,
+        setInfosModalEditService,
       }}
     >
       {children}

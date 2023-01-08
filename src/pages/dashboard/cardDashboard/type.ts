@@ -7,6 +7,6 @@ export interface iItem {
   service_provider_avatar: string;
   kind_of_service: string;
   phone_number: string;
-  link_instagram: string;
+  description: string;
   id: number;
 }

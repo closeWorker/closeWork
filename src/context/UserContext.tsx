@@ -123,6 +123,7 @@ export const UserProvider = ({ children }: iPropsUserProvider) => {
         handleLogout,
         tokenIsValid,
         userValid,
+        setUserProfile,
       }}
     >
       {children}

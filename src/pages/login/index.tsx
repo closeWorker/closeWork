@@ -11,7 +11,7 @@ export const Login = () => {
       <Button
         style="blueDark"
         disabled={loadingButton}
-        name="Realizar Login"
+        name={loadingButton ? "Carregando..." : "Realizar Login"}
         type="button"
         action={() => {
           onSubmitLogin({

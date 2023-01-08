@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import { SubmitHandler } from "react-hook-form";
 
 export interface iUserContext {
   loadingButton: boolean;
@@ -7,6 +8,7 @@ export interface iUserContext {
   handleLogout: () => void;
   tokenIsValid: boolean;
   userValid: boolean;
+  setUserProfile: React.Dispatch<React.SetStateAction<iUserProfile>>;
 }
 
 export interface iPropsUserProvider {
@@ -46,6 +48,8 @@ export interface iServiceContext {
   validatelistServiceUserLogged: boolean;
   loadingListServiceDashboard: boolean;
   loadingListServiceHome: boolean;
+  loadingButtonModal: boolean;
+  setLoadingButtonModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface iListServiceUserLogged {

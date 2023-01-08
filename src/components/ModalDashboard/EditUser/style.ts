@@ -10,11 +10,10 @@ export const FormEdit = styled.form`
   flex-direction: column;
   background-color: var(--color-blue-2);
   padding: 20px;
-  gap: 20px;
-  input {
-    margin: 0 10px;
-  }
+  gap: 10px;
+
   button {
-    margin: 0 10px;
+    height: 60px;
+    margin-top: 10px;
   }
 `;

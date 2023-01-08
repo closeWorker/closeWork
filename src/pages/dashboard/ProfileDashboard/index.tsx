@@ -5,7 +5,6 @@ import {
   StyledProfile,
   StyledProfileDescription,
 } from "./style";
-import icon from "../../assets/icon-profile.svg";
 import { Button } from "../../../components/Button";
 import { ContainerHome } from "../style";
 import { Title } from "../../../components/Title";
@@ -22,17 +21,16 @@ export const ProfileDashboard = () => {
     <StyledProfile>
       <ContainerHome>
         <StyledEdit>
-          <div>
-            <Button
-              style="icon"
-              type="button"
-              children={<MdEdit size={5} />}
-              action={() => {
-                setOpenModal(true);
-                setTypeModal("EditUser");
-              }}
-            />
-          </div>
+          <Button
+            style="icon"
+            type="button"
+            action={() => {
+              setOpenModal(true);
+              setTypeModal("EditUser");
+            }}
+          >
+            <MdEdit />
+          </Button>
         </StyledEdit>
         <StyledProfileDescription>
           <ImgProfile

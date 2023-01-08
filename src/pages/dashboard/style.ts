@@ -4,13 +4,6 @@ export const StyledDashboard = styled.div`
   position: relative;
   min-height: 100vh;
   height: 100%;
-
-  footer {
-    width: 100%;
-
-    position: absolute;
-    bottom: 0;
-  }
 `;
 
 export const ContainerHome = styled.div`

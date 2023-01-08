@@ -47,13 +47,13 @@ const switchStyleButton = (style: string) => {
       break;
     case "icon":
       return `
-        border: 0;
+        border: none;
         background-color: var(--color-neutral-white);
         border-radius: 100%;
         padding: 0 10px;
       
         &:hover {
-          background-color: var(--color-gray-9);
+          background-color: var(--color-gray-5);
         }
         svg {
           width: 2em;

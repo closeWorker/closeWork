@@ -10,4 +10,5 @@ export const kindOfServices = [
   "Manicure e Pedicure",
   "Barbeiro",
   "Cabelereira",
+  "Outros",
 ];

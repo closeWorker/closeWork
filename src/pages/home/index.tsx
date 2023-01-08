@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { HeaderHome } from "./HeaderHome";
 import { ContainerHome, PageContainer, StyledHome } from "./style";
 import worker1 from "../../assets/worker-1.svg";
@@ -11,9 +11,28 @@ import { Footer } from "../../components/Footer";
 import { ServicesList } from "./ServicesList";
 import { ServiceContext } from "../../context/ServiceContext";
 import { kindOfServices } from "../../context/kindOfServices";
+import { api } from "../../services/api";
 
 export const Home = () => {
-  const { setKindOfServicesSelectedHome } = useContext(ServiceContext);
+  const {
+    setKindOfServicesSelectedHome,
+    setListServiceHome,
+    setLoadingListServiceHome,
+  } = useContext(ServiceContext);
+
+  useEffect(() => {
+    const requestServices = async () => {
+      try {
+        const response = await api.get("services");
+        setListServiceHome(response.data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoadingListServiceHome(false);
+      }
+    };
+    requestServices();
+  }, []);
 
   return (
     <PageContainer>

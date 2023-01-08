@@ -36,6 +36,10 @@ export interface iListServiceHome {
 }
 
 export interface iServiceContext {
+  setListServiceHome: React.Dispatch<
+    React.SetStateAction<[] | iListServiceHome[]>
+  >;
+  setLoadingListServiceHome: React.Dispatch<React.SetStateAction<boolean>>;
   filteredServicesHome: iListServiceHome[];
   setKindOfServicesSelectedHome: React.Dispatch<React.SetStateAction<string>>;
   listServiceUserLogged: iListServiceUserLogged[];

@@ -66,35 +66,21 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
     }
   };
 
-  useEffect(() => {
-    const requestServices = async () => {
-      try {
-        const response = await api.get("services");
-        setListServiceHome(response.data);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoadingListServiceHome(false);
-      }
-    };
-    requestServices();
-  }, []);
-
   const filteredServicesHome = listServiceHome.filter((service) => {
     if (kindOfServiceSelectedHome === "Todos") {
       return true;
     } else if (kindOfServiceSelectedHome !== "Outros") {
       return service.kind_of_service === kindOfServiceSelectedHome;
     } else {
-      return kindOfServices.every(
-        (servicesDefault) => servicesDefault !== kindOfServiceSelectedHome
-      );
+      return service.kind_of_service === "Outros";
     }
   });
 
   return (
     <ServiceContext.Provider
       value={{
+        setListServiceHome,
+        setLoadingListServiceHome,
         filteredServicesHome,
         listServiceUserLogged,
         setKindOfServicesSelectedHome,

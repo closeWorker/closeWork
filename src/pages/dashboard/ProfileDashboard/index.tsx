@@ -6,13 +6,13 @@ import {
   StyledProfileDescription,
 } from "./style";
 import icon from "../../assets/icon-profile.svg";
-import { Button } from "../Button";
-import { ContainerHome } from "../../styles/Container";
-import { Title } from "../Title";
+import { Button } from "../../../components/Button";
+import { ContainerHome } from "../../../styles/Container";
+import { Title } from "../../../components/Title";
 import { useContext, useRef } from "react";
-import { ServiceContext } from "../../context/ServiceContext";
-import { UserContext } from "../../context/UserContext";
-import { ImgProfile } from "../ImgProfile";
+import { ServiceContext } from "../../../context/ServiceContext";
+import { UserContext } from "../../../context/UserContext";
+import { ImgProfile } from "../../../components/ImgProfile";
 
 export const ProfileDashboard = () => {
   const { setOpenModal, setTypeModal } = useContext(ServiceContext);

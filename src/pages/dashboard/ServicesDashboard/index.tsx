@@ -4,12 +4,12 @@ import {
   StyledServices,
   StyledServicesDashboard,
 } from "./style";
-import { Button } from "../Button";
-import { ContainerHome } from "../../styles/Container";
+import { Button } from "../../../components/Button";
+import { ContainerHome } from "../../../styles/Container";
 import { CardDashboard } from "../cardDashboard";
-import { Title } from "../Title";
+import { Title } from "../../../components/Title";
 import { useContext } from "react";
-import { ServiceContext } from "../../context/ServiceContext";
+import { ServiceContext } from "../../../context/ServiceContext";
 
 export const ServicesDashboard = () => {
   const {

@@ -19,8 +19,12 @@ interface iEditProfileSubmit {
 }
 
 export const EditUser = () => {
-  const { setOpenModal, loadingButtonModal, setLoadingButtonModal } =
-    useContext(ServiceContext);
+  const {
+    setOpenModal,
+    setTypeModal,
+    loadingButtonModal,
+    setLoadingButtonModal,
+  } = useContext(ServiceContext);
   const { userProfile, setUserProfile } = useContext(UserContext);
 
   const modalRef = useOutClick(() => {
@@ -113,6 +117,7 @@ export const EditUser = () => {
             style="grey1"
             type="button"
             disabled={loadingButtonModal}
+            action={() => setTypeModal("DeleteUser")}
           />
         </FormEdit>
       </DivEdit>

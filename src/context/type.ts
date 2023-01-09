@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react";
 import { SubmitHandler } from "react-hook-form/dist/types/form";
 
-
 export interface iUserContext {
   loadingButton: boolean;
   userProfile: iUserProfile;
@@ -60,6 +59,10 @@ export interface iServiceContext {
   setInfosModalEditService: React.Dispatch<
     React.SetStateAction<iInfoModalEditService>
   >;
+  idUser: number;
+  setIdUser: React.Dispatch<React.SetStateAction<number>>;
+  idService: number;
+  setIdService: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface iListServiceUserLogged {
@@ -97,5 +100,4 @@ export interface IRegisterFormData {
   password: string;
   confirmPassword?: string;
   contact: string;
-
 }

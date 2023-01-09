@@ -1,4 +1,3 @@
-
 /*
 import { StyledLogin } from "./style";
 import { Button } from "../../components/Button";
@@ -97,8 +96,7 @@ export const Login = () => {
         }}
       />
     </>
-
- ); };
-
+  );
+};
 
 /* A senha do usercoments@gmail.com é 123456 */

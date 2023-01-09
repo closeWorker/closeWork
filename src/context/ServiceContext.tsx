@@ -66,45 +66,27 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
     }
   };
 
-  useEffect(() => {
-    const requestServices = async () => {
-      try {
-        const response = await api.get("services");
-        setListServiceHome(response.data);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoadingListServiceHome(false);
-      }
-    };
-    requestServices();
-  }, []);
-
-  const filteredServicesHome = listServiceHome.filter((service) => {
-    if (kindOfServiceSelectedHome === "Todos") {
-      return true;
-    } else if (kindOfServiceSelectedHome !== "Outros") {
-      return service.kind_of_service === kindOfServiceSelectedHome;
-    } else {
-      return kindOfServices.every(
-        (servicesDefault) => servicesDefault !== kindOfServiceSelectedHome
-      );
-    }
-  });
+  const filteredServicesHome = listServiceHome.filter((service) =>
+    kindOfServiceSelectedHome === "Todos"
+      ? true
+      : kindOfServiceSelectedHome === service.kind_of_service
+  );
 
   return (
     <ServiceContext.Provider
       value={{
-        filteredServicesHome,
-        listServiceUserLogged,
+        setListServiceHome,
         setKindOfServicesSelectedHome,
+        filteredServicesHome,
+        loadingListServiceHome,
+        setLoadingListServiceHome,
+        listServiceUserLogged,
         openModal,
         setOpenModal,
         typeModal,
         setTypeModal,
         requestRegisteredUserServices,
         validatelistServiceUserLogged,
-        loadingListServiceHome,
         loadingListServiceDashboard,
         loadingButtonModal,
         setLoadingButtonModal,

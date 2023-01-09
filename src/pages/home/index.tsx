@@ -1,25 +1,49 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { HeaderHome } from "./HeaderHome";
-import { ContainerHome, PageContainer, StyledHome } from "./style";
-import worker1 from "../../assets/worker-1.svg";
-import worker2 from "../../assets/worker-2.svg";
-import worker3 from "../../assets/worker-3.svg";
-import worker4 from "../../assets/worker-4.svg";
-import worker5 from "../../assets/worker-5.svg";
+import {
+  ContainerHome,
+  PageContainer,
+  StyledFilterSection,
+  StyledPicturesDiv,
+} from "./style";
 import { Title } from "../../components/Title";
 import { Footer } from "../../components/Footer";
 import { ServicesList } from "./ServicesList";
 import { ServiceContext } from "../../context/ServiceContext";
 import { kindOfServices } from "../../context/kindOfServices";
+import { api } from "../../services/api";
+import worker1 from "../../assets/worker-1.svg";
+import worker2 from "../../assets/worker-2.svg";
+import worker3 from "../../assets/worker-3.svg";
+import worker4 from "../../assets/worker-4.svg";
+import worker5 from "../../assets/worker-5.svg";
 
 export const Home = () => {
-  const { setKindOfServicesSelectedHome } = useContext(ServiceContext);
+  const {
+    setKindOfServicesSelectedHome,
+    setListServiceHome,
+    setLoadingListServiceHome,
+  } = useContext(ServiceContext);
+
+  useEffect(() => {
+    const requestServices = async () => {
+      try {
+        const response = await api.get("services");
+        setListServiceHome(response.data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoadingListServiceHome(false);
+      }
+    };
+    requestServices();
+  }, []);
 
   return (
     <PageContainer>
       <HeaderHome />
-      <StyledHome>
-        <div>
+      <main>
+        <StyledPicturesDiv>
           <ContainerHome>
             <img src={worker1} alt="" />
             <img src={worker2} alt="" />
@@ -27,13 +51,12 @@ export const Home = () => {
             <img src={worker4} alt="" />
             <img src={worker5} alt="" />
           </ContainerHome>
-        </div>
-        <div>
-          <div>
-            <Title type="Heading3" colorTitle="blue-1">
-              Filtrar por tipo de serviço
-            </Title>
+        </StyledPicturesDiv>
+        <StyledFilterSection>
+          <fieldset>
+            <label htmlFor="filter">Filtrar por tipo de serviço</label>
             <select
+              id="filter"
               onChange={(event) =>
                 setKindOfServicesSelectedHome(event.target.value)
               }
@@ -44,13 +67,17 @@ export const Home = () => {
                 </option>
               ))}
             </select>
-          </div>
-        </div>
-        <ContainerHome>
-          <ServicesList />
-        </ContainerHome>
-      </StyledHome>
+          </fieldset>
+        </StyledFilterSection>
+        <section>
+          <ContainerHome>
+            <ServicesList />
+          </ContainerHome>
+        </section>
+      </main>
       <Footer />
     </PageContainer>
   );
 };
+
+// https://api.whatsapp.com/send?phone=5599111112222" target="_blank">

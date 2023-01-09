@@ -15,38 +15,37 @@ export const ContainerHome = styled.div`
 
   margin: 0 auto;
 `;
+export const StyledPicturesDiv = styled.div`
+  height: 384px;
 
-export const StyledHome = styled.main`
-  > div:nth-child(1) {
-    height: 384px;
+  background: var(--color-blue-2);
 
-    background: var(--color-blue-2);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
 
-    display: flex;
-    align-items: center;
-  }
-  > div:nth-child(1) > div {
+  div {
     display: flex;
     gap: 12px;
 
     overflow-x: auto;
   }
+`;
 
-  > div:nth-child(2) {
-    height: 200px;
+export const StyledFilterSection = styled.section`
+  height: 200px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    @media (min-width: 420px) {
-      border-bottom: 60px solid var(--color-blue-2);
-      margin-bottom: 30px;
-    }
+  @media (min-width: 420px) {
+    border-bottom: 60px solid var(--color-blue-2);
+    margin-bottom: 30px;
   }
-  > div:nth-child(2) > div {
+
+  fieldset {
     width: 375px;
     max-width: 100%;
     height: 101px;
@@ -58,9 +57,25 @@ export const StyledHome = styled.main`
     gap: 10px;
 
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
 
-  > div:nth-child(3) {
-    margin-bottom: 12px;
+    border: none;
+  }
+  fieldset > label {
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--color-blue-1);
+  }
+  fieldset > select {
+    height: 42px;
+    background-color: var(--color-blue-6);
+    color: var(--color-blue-1);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 27px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    padding: 0 15px;
+    border-radius: 4px;
+    border: none;
   }
 `;

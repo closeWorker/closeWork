@@ -51,25 +51,8 @@ export const StyledRegister = styled.main`
             height: 40px;
             margin-top: 10px;
         }
-        label{
-            color: var(--color-gray-10);
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        input{
-            height: 40px;
-            padding: 8px 12px;
-            background-color: var(--color-blue-6);
-            border: none;
-            border-radius: 6px;
-            margin-bottom: 15px;
-        }
-        .input-error{
-            font-weight: 600;
-            color: var(--color-negative);
-        }
-       
     }
+
     div{
         width: 100%;
         max-width: 415px;
@@ -84,5 +67,6 @@ export const StyledRegister = styled.main`
         a{
         height: 35px;
         }
+        
     }
 `

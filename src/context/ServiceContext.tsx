@@ -103,6 +103,7 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
         setIdService,
         listComments,
         setListComments,
+        listServiceHome,
       }}
     >
       {children}

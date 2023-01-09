@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import { Button } from "../../../../components/Button";
 import { Title } from "../../../../components/Title";
 import { ServiceContext } from "../../../../context/ServiceContext";
 import { StyledCard } from "./style";
 import { iServiceCardProps } from "./type";
 import whatsappIcon from "../../../../assets/whatsapp-icon.svg";
 import { ImgProfile } from "../../../../components/ImgProfile";
+import { LinkNavigation } from "../../../../components/LinkNavigation";
 
 export const ServiceCard = ({ service }: iServiceCardProps) => {
   const { listComments } = useContext(ServiceContext);
@@ -72,7 +72,11 @@ export const ServiceCard = ({ service }: iServiceCardProps) => {
           <img src={whatsappIcon} alt="Ícone do whatsappp" />
         </a>
       </div>
-      <Button name="Ver mais" type="button" style="blueDark" />
+      <LinkNavigation
+        linkTo={`/more_infos/${service.id}`}
+        name="Ver mais"
+        style="blueDark"
+      />
     </StyledCard>
   );
 };

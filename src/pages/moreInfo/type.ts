@@ -8,3 +8,7 @@ export interface iPropsDescriptionMoreInfo {
   service: iListServiceHome;
   listComments: iListComments[];
 }
+
+export interface iPropsListComments{
+  listCommentsProp: iListComments[];
+}

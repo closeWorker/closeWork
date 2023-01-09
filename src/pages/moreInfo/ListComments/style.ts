@@ -29,5 +29,9 @@ ul{
     gap: 10px;
     padding: 20px;
     border-radius: 4px;
+    &>div{
+      display:flex;
+      gap: 10px;
+    }
   }
 `;

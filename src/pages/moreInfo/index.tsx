@@ -1,8 +1,7 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Footer } from "../../components/Footer";
 import { Title } from "../../components/Title";
-import { ServiceContext } from "../../context/ServiceContext";
 import { iListComments } from "../../context/type";
 import { api } from "../../services/api";
 import { DescriptionMoreInfo } from "./DescriptionMoreInfo";
@@ -77,7 +76,7 @@ export const MoreInfo = () => {
               Comentários
             </Title>
           </StyledService>
-          <ListComments />
+          <ListComments listCommentsProp={listComments}/>
           <Footer />
         </StyledMoreInfo>
       ) : (

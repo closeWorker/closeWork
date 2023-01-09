@@ -58,7 +58,7 @@ export const Login = () => {
           <p>Ainda não tem conta? Realize seu cadastro agora!</p>
           <LinkNavigation
             style="blueLight"
-            name="Cadastar"
+            name="Cadastrar"
             linkTo="/register"
           ></LinkNavigation>
         </div>

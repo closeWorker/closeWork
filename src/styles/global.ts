@@ -16,6 +16,8 @@ export const GlobalStyle = createGlobalStyle`
   body,html{
     height: 100%;
   }
+
+  
   
 :root {
  
@@ -48,4 +50,19 @@ export const GlobalStyle = createGlobalStyle`
 
 }
 
+*::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--color-blue-5);        /* color of the tracking area */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-blue-2);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid var(--color-blue-5);  /* creates padding around scroll thumb */
+}
+
 `;
+

@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react";
 import { SubmitHandler } from "react-hook-form/dist/types/form";
 
-
 export interface iUserContext {
   loadingButton: boolean;
   userProfile: iUserProfile;
@@ -38,6 +37,15 @@ export interface iListServiceHome {
   id: number;
 }
 
+export interface iListComments {
+  userId: number;
+  serviceId: number;
+  name: string;
+  comment: string;
+  service_rating: number;
+  id: number;
+}
+
 export interface iServiceContext {
   setListServiceHome: React.Dispatch<
     React.SetStateAction<[] | iListServiceHome[]>
@@ -60,6 +68,8 @@ export interface iServiceContext {
   setInfosModalEditService: React.Dispatch<
     React.SetStateAction<iInfoModalEditService>
   >;
+  listComments: iListComments[];
+  setListComments: React.Dispatch<React.SetStateAction<iListComments[]>>;
 }
 
 export interface iListServiceUserLogged {
@@ -97,5 +107,4 @@ export interface IRegisterFormData {
   password: string;
   confirmPassword?: string;
   contact: string;
-
 }

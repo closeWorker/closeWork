@@ -26,6 +26,8 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
   >([]);
   const [openModal, setOpenModal] = useState(false);
   const [typeModal, setTypeModal] = useState("");
+  const [idUser, setIdUser] = useState(0);
+  const [idService, setIdService] = useState(0);
   const [validatelistServiceUserLogged, setValidatelistServiceUserLogged] =
     useState(false);
   const [loadingListServiceDashboard, setLoadingListServiceDashboard] =
@@ -95,6 +97,10 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
         setLoadingButtonModal,
         infosModalEditService,
         setInfosModalEditService,
+        idUser,
+        setIdUser,
+        idService,
+        setIdService,
         listComments,
         setListComments,
       }}

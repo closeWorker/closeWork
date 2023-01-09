@@ -7,7 +7,7 @@ import { ServiceContext } from "../../../context/ServiceContext";
 import { iCardProps } from "./type";
 
 export const CardDashboard = ({ item }: iCardProps) => {
-  const { setOpenModal, setTypeModal, setInfosModalEditService } =
+  const { setOpenModal, setTypeModal, setInfosModalEditService, setIdService } =
     useContext(ServiceContext);
   return (
     <li>
@@ -23,7 +23,15 @@ export const CardDashboard = ({ item }: iCardProps) => {
         />
       </StyledHeaderServices>
       <Buttons>
-        <Button style="delete" type="button">
+        <Button
+          style="delete"
+          type="button"
+          action={() => {
+            setOpenModal(true);
+            setTypeModal("DeleteService");
+            setIdService(item.id);
+          }}
+        >
           Excluir
         </Button>
         <Button

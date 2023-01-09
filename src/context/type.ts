@@ -68,6 +68,10 @@ export interface iServiceContext {
   setInfosModalEditService: React.Dispatch<
     React.SetStateAction<iInfoModalEditService>
   >;
+  idUser: number;
+  setIdUser: React.Dispatch<React.SetStateAction<number>>;
+  idService: number;
+  setIdService: React.Dispatch<React.SetStateAction<number>>;
   listComments: iListComments[];
   setListComments: React.Dispatch<React.SetStateAction<iListComments[]>>;
 }
@@ -107,4 +111,5 @@ export interface IRegisterFormData {
   password: string;
   confirmPassword?: string;
   contact: string;
+  avatar?: string;
 }

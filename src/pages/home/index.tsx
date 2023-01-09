@@ -53,11 +53,10 @@ export const Home = () => {
           </ContainerHome>
         </StyledPicturesDiv>
         <StyledFilterSection>
-          <div>
-            <Title type="Heading3" colorTitle="blue-1">
-              Filtrar por tipo de serviço
-            </Title>
+          <fieldset>
+            <label htmlFor="filter">Filtrar por tipo de serviço</label>
             <select
+              id="filter"
               onChange={(event) =>
                 setKindOfServicesSelectedHome(event.target.value)
               }
@@ -68,7 +67,7 @@ export const Home = () => {
                 </option>
               ))}
             </select>
-          </div>
+          </fieldset>
         </StyledFilterSection>
         <section>
           <ContainerHome>

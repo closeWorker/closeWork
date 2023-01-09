@@ -45,7 +45,7 @@ export const StyledFilterSection = styled.section`
     margin-bottom: 30px;
   }
 
-  div {
+  fieldset {
     width: 375px;
     max-width: 100%;
     height: 101px;
@@ -57,5 +57,25 @@ export const StyledFilterSection = styled.section`
     gap: 10px;
 
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    border: none;
+  }
+  fieldset > label {
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--color-blue-1);
+  }
+  fieldset > select {
+    height: 42px;
+    background-color: var(--color-blue-6);
+    color: var(--color-blue-1);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 27px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    padding: 0 15px;
+    border-radius: 4px;
+    border: none;
   }
 `;

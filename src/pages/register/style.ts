@@ -48,7 +48,7 @@ export const StyledRegister = styled.main`
         }
 
         Button{
-            height: 40px;
+            height: 60px;
             margin-top: 10px;
         }
     }
@@ -65,7 +65,7 @@ export const StyledRegister = styled.main`
             color: var(--color-gray-10);
         }
         a{
-        height: 35px;
+        height: 60px;
         }
         
     }

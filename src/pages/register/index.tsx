@@ -3,6 +3,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "./registerSchema";
 import { Button } from "../../components/Button";
 
+import { UserContext } from "../../context/UserContext";
+import { useContext } from "react";
+import { ServiceContext } from "../../context/ServiceContext";
+
 import { LinkNavigation } from "../../components/LinkNavigation";
 import { StyledRegister } from "./style";
 
@@ -10,16 +14,22 @@ import fullLogo from "../../assets/light-full-logo.svg"
 import workersImg from "../../assets/workers-img.svg"
 import { Input } from "../../components/Input";
 
+
+
 interface IRegisterFormData {
   name: string;
   email: string;
   password: string;
-  confirmPassword: string;
+  confirmPassword?: string;
   contact: string;
 
 }
 
 export const Register = () => {
+
+  const { loadingButton, onSubmitRegister} =
+    useContext(UserContext);
+
 
   const { register,
     handleSubmit,
@@ -27,7 +37,7 @@ export const Register = () => {
   } = useForm<IRegisterFormData>({
     mode: "onChange",
     resolver: yupResolver(registerSchema),
-  })
+  });
 
   return (
     <StyledRegister>
@@ -36,7 +46,7 @@ export const Register = () => {
         <img src={workersImg} className="workers-img" alt="imagem de profissões" />
       </section>
       <section className="form-section">
-        <form action="submit" onSubmit={handleSubmit(x => console.log(x))} noValidate>
+        <form action="submit" onSubmit={handleSubmit(onSubmitRegister)} noValidate>
 
 
           <Input id="input-email"
@@ -44,42 +54,49 @@ export const Register = () => {
             type="text"
             linkForm={register("email")}
             placeholder="Digite seu email"
-            error={errors.email?.message} />
+            error={errors.email?.message}
+          />
 
           <Input id="input-name"
             labelName="Nome"
             type="text"
             linkForm={register("name")}
             placeholder="Digite seu nome"
-            error={errors.name?.message} />
+            error={errors.name?.message}
+          />
 
           <Input id="input-password"
             labelName="Senha"
-            type="text"
+            type="password"
             linkForm={register("password")}
             placeholder="Digite sua senha"
-            error={errors.password?.message} />
+            error={errors.password?.message}
+          />
 
 
           <Input id="input-confirm-password"
             labelName="Confirmar senha"
-            type="text"
+            type="password"
             linkForm={register("confirmPassword")}
             placeholder="Digite sua senha novamente"
-            error={errors.confirmPassword?.message} />
+            error={errors.confirmPassword?.message}
+          />
 
           <Input id="input-contact"
             labelName="Contato"
             type="text"
             linkForm={register("contact")}
             placeholder="(11)922223333"
-            error={errors.contact?.message} />
+            error={errors.contact?.message}
+          />
 
           <Button
             type="submit"
-            style="blueDark">
-            Cadastrar
-          </Button>
+            style="blueDark"
+            name={loadingButton? "Carregando..." : "Cadastrar"}
+            disabled={loadingButton}
+          />
+
         </form>
         <div>
           <p>Já possui conta? Realize seu login agora!</p>
@@ -87,5 +104,5 @@ export const Register = () => {
         </div>
       </section>
     </StyledRegister>
-  )
+  );
 };

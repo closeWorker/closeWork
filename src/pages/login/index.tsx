@@ -10,6 +10,8 @@ import { loginSchema } from "./loginSchema";
 import { Input } from "../../components/Input";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
+import { Title } from "../../components/Title";
+import { Link } from "react-router-dom";
 
 export const Login = () => {
   const { loadingButton, onSubmitLogin } = useContext(UserContext);
@@ -29,7 +31,12 @@ export const Login = () => {
   return (
     <StyledLogin>
       <section>
-        <h2>Login</h2>
+        <Title colorTitle="blue-2" type="Heading1">
+          Login
+        </Title>
+        <div>
+          <Link to="/home">Retornar para Home</Link>
+        </div>
         <form action="submit" onSubmit={handleSubmit(onSubmitLogin)} noValidate>
           <Input
             id="input-email"
@@ -51,7 +58,7 @@ export const Login = () => {
             type="submit"
             style="blueDark"
             disabled={loadingButton}
-            name={loadingButton ? "Carregando..." : "Realizar Login"}
+            name={loadingButton ? "Carregando..." : "Login"}
           />
         </form>
         <div>

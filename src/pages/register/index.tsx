@@ -10,11 +10,11 @@ import { ServiceContext } from "../../context/ServiceContext";
 import { LinkNavigation } from "../../components/LinkNavigation";
 import { StyledRegister } from "./style";
 
-import fullLogo from "../../assets/light-full-logo.svg"
-import workersImg from "../../assets/workers-img.svg"
+import fullLogo from "../../assets/light-full-logo.svg";
+import workersImg from "../../assets/workers-img.svg";
 import { Input } from "../../components/Input";
-
-
+import { Title } from "../../components/Title";
+import { Link } from "react-router-dom";
 
 interface IRegisterFormData {
   name: string;
@@ -22,16 +22,13 @@ interface IRegisterFormData {
   password: string;
   confirmPassword?: string;
   contact: string;
-
 }
 
 export const Register = () => {
+  const { loadingButton, onSubmitRegister } = useContext(UserContext);
 
-  const { loadingButton, onSubmitRegister} =
-    useContext(UserContext);
-
-
-  const { register,
+  const {
+    register,
     handleSubmit,
     formState: { errors },
   } = useForm<IRegisterFormData>({
@@ -43,13 +40,26 @@ export const Register = () => {
     <StyledRegister>
       <section className="img-section">
         <img src={fullLogo} className="logo" alt="Logo Close Worker" />
-        <img src={workersImg} className="workers-img" alt="imagem de profissões" />
+        <img
+          src={workersImg}
+          className="workers-img"
+          alt="imagem de profissões"
+        />
       </section>
       <section className="form-section">
-        <form action="submit" onSubmit={handleSubmit(onSubmitRegister)} noValidate>
-
-
-          <Input id="input-email"
+        <Title colorTitle="blue-2" type="Heading1">
+          Cadastro
+        </Title>
+        <div>
+          <Link to="/home">Retornar para Home</Link>
+        </div>
+        <form
+          action="submit"
+          onSubmit={handleSubmit(onSubmitRegister)}
+          noValidate
+        >
+          <Input
+            id="input-email"
             labelName="Email"
             type="text"
             linkForm={register("email")}
@@ -57,7 +67,8 @@ export const Register = () => {
             error={errors.email?.message}
           />
 
-          <Input id="input-name"
+          <Input
+            id="input-name"
             labelName="Nome"
             type="text"
             linkForm={register("name")}
@@ -65,7 +76,8 @@ export const Register = () => {
             error={errors.name?.message}
           />
 
-          <Input id="input-password"
+          <Input
+            id="input-password"
             labelName="Senha"
             type="password"
             linkForm={register("password")}
@@ -73,8 +85,8 @@ export const Register = () => {
             error={errors.password?.message}
           />
 
-
-          <Input id="input-confirm-password"
+          <Input
+            id="input-confirm-password"
             labelName="Confirmar senha"
             type="password"
             linkForm={register("confirmPassword")}
@@ -82,7 +94,8 @@ export const Register = () => {
             error={errors.confirmPassword?.message}
           />
 
-          <Input id="input-contact"
+          <Input
+            id="input-contact"
             labelName="Contato"
             type="text"
             linkForm={register("contact")}
@@ -93,14 +106,17 @@ export const Register = () => {
           <Button
             type="submit"
             style="blueDark"
-            name={loadingButton? "Carregando..." : "Cadastrar"}
+            name={loadingButton ? "Carregando..." : "Cadastrar"}
             disabled={loadingButton}
           />
-
         </form>
         <div>
           <p>Já possui conta? Realize seu login agora!</p>
-          <LinkNavigation style="blueLight" name="Login" linkTo="/login"></LinkNavigation>
+          <LinkNavigation
+            style="blueLight"
+            name="Login"
+            linkTo="/login"
+          ></LinkNavigation>
         </div>
       </section>
     </StyledRegister>

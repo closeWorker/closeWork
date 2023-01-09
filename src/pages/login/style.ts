@@ -3,12 +3,34 @@ import styled from "styled-components";
 export const StyledLogin = styled.main`
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
   justify-content: center;
   padding: 10px 10px 40px 10px;
   background-color: var(--color-blue-2);
   color: var(--color-gray-10);
+
+  section:nth-child(1) {
+    & > h2 + div {
+      height: 30px;
+      display: flex;
+
+      text-align: end;
+      & > a {
+        font-size: 16px;
+        text-decoration: underline;
+        color: var(--color-blue-6);
+      }
+      & > a:hover {
+        text-decoration: none;
+        color: var(--color-blue-5);
+        font-weight: bold;
+      }
+    }
+    @media (min-width: 800px) {
+      align-items: flex-start;
+    }
+  }
 
   @media (min-width: 800px) {
     flex-direction: row;
@@ -42,31 +64,14 @@ export const StyledLogin = styled.main`
     flex-direction: column;
     width: 100%;
     max-width: 415px;
-
-    @media (min-width: 800px) {
-      padding-top: 10vh;
-    }
+    padding-top: 20px;
 
     Button {
-      height: 40px;
+      height: 60px;
       margin-top: 10px;
     }
-    label {
-      color: var(--color-gray-10);
-      font-weight: 600;
-      margin-bottom: 5px;
-    }
-    input {
-      height: 40px;
-      padding: 8px 12px;
-      background-color: var(--color-blue-6);
-      border: none;
-      border-radius: 6px;
-      margin-bottom: 15px;
-    }
-    .input-error {
-      font-weight: 600;
-      color: var(--color-negative);
+    Input {
+      width: 100%;
     }
   }
   div {
@@ -81,7 +86,7 @@ export const StyledLogin = styled.main`
       color: var(--color-gray-10);
     }
     a {
-      height: 35px;
+      height: 60px;
     }
   }
 `;

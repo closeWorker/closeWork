@@ -37,6 +37,15 @@ export interface iListServiceHome {
   id: number;
 }
 
+export interface iListComments {
+  userId: number;
+  serviceId: number;
+  name: string;
+  comment: string;
+  service_rating: number;
+  id: number;
+}
+
 export interface iServiceContext {
   setListServiceHome: React.Dispatch<
     React.SetStateAction<[] | iListServiceHome[]>
@@ -63,6 +72,8 @@ export interface iServiceContext {
   setIdUser: React.Dispatch<React.SetStateAction<number>>;
   idService: number;
   setIdService: React.Dispatch<React.SetStateAction<number>>;
+  listComments: iListComments[];
+  setListComments: React.Dispatch<React.SetStateAction<iListComments[]>>;
 }
 
 export interface iListServiceUserLogged {

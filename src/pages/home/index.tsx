@@ -23,6 +23,7 @@ export const Home = () => {
     setKindOfServicesSelectedHome,
     setListServiceHome,
     setLoadingListServiceHome,
+    setListComments,
   } = useContext(ServiceContext);
 
   useEffect(() => {
@@ -32,11 +33,22 @@ export const Home = () => {
         setListServiceHome(response.data);
       } catch (error) {
         console.error(error);
+      }
+    };
+
+    const requestComments = async () => {
+      try {
+        const response = await api.get("comments");
+        setListComments(response.data);
+      } catch (error) {
+        console.error(error);
       } finally {
         setLoadingListServiceHome(false);
       }
     };
+
     requestServices();
+    requestComments();
   }, []);
 
   return (
@@ -79,5 +91,3 @@ export const Home = () => {
     </PageContainer>
   );
 };
-
-// https://api.whatsapp.com/send?phone=5599111112222" target="_blank">

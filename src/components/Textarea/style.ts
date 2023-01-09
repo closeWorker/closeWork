@@ -28,7 +28,4 @@ export const Fieldset = styled.fieldset`
   textarea::placeholder {
     color: var(--color-blue-1);
   }
-  textarea::focus {
-    border: 2px solid var(--color-blue-1);
-  }
 `;

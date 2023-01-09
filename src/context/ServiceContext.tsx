@@ -6,7 +6,9 @@ import {
   iListServiceHome,
   iServiceContext,
   iListServiceUserLogged,
+  iInfoModalEditService,
 } from "./type";
+import { kindOfServices } from "./kindOfServices";
 
 export const ServiceContext = createContext({} as iServiceContext);
 
@@ -14,25 +16,82 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
   const [listServiceHome, setListServiceHome] = useState<iListServiceHome[]>(
     []
   );
-  const [filterServiceActived, setFilterServiceActived] = useState("Todos");
+  const [loadingListServiceHome, setLoadingListServiceHome] = useState(true);
+  const [kindOfServiceSelectedHome, setKindOfServicesSelectedHome] =
+    useState("Todos");
+
   const [listServiceUserLogged, setServiceUserLogged] = useState<
     iListServiceUserLogged[]
   >([]);
   const [openModal, setOpenModal] = useState(false);
   const [typeModal, setTypeModal] = useState("");
+  const [validatelistServiceUserLogged, setValidatelistServiceUserLogged] =
+    useState(false);
+  const [loadingListServiceDashboard, setLoadingListServiceDashboard] =
+    useState(false);
+  const [loadingButtonModal, setLoadingButtonModal] = useState(false);
+  const [infosModalEditService, setInfosModalEditService] = useState(
+    {} as iInfoModalEditService
+  );
 
-  useEffect(() => {}, []);
+  const navigate = useNavigate();
+
+  const requestRegisteredUserServices = async () => {
+    const token = localStorage.getItem("@closework:token");
+    const userId = localStorage.getItem("@closework:userId");
+    if (token) {
+      if (userId) {
+        try {
+          setLoadingListServiceDashboard(false);
+          const response = await api.get(`/users/${userId}?_embed=services`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          if (response.data.services.length > 0) {
+            setServiceUserLogged(response.data.services);
+            setValidatelistServiceUserLogged(true);
+          } else {
+            setServiceUserLogged(response.data.services);
+            setValidatelistServiceUserLogged(false);
+          }
+        } catch (error) {
+          setLoadingListServiceDashboard(false);
+          console.log(error);
+        } finally {
+          setLoadingListServiceDashboard(true);
+        }
+      }
+    }
+  };
+
+  const filteredServicesHome = listServiceHome.filter((service) =>
+    kindOfServiceSelectedHome === "Todos"
+      ? true
+      : kindOfServiceSelectedHome === service.kind_of_service
+  );
+
   return (
     <ServiceContext.Provider
       value={{
-        listServiceHome,
-        filterServiceActived,
-        setFilterServiceActived,
+        setListServiceHome,
+        setKindOfServicesSelectedHome,
+        filteredServicesHome,
+        loadingListServiceHome,
+        setLoadingListServiceHome,
         listServiceUserLogged,
         openModal,
         setOpenModal,
         typeModal,
         setTypeModal,
+        requestRegisteredUserServices,
+        validatelistServiceUserLogged,
+        loadingListServiceDashboard,
+        loadingButtonModal,
+        setLoadingButtonModal,
+        infosModalEditService,
+        setInfosModalEditService,
       }}
     >
       {children}

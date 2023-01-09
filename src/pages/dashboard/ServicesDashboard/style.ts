@@ -16,22 +16,16 @@ export const StyledService = styled.div`
 export const StyledServices = styled.ul`
   width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+
   background-color: var(--color-neutral-white);
-  gap: 10px;
+
+  gap: 25px;
   padding: 20px 10px;
-  overflow-y: scroll;
-  max-height: 450px;
-  @media (min-width: 666px) {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 100%;
-  }
-  @media (min-width: 1100px) {
-    overflow-y: hidden;
-  }
+  overflow: auto;
+  height: fit-content;
+  margin-bottom: 40px;
+
   li {
     background-color: var(--color-blue-6);
     gap: 50px;
@@ -39,9 +33,22 @@ export const StyledServices = styled.ul`
     flex-direction: column;
     padding: 20px 0;
     width: 100%;
+    min-width: 260px;
     max-width: 340px;
     text-align: center;
     border-radius: 4px;
+
+    @media (min-width: 376px) {
+      min-width: 340px;
+    }
+  }
+  @media (min-width: 768px) {
+    overflow-y: hidden;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  @media (min-width: 1100px) {
+    max-height: fit-content;
   }
 `;
 
@@ -67,6 +74,10 @@ export const Buttons = styled.div`
   @media (max-width: 375px) {
     flex-direction: column;
     align-items: center;
+    gap: 10px;
+    button {
+      width: 100%;
+    }
   }
   button {
     padding: 10px 40px;

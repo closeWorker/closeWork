@@ -1,24 +1,27 @@
-import React, { forwardRef, TextareaHTMLAttributes } from "react";
+import { Title } from "../Title";
 import { Fieldset } from "./style";
+import { iTextareaProps } from "./type";
 
-interface iTextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
-  label: string;
-  placeholder: string;
-  value?: string | number;
-}
-
-export const Textarea = forwardRef<HTMLTextAreaElement, iTextareaProps>(
-  ({ label, placeholder, value, ...rest }, ref) => {
-    return (
-      <Fieldset>
-        <label>{label}</label>
-        <textarea
-          placeholder={placeholder}
-          ref={ref}
-          defaultValue={value}
-          {...rest}
-        />
-      </Fieldset>
-    );
-  }
-);
+export const Textarea = ({
+  id,
+  labelName,
+  placeholder,
+  linkForm,
+  error,
+  disabled,
+}: iTextareaProps) => {
+  return (
+    <Fieldset>
+      <label htmlFor={id}>{labelName}</label>
+      <textarea
+        placeholder={placeholder}
+        {...linkForm}
+        disabled={disabled}
+        id={id}
+      />
+      <Title type="Body-600" colorTitle="negative">
+        {error}
+      </Title>
+    </Fieldset>
+  );
+};

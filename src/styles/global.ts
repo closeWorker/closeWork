@@ -12,6 +12,12 @@ export const GlobalStyle = createGlobalStyle`
   ul{
     list-style-type: none;
   }
+
+  body,html{
+    height: 100%;
+  }
+
+  
   
 :root {
  
@@ -37,16 +43,26 @@ export const GlobalStyle = createGlobalStyle`
   --color-neutral-black: #000000;
 
   --color-sucess: #168821;
-  --color-negative: #E60000;
+  --color-negative: #ADB5BD;
   --color-negative-hover: #E60000;
  
  
 
 }
 
-body{
-  background-color: var(--color-neutral-white);
+*::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
 }
 
+*::-webkit-scrollbar-track {
+  background: var(--color-blue-5);        /* color of the tracking area */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-blue-2);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid var(--color-blue-5);  /* creates padding around scroll thumb */
+}
 
 `;
+

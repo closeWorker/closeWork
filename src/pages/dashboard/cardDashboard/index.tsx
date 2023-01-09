@@ -1,17 +1,21 @@
-import { Button } from "../Button";
+import { Button } from "../../../components/Button";
 import { Buttons, StyledHeaderServices } from "../ServicesDashboard/style";
 import { IoEyeSharp } from "react-icons/io5";
-import { Title } from "../Title";
+import { Title } from "../../../components/Title";
 import { useContext } from "react";
-import { ServiceContext } from "../../context/ServiceContext";
+import { ServiceContext } from "../../../context/ServiceContext";
+import { iCardProps } from "./type";
 
-export const CardDashboard = () => {
-  const { setOpenModal, setTypeModal } = useContext(ServiceContext);
+export const CardDashboard = ({ item }: iCardProps) => {
+  const { setOpenModal, setTypeModal, setInfosModalEditService } =
+    useContext(ServiceContext);
   return (
     <li>
       <StyledHeaderServices>
         <div></div>
-        <Title children="Móvel planejado" type="Heading1" colorTitle="blue-1" />
+        <Title type="Heading1" colorTitle="blue-1">
+          {item.kind_of_service}
+        </Title>
         <Button
           style="icon"
           type="button"
@@ -28,6 +32,7 @@ export const CardDashboard = () => {
           action={() => {
             setOpenModal(true);
             setTypeModal("EditService");
+            setInfosModalEditService(item);
           }}
         >
           Editar

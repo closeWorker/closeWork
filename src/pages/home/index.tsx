@@ -1,21 +1,49 @@
-import React from "react";
+import { useContext, useEffect } from "react";
 import { HeaderHome } from "./HeaderHome";
-import { ContainerHome, StyledHome } from "./style";
+import {
+  ContainerHome,
+  PageContainer,
+  StyledFilterSection,
+  StyledPicturesDiv,
+} from "./style";
+import { Title } from "../../components/Title";
+import { Footer } from "../../components/Footer";
+import { ServicesList } from "./ServicesList";
+import { ServiceContext } from "../../context/ServiceContext";
+import { kindOfServices } from "../../context/kindOfServices";
+import { api } from "../../services/api";
 import worker1 from "../../assets/worker-1.svg";
 import worker2 from "../../assets/worker-2.svg";
 import worker3 from "../../assets/worker-3.svg";
 import worker4 from "../../assets/worker-4.svg";
 import worker5 from "../../assets/worker-5.svg";
-import { Title } from "../../components/Title";
-import { Footer } from "../../components/Footer";
-import { Button } from "../../components/Button";
 
 export const Home = () => {
+  const {
+    setKindOfServicesSelectedHome,
+    setListServiceHome,
+    setLoadingListServiceHome,
+  } = useContext(ServiceContext);
+
+  useEffect(() => {
+    const requestServices = async () => {
+      try {
+        const response = await api.get("services");
+        setListServiceHome(response.data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoadingListServiceHome(false);
+      }
+    };
+    requestServices();
+  }, []);
+
   return (
-    <>
+    <PageContainer>
       <HeaderHome />
-      <StyledHome>
-        <div>
+      <main>
+        <StyledPicturesDiv>
           <ContainerHome>
             <img src={worker1} alt="" />
             <img src={worker2} alt="" />
@@ -23,131 +51,33 @@ export const Home = () => {
             <img src={worker4} alt="" />
             <img src={worker5} alt="" />
           </ContainerHome>
-        </div>
-        <div>
-          <div>
-            <Title type="Heading3" colorTitle="blue-1">
-              Filtrar por tipo de serviço
-            </Title>
-            <select>
-              <option value="">Serviço</option>
+        </StyledPicturesDiv>
+        <StyledFilterSection>
+          <fieldset>
+            <label htmlFor="filter">Filtrar por tipo de serviço</label>
+            <select
+              id="filter"
+              onChange={(event) =>
+                setKindOfServicesSelectedHome(event.target.value)
+              }
+            >
+              {kindOfServices.map((service, index) => (
+                <option key={index} value={service}>
+                  {service}
+                </option>
+              ))}
             </select>
-          </div>
-        </div>
-        <ContainerHome>
-          <ul>
-            <li>
-              <div>
-                <Title type="Headline" colorTitle="blue-1">
-                  Nome do prestador
-                </Title>
-                <Title type="Body-600" colorTitle="blue-1">
-                  Antonio Santos
-                </Title>
-              </div>
-              <div>
-                <Title type="Headline" colorTitle="blue-1">
-                  Nome do prestador
-                </Title>
-                <Title type="Body-600" colorTitle="blue-1">
-                  Antonio Santos
-                </Title>
-              </div>
-              <div>
-                <Title type="Headline" colorTitle="blue-1">
-                  Nome do prestador
-                </Title>
-                <Title type="Body-600" colorTitle="blue-1">
-                  Antonio Santos
-                </Title>
-              </div>
-              <Button name="Ver mais" type="button" style="blueDark" />
-            </li>
-            <li>
-              <div>
-                <Title type="Headline" colorTitle="blue-1">
-                  Nome do prestador
-                </Title>
-                <Title type="Body-600" colorTitle="blue-1">
-                  Antonio Santos
-                </Title>
-              </div>
-              <div>
-                <Title type="Headline" colorTitle="blue-1">
-                  Nome do prestador
-                </Title>
-                <Title type="Body-600" colorTitle="blue-1">
-                  Antonio Santos
-                </Title>
-              </div>
-              <div>
-                <Title type="Headline" colorTitle="blue-1">
-                  Nome do prestador
-                </Title>
-                <Title type="Body-600" colorTitle="blue-1">
-                  Antonio Santos
-                </Title>
-              </div>
-              <Button name="Ver mais" type="button" style="blueDark" />
-            </li>
-            <li>
-              <div>
-                <Title type="Headline" colorTitle="blue-1">
-                  Nome do prestador
-                </Title>
-                <Title type="Body-600" colorTitle="blue-1">
-                  Antonio Santos
-                </Title>
-              </div>
-              <div>
-                <Title type="Headline" colorTitle="blue-1">
-                  Nome do prestador
-                </Title>
-                <Title type="Body-600" colorTitle="blue-1">
-                  Antonio Santos
-                </Title>
-              </div>
-              <div>
-                <Title type="Headline" colorTitle="blue-1">
-                  Nome do prestador
-                </Title>
-                <Title type="Body-600" colorTitle="blue-1">
-                  Antonio Santos
-                </Title>
-              </div>
-              <Button name="Ver mais" type="button" style="blueDark" />
-            </li>
-            <li>
-              <div>
-                <Title type="Headline" colorTitle="blue-1">
-                  Nome do prestador
-                </Title>
-                <Title type="Body-600" colorTitle="blue-1">
-                  Antonio Santos
-                </Title>
-              </div>
-              <div>
-                <Title type="Headline" colorTitle="blue-1">
-                  Nome do prestador
-                </Title>
-                <Title type="Body-600" colorTitle="blue-1">
-                  Antonio Santos
-                </Title>
-              </div>
-              <div>
-                <Title type="Headline" colorTitle="blue-1">
-                  Nome do prestador
-                </Title>
-                <Title type="Body-600" colorTitle="blue-1">
-                  Antonio Santos
-                </Title>
-              </div>
-              <Button name="Ver mais" type="button" style="blueDark" />
-            </li>
-          </ul>
-        </ContainerHome>
-      </StyledHome>
+          </fieldset>
+        </StyledFilterSection>
+        <section>
+          <ContainerHome>
+            <ServicesList />
+          </ContainerHome>
+        </section>
+      </main>
       <Footer />
-    </>
+    </PageContainer>
   );
 };
+
+// https://api.whatsapp.com/send?phone=5599111112222" target="_blank">

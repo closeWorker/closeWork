@@ -42,6 +42,7 @@ export interface iServiceContext {
   setLoadingListServiceHome: React.Dispatch<React.SetStateAction<boolean>>;
   filteredServicesHome: iListServiceHome[];
   setKindOfServicesSelectedHome: React.Dispatch<React.SetStateAction<string>>;
+  loadingListServiceHome: boolean;
   listServiceUserLogged: iListServiceUserLogged[];
   openModal: boolean;
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -50,7 +51,6 @@ export interface iServiceContext {
   requestRegisteredUserServices: () => void;
   validatelistServiceUserLogged: boolean;
   loadingListServiceDashboard: boolean;
-  loadingListServiceHome: boolean;
   loadingButtonModal: boolean;
   setLoadingButtonModal: React.Dispatch<React.SetStateAction<boolean>>;
   infosModalEditService: iInfoModalEditService;

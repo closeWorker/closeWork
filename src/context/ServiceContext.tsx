@@ -66,31 +66,27 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
     }
   };
 
-  const filteredServicesHome = listServiceHome.filter((service) => {
-    if (kindOfServiceSelectedHome === "Todos") {
-      return true;
-    } else if (kindOfServiceSelectedHome !== "Outros") {
-      return service.kind_of_service === kindOfServiceSelectedHome;
-    } else {
-      return service.kind_of_service === "Outros";
-    }
-  });
+  const filteredServicesHome = listServiceHome.filter((service) =>
+    kindOfServiceSelectedHome === "Todos"
+      ? true
+      : kindOfServiceSelectedHome === service.kind_of_service
+  );
 
   return (
     <ServiceContext.Provider
       value={{
         setListServiceHome,
-        setLoadingListServiceHome,
-        filteredServicesHome,
-        listServiceUserLogged,
         setKindOfServicesSelectedHome,
+        filteredServicesHome,
+        loadingListServiceHome,
+        setLoadingListServiceHome,
+        listServiceUserLogged,
         openModal,
         setOpenModal,
         typeModal,
         setTypeModal,
         requestRegisteredUserServices,
         validatelistServiceUserLogged,
-        loadingListServiceHome,
         loadingListServiceDashboard,
         loadingButtonModal,
         setLoadingButtonModal,

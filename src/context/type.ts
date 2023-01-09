@@ -1,4 +1,6 @@
 import React, { ReactNode } from "react";
+import { SubmitHandler } from "react-hook-form/dist/types/form";
+
 
 export interface iUserContext {
   loadingButton: boolean;
@@ -8,6 +10,7 @@ export interface iUserContext {
   tokenIsValid: boolean;
   userValid: boolean;
   setUserProfile: React.Dispatch<React.SetStateAction<iUserProfile>>;
+  onSubmitRegister: SubmitHandler<IRegisterFormData>;
 }
 
 export interface iPropsUserProvider {
@@ -82,4 +85,13 @@ export interface iInfoModalEditService {
   phone_number: string;
   description: string;
   id: number;
+}
+
+export interface IRegisterFormData {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword?: string;
+  contact: string;
+
 }

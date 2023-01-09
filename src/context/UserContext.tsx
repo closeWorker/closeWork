@@ -8,9 +8,11 @@ import {
   iUserProfile,
   iLoginSubmit,
   iDefaultErrorResponse,
+  IRegisterFormData,
 } from "./type";
 import { AxiosError } from "axios";
 import { ServiceContext } from "./ServiceContext";
+import { SubmitHandler } from "react-hook-form/dist/types/form";
 
 export const UserContext = createContext({} as iUserContext);
 
@@ -48,6 +50,22 @@ export const UserProvider = ({ children }: iPropsUserProvider) => {
       setLoadingButton(false);
     }
   };
+
+  const onSubmitRegister: SubmitHandler<IRegisterFormData> = async (data) => {
+    delete data.confirmPassword
+    try {
+      setLoadingButton(true);
+      const response = await api.post("/register", data);
+      toast.success("Registro realizado com sucesso!");
+      navigate("/login");
+    } catch (error) {
+      const currentError = error as AxiosError<iDefaultErrorResponse>;
+      console.error(currentError.response?.data);
+      toast.error("Ops! Algo deu errado, faça o registro novamente");
+    } finally {
+      setLoadingButton(false);
+    }
+  }
 
   const handleLogout = () => {
     toast.success("Logout realizado com sucesso!", {
@@ -124,6 +142,7 @@ export const UserProvider = ({ children }: iPropsUserProvider) => {
         tokenIsValid,
         userValid,
         setUserProfile,
+        onSubmitRegister
       }}
     >
       {children}

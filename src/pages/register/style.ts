@@ -51,6 +51,9 @@ export const StyledRegister = styled.main`
             height: 60px;
             margin-top: 10px;
         }
+        Input{
+            width: 100%;
+        }
     }
 
     div{

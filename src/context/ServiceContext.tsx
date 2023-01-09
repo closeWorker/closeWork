@@ -7,6 +7,7 @@ import {
   iServiceContext,
   iListServiceUserLogged,
   iInfoModalEditService,
+  iListComments,
 } from "./type";
 import { kindOfServices } from "./kindOfServices";
 
@@ -33,6 +34,8 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
   const [infosModalEditService, setInfosModalEditService] = useState(
     {} as iInfoModalEditService
   );
+
+  const [listComments, setListComments] = useState<iListComments[]>([]);
 
   const navigate = useNavigate();
 
@@ -92,6 +95,8 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
         setLoadingButtonModal,
         infosModalEditService,
         setInfosModalEditService,
+        listComments,
+        setListComments,
       }}
     >
       {children}

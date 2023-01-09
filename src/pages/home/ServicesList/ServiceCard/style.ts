@@ -5,7 +5,7 @@ export const StyledCard = styled.li`
   max-width: 100%;
   height: 375px;
 
-  padding: 14px 12px 27px 12px;
+  padding: 0 12px 27px 12px;
 
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
@@ -24,20 +24,20 @@ export const StyledCard = styled.li`
     flex-direction: column;
     align-items: center;
 
-    padding-bottom: 15px;
+    padding: 6px 0 15px 0;
   }
 
-  > div:nth-child(3) {
+  > div:nth-child(4) {
     position: relative;
   }
-  > div:nth-child(3) > a {
+  > div:nth-child(4) > a {
     width: 33px;
 
     position: absolute;
     bottom: 19px;
     right: 1px;
   }
-  > div:nth-child(3) > a > img {
+  > div:nth-child(4) > a > img {
     width: 100%;
     object-fit: cover;
   }

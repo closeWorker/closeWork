@@ -97,6 +97,7 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
         setInfosModalEditService,
         listComments,
         setListComments,
+        listServiceHome,
       }}
     >
       {children}

@@ -13,7 +13,7 @@ export const RoutesApp = () => {
         <Route path="/home" index element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/more_infos" element={<MoreInfo />} />
+        <Route path="/more_infos/:serviceId" element={<MoreInfo />} />
 
         <Route element={<ProtectedRoutes />}>
           <Route path="/dashboard" element={<Dashboard />} />

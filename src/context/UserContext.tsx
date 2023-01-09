@@ -13,6 +13,7 @@ import {
 import { AxiosError } from "axios";
 import { ServiceContext } from "./ServiceContext";
 import { SubmitHandler } from "react-hook-form/dist/types/form";
+import { ILoginFormData } from "../pages/login/types";
 
 export const UserContext = createContext({} as iUserContext);
 
@@ -26,7 +27,7 @@ export const UserProvider = ({ children }: iPropsUserProvider) => {
 
   const navigate = useNavigate();
 
-  const onSubmitLogin = async (data: iLoginSubmit) => {
+  const onSubmitLogin: SubmitHandler<ILoginFormData> = async (data) => {
     try {
       setLoadingButton(true);
       const response = await api.post("/login", data);
@@ -52,7 +53,7 @@ export const UserProvider = ({ children }: iPropsUserProvider) => {
   };
 
   const onSubmitRegister: SubmitHandler<IRegisterFormData> = async (data) => {
-    delete data.confirmPassword
+    delete data.confirmPassword;
     try {
       setLoadingButton(true);
       const response = await api.post("/register", data);
@@ -65,7 +66,7 @@ export const UserProvider = ({ children }: iPropsUserProvider) => {
     } finally {
       setLoadingButton(false);
     }
-  }
+  };
 
   const handleLogout = () => {
     toast.success("Logout realizado com sucesso!", {
@@ -142,7 +143,7 @@ export const UserProvider = ({ children }: iPropsUserProvider) => {
         tokenIsValid,
         userValid,
         setUserProfile,
-        onSubmitRegister
+        onSubmitRegister,
       }}
     >
       {children}

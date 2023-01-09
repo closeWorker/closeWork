@@ -17,14 +17,28 @@ export const StyledCard = styled.li`
   flex-direction: column;
   justify-content: space-between;
 
-  div {
+  > div {
     border-bottom: 1px solid var(--color-blue-3);
 
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    padding-bottom: 15px;
   }
-  p:nth-child(2) {
-    margin-bottom: 15px;
+
+  > div:nth-child(3) {
+    position: relative;
+  }
+  > div:nth-child(3) > a {
+    width: 33px;
+
+    position: absolute;
+    bottom: 19px;
+    right: 1px;
+  }
+  > div:nth-child(3) > a > img {
+    width: 100%;
+    object-fit: cover;
   }
 `;

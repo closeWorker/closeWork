@@ -79,5 +79,3 @@ export const Home = () => {
     </PageContainer>
   );
 };
-
-// https://api.whatsapp.com/send?phone=5599111112222" target="_blank">

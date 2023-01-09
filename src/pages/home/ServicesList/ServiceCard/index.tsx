@@ -4,8 +4,12 @@ import { Title } from "../../../../components/Title";
 import { ServiceContext } from "../../../../context/ServiceContext";
 import { StyledCard } from "./style";
 import { iServiceCardProps } from "./type";
+import whatsappIcon from "../../../../assets/whatsapp-icon.svg";
 
 export const ServiceCard = ({ service }: iServiceCardProps) => {
+  const whatsNumber = (phoneNumber: string) =>
+    `55${phoneNumber.replace(/[()\ \s-]+/g, "")}`;
+
   return (
     <StyledCard key={service.id}>
       <div>
@@ -31,6 +35,14 @@ export const ServiceCard = ({ service }: iServiceCardProps) => {
         <Title type="Body-600" colorTitle="blue-1">
           {service.phone_number}
         </Title>
+        <a
+          href={`https://api.whatsapp.com/send?phone=${whatsNumber(
+            service.phone_number
+          )}`}
+          target="_blank"
+        >
+          <img src={whatsappIcon} alt="Ícone do whatsappp" />
+        </a>
       </div>
       <Button name="Ver mais" type="button" style="blueDark" />
     </StyledCard>

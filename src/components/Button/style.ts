@@ -42,6 +42,7 @@ const switchStyleButton = (style: string) => {
         &:hover {
           border: 2px solid var(--color-negative-hover);
           background-color: var(--color-negative-hover);
+          color: var(--color-neutral-white);
         }
         `;
       break;

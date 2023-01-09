@@ -111,4 +111,5 @@ export interface IRegisterFormData {
   password: string;
   confirmPassword?: string;
   contact: string;
+  avatar?: string;
 }

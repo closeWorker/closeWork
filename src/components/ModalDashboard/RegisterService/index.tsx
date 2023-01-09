@@ -87,6 +87,7 @@ export const RegisterService = () => {
           <Button
             style="blueLight"
             type="submit"
+            disabled={loadingButtonModal}
             name={loadingButtonModal ? "Carregando..." : "Cadastrar Serviço"}
           />
         </FormRegister>

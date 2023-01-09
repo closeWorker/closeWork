@@ -47,7 +47,7 @@ export const DeleteUser = () => {
           children="Excluir"
           action={() => {
             onSubmitDeleteUser();
-            // handleLogout();
+            handleLogout();
           }}
         />
         <Button

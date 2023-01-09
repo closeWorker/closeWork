@@ -8,6 +8,7 @@ import { StyledRegister } from "./style";
 
 import fullLogo from "../../assets/light-full-logo.svg"
 import workersImg from "../../assets/workers-img.svg"
+import { Input } from "../../components/Input";
 
 interface IRegisterFormData {
   name: string;
@@ -37,60 +38,46 @@ export const Register = () => {
       <section className="form-section">
         <form action="submit" onSubmit={handleSubmit(x => console.log(x))} noValidate>
 
-          <label htmlFor="input-email">Email</label>
-          <input
-            id="input-email"
-            {...register("email")}
+
+          <Input id="input-email"
+            labelName="Email"
             type="text"
+            linkForm={register("email")}
             placeholder="Digite seu email"
-          />
-          {errors.email?.message && <p className="input-error">{errors.email.message}</p>}
+            error={errors.email?.message} />
 
-
-          <label htmlFor="input-name">Nome</label>
-          <input
-            id="input-name"
-            {...register("name")}
+          <Input id="input-name"
+            labelName="Nome"
             type="text"
+            linkForm={register("name")}
             placeholder="Digite seu nome"
-          />
-          {errors.name?.message && <p className="input-error">{errors.name.message}</p>}
+            error={errors.name?.message} />
 
-
-          <label htmlFor="input-password">Senha</label>
-          <input
-            id="input-password"
-            {...register("password")}
+          <Input id="input-password"
+            labelName="Senha"
             type="text"
+            linkForm={register("password")}
             placeholder="Digite sua senha"
-          />
-          {errors.password?.message && <p className="input-error">{errors.password.message}</p>}
+            error={errors.password?.message} />
 
 
-          <label htmlFor="input-confirm-password">Confirmar senha</label>
-          <input
-            id="input-confirm-password"
-            {...register("confirmPassword")}
+          <Input id="input-confirm-password"
+            labelName="Confirmar senha"
             type="text"
+            linkForm={register("confirmPassword")}
             placeholder="Digite sua senha novamente"
-          />
-          {errors.confirmPassword?.message && <p className="input-error">{errors.confirmPassword.message}</p>}
+            error={errors.confirmPassword?.message} />
 
-
-          <label htmlFor="input-contact">Contato</label>
-          <input
-            id="input-contact"
-            {...register("contact")}
+          <Input id="input-contact"
+            labelName="Contato"
             type="text"
+            linkForm={register("contact")}
             placeholder="(11)922223333"
-          />
-          {errors.contact?.message && <p className="input-error">{errors.contact.message}</p>}
-
+            error={errors.contact?.message} />
 
           <Button
             type="submit"
-            style="blueDark"
-          >
+            style="blueDark">
             Cadastrar
           </Button>
         </form>

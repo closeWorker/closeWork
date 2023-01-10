@@ -42,7 +42,7 @@ export const StyledContainerImgHome = styled.div`
     transition: 150ms ease-in-out;
 
     &:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
   }
 `;

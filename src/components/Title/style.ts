@@ -16,7 +16,7 @@ const functionSelectTitleColor = (props: string) => {
       return "var(--color-sucess)";
       break;
     case "negative":
-      return "var(--color-negative-hover)";
+      return "#FF8787";
       break;
   }
 };

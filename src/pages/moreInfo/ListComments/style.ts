@@ -7,15 +7,14 @@ export const ContainerListComments = styled.div`
   padding: 20px 16px;
 
   margin: 0 auto;
-  
 
-ul{
-    width:100%;
+  ul {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 25px;
     margin-bottom: 40px;
-}
+  }
 
   li {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -29,9 +28,24 @@ ul{
     gap: 10px;
     padding: 20px;
     border-radius: 4px;
-    &>div{
-      display:flex;
+    & > div {
+      display: flex;
       gap: 10px;
     }
+  }
+`;
+
+export const ContainerListNoComments = styled.div`
+  width: 1200px;
+  max-width: 100%;
+
+  padding: 20px 16px;
+
+  margin: 0 auto;
+
+  & > div {
+    margin-bottom: 40px;
+
+    text-align: center;
   }
 `;

@@ -25,6 +25,9 @@ export const EditUser = () => {
     setTypeModal,
     loadingButtonModal,
     setLoadingButtonModal,
+    listServiceUserLogged,
+    infosModalEditService,
+    requestRegisteredUserServices,
   } = useContext(ServiceContext);
   const { userProfile, setUserProfile } = useContext(UserContext);
 
@@ -46,6 +49,40 @@ export const EditUser = () => {
     },
   });
 
+  const updateServiceInformation = async (user: any) => {
+    const token = localStorage.getItem("@closework:token");
+
+    const request = async (data: any) => {
+      if (token) {
+        try {
+          const response = await api.patch(`/services/${data.id}`, data, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          return response;
+        } catch (error) {
+          console.log(error);
+        } finally {
+        }
+      }
+    };
+
+    const promises = listServiceUserLogged.map(async (url, idx) => {
+      const serviceTemp = {
+        ...url,
+        phone_number: user.contact,
+        service_provider: user.name,
+        service_provider_avatar: user.avatar,
+      };
+      request(serviceTemp);
+    });
+
+    await Promise.all(promises);
+
+    requestRegisteredUserServices();
+  };
+
   const onSubmitEditProfile: SubmitHandler<iEditProfileSubmit> = async (
     data
   ) => {
@@ -63,6 +100,7 @@ export const EditUser = () => {
           const user = response.data;
           delete user.password;
           setUserProfile(user);
+          updateServiceInformation(user);
           setTimeout(() => {
             setOpenModal(false);
           }, 500);

@@ -13,6 +13,7 @@ export const Fieldset = styled.fieldset`
     line-height: 27px;
   }
   textarea {
+    width: 100%;
     height: 175px;
     background-color: var(--color-blue-5);
     color: var(--color-blue-1);

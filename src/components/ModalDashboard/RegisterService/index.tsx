@@ -80,7 +80,7 @@ export const RegisterService = () => {
           />
           <Textarea
             labelName="Descrição do Serviço"
-            placeholder="Faça aqui a escrição do serviço"
+            placeholder="Descreva aqui o serviço"
             id="description"
             linkForm={register("description")}
             error={errors.description?.message}

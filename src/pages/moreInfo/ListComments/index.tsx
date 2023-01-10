@@ -11,8 +11,8 @@ export const ListComments = ({listCommentsProp}:iPropsListComments) => {
     {listCommentsProp.length > 0?    <ContainerListComments>
       <ul>
         {
-          listCommentsProp.map((list) => {
-            return (   <li>
+          listCommentsProp.map((list, index) => {
+            return (   <li key={index}>
               <div>
               <Title colorTitle="blue-1" type="Heading3">Nome:</Title>
               <Title colorTitle="blue-1" type="Headline">
@@ -30,8 +30,7 @@ export const ListComments = ({listCommentsProp}:iPropsListComments) => {
               <Title colorTitle="blue-1" type="Heading3">Comentário:</Title>
               <Title colorTitle="blue-1" type="Headline">
               {list.comment}
-              </Title>
-             
+              </Title>             
             </li>)
           })
         }

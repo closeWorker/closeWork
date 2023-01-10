@@ -21,7 +21,7 @@ interface iEditProfileSubmit {
 
 export const EditUser = () => {
   const {
-    setOpenModal,
+    closeModal,
     setTypeModal,
     loadingButtonModal,
     setLoadingButtonModal,
@@ -32,7 +32,7 @@ export const EditUser = () => {
   const { userProfile, setUserProfile } = useContext(UserContext);
 
   const modalRef = useOutClick(() => {
-    setOpenModal(false);
+    closeModal();
   });
 
   const {
@@ -101,9 +101,7 @@ export const EditUser = () => {
           delete user.password;
           setUserProfile(user);
           updateServiceInformation(user);
-          setTimeout(() => {
-            setOpenModal(false);
-          }, 500);
+          closeModal();
         } catch (error) {
           setLoadingButtonModal(true);
           console.log(error);

@@ -7,9 +7,9 @@ import { RegisterService } from "./RegisterService";
 import { Modal } from "./style";
 
 export const ModalDashboard = () => {
-  const { typeModal } = useContext(ServiceContext);
+  const { typeModal, isClosing } = useContext(ServiceContext);
   return (
-    <Modal>
+    <Modal isClosing={isClosing}>
       {typeModal === "EditUser" ? <EditUser /> : ""}
       {typeModal === "RegisterService" ? <RegisterService /> : ""}
       {typeModal === "EditService" ? <EditService /> : ""}

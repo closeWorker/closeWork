@@ -18,6 +18,7 @@ import worker3 from "../../assets/worker-3.svg";
 import worker4 from "../../assets/worker-4.svg";
 import worker5 from "../../assets/worker-5.svg";
 import { SlideImagesHome } from "../../components/SlideImagesHome";
+import { toast } from "react-toastify";
 
 export const Home = () => {
   const {
@@ -34,6 +35,7 @@ export const Home = () => {
         setListServiceHome(response.data);
       } catch (error) {
         console.error(error);
+        toast.error("Erro na requisição dos serviços");
       }
     };
 
@@ -43,6 +45,7 @@ export const Home = () => {
         setListComments(response.data);
       } catch (error) {
         console.error(error);
+        toast.error("Erro na requisição dos comentários");
       } finally {
         setLoadingListServiceHome(false);
       }

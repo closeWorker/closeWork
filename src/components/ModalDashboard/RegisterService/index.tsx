@@ -17,7 +17,7 @@ import { RotatingLines } from "react-loader-spinner";
 
 export const RegisterService = () => {
   const {
-    setOpenModal,
+    closeModal,
     loadingButtonModal,
     setLoadingButtonModal,
     requestRegisteredUserServices,
@@ -25,7 +25,7 @@ export const RegisterService = () => {
   const { userProfile } = useContext(UserContext);
 
   const modalRef = useOutClick(() => {
-    setOpenModal(false);
+    closeModal();
   });
 
   const {
@@ -57,7 +57,7 @@ export const RegisterService = () => {
           },
         });
         requestRegisteredUserServices();
-        setOpenModal(false);
+        closeModal();
       } catch (error) {
         setLoadingButtonModal(true);
         console.log(error);

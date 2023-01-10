@@ -17,7 +17,7 @@ import { RotatingLines } from "react-loader-spinner";
 
 export const EditService = () => {
   const {
-    setOpenModal,
+    closeModal,
     loadingButtonModal,
     setLoadingButtonModal,
     infosModalEditService,
@@ -27,7 +27,7 @@ export const EditService = () => {
   const { userProfile } = useContext(UserContext);
 
   const modalRef = useOutClick(() => {
-    setOpenModal(false);
+    closeModal;
   });
 
   const {
@@ -65,7 +65,7 @@ export const EditService = () => {
           },
         });
         requestRegisteredUserServices();
-        setOpenModal(false);
+        closeModal();
       } catch (error) {
         setLoadingButtonModal(true);
         console.log(error);

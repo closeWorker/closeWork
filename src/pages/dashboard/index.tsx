@@ -7,6 +7,7 @@ import { ModalDashboard } from "../../components/ModalDashboard";
 import { useContext } from "react";
 import { ServiceContext } from "../../context/ServiceContext";
 import { UserContext } from "../../context/UserContext";
+import { LoadingFullPage } from "../../components/LoadingFullPage";
 
 export const Dashboard = () => {
   const { openModal } = useContext(ServiceContext);
@@ -23,7 +24,7 @@ export const Dashboard = () => {
           <Footer />
         </StyledDashboard>
       ) : (
-        <h1>Carregando...</h1>
+        <LoadingFullPage />
       )}
     </>
   );

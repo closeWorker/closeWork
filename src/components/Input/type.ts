@@ -10,3 +10,4 @@ export interface iInput {
   error?: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   maxLength?: number;
+}

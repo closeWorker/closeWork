@@ -57,15 +57,6 @@ export const Home = () => {
       <HeaderHome />
       <main>
         <SlideImagesHome />
-        {/* <StyledPicturesDiv>
-          <ContainerHome>
-            <img src={worker1} alt="" />
-            <img src={worker2} alt="" />
-            <img src={worker3} alt="" />
-            <img src={worker4} alt="" />
-            <img src={worker5} alt="" />
-          </ContainerHome>
-        </StyledPicturesDiv> */}
         <StyledFilterSection>
           <fieldset>
             <label htmlFor="filter">Filtrar por tipo de serviço</label>

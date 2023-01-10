@@ -22,7 +22,7 @@ export const StyledList = styled.ul`
   max-height: 438px;
 
   overflow-y: scroll;
-  overflow-x: unset;
+  overflow-x: hidden;
 
   @media (min-width: 420px) {
     display: grid;
@@ -30,7 +30,8 @@ export const StyledList = styled.ul`
     grid-template-columns: repeat(auto-fit, minmax(298px, 1fr));
     justify-items: center;
 
-    overflow: unset;
     max-height: none;
+
+    overflow: visible;
   }
 `;

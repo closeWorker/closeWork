@@ -10,7 +10,7 @@ export const StyledHeader = styled.header`
   display: flex;
   align-items: center;
 
-  margin-bottom: 55px;
+  /* margin-bottom: 55px; */
 
   @media (min-width: 518) {
     height: 89px;
@@ -23,7 +23,7 @@ export const StyledHeader = styled.header`
   /* Container */
   > div {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 18px;
     @media (min-width: 518px) {
       flex-direction: row-reverse;
@@ -41,7 +41,11 @@ export const StyledHeader = styled.header`
 
   > div > div:nth-child(2) {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+
+    @media (min-width: 518px) {
+      justify-content: center;
+    }
   }
 `;

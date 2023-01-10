@@ -34,16 +34,12 @@ export const StyledPicturesDiv = styled.div`
 `;
 
 export const StyledFilterSection = styled.section`
-  height: 200px;
+  height: fit-content;
+  padding: 20px 0;
 
   display: flex;
   justify-content: center;
   align-items: center;
-
-  @media (min-width: 420px) {
-    border-bottom: 60px solid var(--color-blue-2);
-    margin-bottom: 30px;
-  }
 
   fieldset {
     width: 375px;
@@ -63,7 +59,7 @@ export const StyledFilterSection = styled.section`
   fieldset > label {
     font-weight: 700;
     font-size: 18px;
-    color: var(--color-blue-1);
+    color: var(--color-blue-2);
   }
   fieldset > select {
     height: 42px;
@@ -72,6 +68,7 @@ export const StyledFilterSection = styled.section`
     font-size: 16px;
     font-weight: 400;
     line-height: 27px;
+    text-align: center;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     padding: 0 15px;

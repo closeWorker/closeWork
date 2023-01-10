@@ -74,7 +74,7 @@ export const ServiceCard = ({ service }: iServiceCardProps) => {
           Avaliações:
         </Title>
         {typeof averageRate === "string" ? (
-          <Title type="Headline" colorTitle="blue-1">
+          <Title type="Body-600" colorTitle="blue-1">
             {averageRate}
           </Title>
         ) : (

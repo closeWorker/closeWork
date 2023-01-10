@@ -57,6 +57,11 @@ export const StyledCard = styled.li`
       transform: scale(1.1);
     }
   }
+
+  p {
+    word-break: break-word;
+    text-align: center;
+  }
 `;
 
 export const StyledStars = styled.div`

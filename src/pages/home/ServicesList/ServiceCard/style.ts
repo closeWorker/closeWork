@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const StyledCard = styled.li`
   width: 298px;
   max-width: 100%;
-  height: 375px;
 
   padding: 0 12px 27px 12px;
 
@@ -16,6 +15,15 @@ export const StyledCard = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  transition: 150ms ease-in-out;
+
+  @media (min-width: 420px) {
+    &:hover {
+      border: 1px solid var(--color-neutral-black);
+      transform: scale(1.1);
+    }
+  }
 
   > div {
     border-bottom: 1px solid var(--color-blue-3);
@@ -36,9 +44,25 @@ export const StyledCard = styled.li`
     position: absolute;
     bottom: 19px;
     right: 1px;
+
+    overflow: visible;
   }
   > div:nth-child(4) > a > img {
     width: 100%;
     object-fit: cover;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    transition: 150ms ease-in-out;
+  }
+`;
+
+export const StyledStars = styled.div`
+  display: flex;
+  align-items: center;
+  svg {
+    font-size: 20px;
   }
 `;

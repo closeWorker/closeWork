@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { Title } from "../../../../components/Title";
 import { ServiceContext } from "../../../../context/ServiceContext";
-import { StyledCard } from "./style";
+import { StyledCard, StyledStars } from "./style";
 import { iServiceCardProps } from "./type";
 import whatsappIcon from "../../../../assets/whatsapp-icon.svg";
+import { AiFillStar } from "react-icons/ai";
+import { BsStarHalf } from "react-icons/bs";
 import { ImgProfile } from "../../../../components/ImgProfile";
 import { LinkNavigation } from "../../../../components/LinkNavigation";
 
@@ -15,18 +17,16 @@ export const ServiceCard = ({ service }: iServiceCardProps) => {
   );
 
   let averageRate;
-
   ratingList.length !== 0
-    ? (averageRate = Math.round(
+    ? (averageRate =
         ratingList.reduce(
           (currentSum, currentRate) => currentSum + currentRate.service_rating,
           0
-        ) / ratingList.length
-      ))
+        ) / ratingList.length)
     : (averageRate = "Sem avaliações no momento");
 
   const whatsNumber = (phoneNumber: string) =>
-    `55${phoneNumber.replace(/[()\ \s-]+/g, "")}`;
+    `55${phoneNumber?.replace(/[()\ \s-]+/g, "")}`;
 
   return (
     <StyledCard key={service.id}>
@@ -34,11 +34,8 @@ export const ServiceCard = ({ service }: iServiceCardProps) => {
         <ImgProfile
           alt="Foto do trabalhador"
           srcLink={service.service_provider_avatar}
-          type="modal"
+          type="home"
         />
-        <Title type="Headline" colorTitle="blue-1">
-          {`Nota: ${averageRate}`}
-        </Title>
       </div>
       <div>
         <Title type="Headline" colorTitle="blue-1">
@@ -71,6 +68,57 @@ export const ServiceCard = ({ service }: iServiceCardProps) => {
         >
           <img src={whatsappIcon} alt="Ícone do whatsappp" />
         </a>
+      </div>
+      <div>
+        <Title type="Headline" colorTitle="blue-1">
+          Avaliações:
+        </Title>
+        {typeof averageRate === "string" ? (
+          <Title type="Headline" colorTitle="blue-1">
+            {averageRate}
+          </Title>
+        ) : (
+          <StyledStars>
+            {averageRate === 0.5 ? (
+              <BsStarHalf color="FFD704" />
+            ) : (
+              <AiFillStar
+                color={averageRate >= 1 ? "FFD704" : "var(--color-gray-4)"}
+              />
+            )}
+            {averageRate === 1.5 ? (
+              <BsStarHalf color="FFD704" />
+            ) : (
+              <AiFillStar
+                color={averageRate >= 2 ? "FFD704" : "var(--color-gray-4)"}
+              />
+            )}
+            {averageRate === 2.5 ? (
+              <BsStarHalf color="FFD704" />
+            ) : (
+              <AiFillStar
+                color={averageRate >= 3 ? "FFD704" : "var(--color-gray-4)"}
+              />
+            )}
+            {averageRate === 3.5 ? (
+              <BsStarHalf color="FFD704" />
+            ) : (
+              <AiFillStar
+                color={averageRate >= 4 ? "FFD704" : "var(--color-gray-4)"}
+              />
+            )}
+            {averageRate === 4.5 ? (
+              <BsStarHalf color="FFD704" />
+            ) : (
+              <AiFillStar
+                color={averageRate >= 5 ? "FFD704" : "var(--color-gray-4)"}
+              />
+            )}
+            <Title type="Headline" colorTitle="blue-1">
+              ({averageRate.toFixed(2).replace(".", ",")})
+            </Title>
+          </StyledStars>
+        )}
       </div>
       <LinkNavigation
         linkTo={`/more_infos/${service.id}`}

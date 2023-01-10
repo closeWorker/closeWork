@@ -36,6 +36,19 @@ export const Register = () => {
     resolver: yupResolver(registerSchema),
   });
 
+  const handlePhone = (event: any) => {
+    let input = event.target;
+    input.value = phoneMask(input.value);
+  };
+
+  const phoneMask = (value: string) => {
+    if (!value) return "";
+    value = value.replace(/\D/g, "");
+    value = value.replace(/(\d{2})(\d)/, "($1) $2");
+    value = value.replace(/(\d)(\d{4})$/, "$1-$2");
+    return value;
+  };
+
   return (
     <StyledRegister>
       <section className="img-section">
@@ -97,10 +110,12 @@ export const Register = () => {
           <Input
             id="input-contact"
             labelName="Contato"
-            type="text"
+            type="tel"
             linkForm={register("contact")}
-            placeholder="(11)922223333"
+            placeholder="(11) 92222-3333"
             error={errors.contact?.message}
+            onChange={() => handlePhone(event)}
+            maxLength={15}
           />
 
           <Button type="submit" style="blueDark" disabled={loadingButton}>

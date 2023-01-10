@@ -1,5 +1,9 @@
 import { useRef } from "react";
-import { StyledContainerImgProfile, StyledContainerImgModal } from "./style";
+import {
+  StyledContainerImgProfile,
+  StyledContainerImgModal,
+  StyledContainerImgHome,
+} from "./style";
 import icon from "../../assets/icon-profile.svg";
 import { iImgProfileProps } from "./type";
 
@@ -35,6 +39,18 @@ export const ImgProfile = ({ alt, srcLink, type }: iImgProfileProps) => {
             onError={validateImgProfile}
           />
         </StyledContainerImgModal>
+      );
+      break;
+    case "home":
+      return (
+        <StyledContainerImgHome>
+          <img
+            src={srcLink}
+            alt={alt}
+            ref={imgProfileRef}
+            onError={validateImgProfile}
+          />
+        </StyledContainerImgHome>
       );
       break;
   }

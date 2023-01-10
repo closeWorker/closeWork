@@ -51,11 +51,16 @@ export const StyledCard = styled.li`
     width: 100%;
     object-fit: cover;
 
+    transition: 150ms ease-in-out;
+
     &:hover {
       transform: scale(1.1);
     }
+  }
 
-    transition: 150ms ease-in-out;
+  p {
+    word-break: break-word;
+    text-align: center;
   }
 `;
 

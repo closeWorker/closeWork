@@ -31,18 +31,18 @@ export const StyledContainerImgHome = styled.div`
   height: 150px;
   background-color: transparent;
 
-  overflow: hidden;
+  overflow: visible;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 100%;
+    border-radius: 50%;
 
     transition: 150ms ease-in-out;
 
     &:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
   }
 `;

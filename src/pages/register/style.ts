@@ -49,6 +49,10 @@ export const StyledRegister = styled.main`
     Button {
       height: 60px;
       margin-top: 10px;
+      &:hover {
+        background-color: var(--color-blue-4);
+        color: var(--color-blue-1);
+      }
     }
     Input {
       width: 100%;

@@ -10,8 +10,6 @@ export const StyledHeader = styled.header`
   display: flex;
   align-items: center;
 
-  /* margin-bottom: 55px; */
-
   @media (min-width: 518) {
     height: 89px;
 
@@ -20,7 +18,6 @@ export const StyledHeader = styled.header`
     margin-bottom: 0;
   }
 
-  /* Container */
   > div {
     display: flex;
     flex-direction: column-reverse;

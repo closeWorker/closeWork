@@ -17,6 +17,7 @@ import worker2 from "../../assets/worker-2.svg";
 import worker3 from "../../assets/worker-3.svg";
 import worker4 from "../../assets/worker-4.svg";
 import worker5 from "../../assets/worker-5.svg";
+import { SlideImagesHome } from "../../components/SlideImagesHome";
 
 export const Home = () => {
   const {
@@ -55,7 +56,8 @@ export const Home = () => {
     <PageContainer>
       <HeaderHome />
       <main>
-        <StyledPicturesDiv>
+        <SlideImagesHome />
+        {/* <StyledPicturesDiv>
           <ContainerHome>
             <img src={worker1} alt="" />
             <img src={worker2} alt="" />
@@ -63,7 +65,7 @@ export const Home = () => {
             <img src={worker4} alt="" />
             <img src={worker5} alt="" />
           </ContainerHome>
-        </StyledPicturesDiv>
+        </StyledPicturesDiv> */}
         <StyledFilterSection>
           <fieldset>
             <label htmlFor="filter">Filtrar por tipo de serviço</label>

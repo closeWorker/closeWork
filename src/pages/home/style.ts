@@ -63,7 +63,7 @@ export const StyledFilterSection = styled.section`
   fieldset > label {
     font-weight: 700;
     font-size: 18px;
-    color: var(--color-blue-1);
+    color: var(--color-blue-2);
   }
   fieldset > select {
     height: 42px;

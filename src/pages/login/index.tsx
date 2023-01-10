@@ -12,6 +12,7 @@ import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { Title } from "../../components/Title";
 import { Link } from "react-router-dom";
+import { RotatingLines } from "react-loader-spinner";
 
 export const Login = () => {
   const { loadingButton, onSubmitLogin } = useContext(UserContext);
@@ -54,12 +55,19 @@ export const Login = () => {
             placeholder="Digite sua senha"
             error={errors.password?.message}
           />
-          <Button
-            type="submit"
-            style="blueDark"
-            disabled={loadingButton}
-            name={loadingButton ? "Carregando..." : "Login"}
-          />
+          <Button type="submit" style="blueDark" disabled={loadingButton}>
+            {loadingButton ? (
+              <RotatingLines
+                strokeColor="white"
+                strokeWidth="5"
+                animationDuration="0.75"
+                width="30"
+                visible={true}
+              />
+            ) : (
+              "Login"
+            )}
+          </Button>
         </form>
         <div>
           <p>Ainda não tem conta? Realize seu cadastro agora!</p>

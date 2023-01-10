@@ -11,6 +11,7 @@ import { AxiosError } from "axios";
 import { iDefaultErrorResponse, iListComments } from "../../../context/type";
 import { api } from "../../../services/api";
 import { useState } from "react";
+import { RotatingLines } from "react-loader-spinner";
 
 export interface iNewComment {
   name: string;
@@ -21,11 +22,11 @@ export interface iNewComment {
 }
 
 export interface iPropsNewComment {
-  setListComments: React.Dispatch<React.SetStateAction<iListComments[]>>
+  setListComments: React.Dispatch<React.SetStateAction<iListComments[]>>;
 }
 
-export const NewComment = ({setListComments}:iPropsNewComment) => {
-  const [load, setLoad] = useState(false)
+export const NewComment = ({ setListComments }: iPropsNewComment) => {
+  const [load, setLoad] = useState(false);
   const params = useParams();
 
   const newCommentSchema = yup.object().shape({
@@ -37,6 +38,7 @@ export const NewComment = ({setListComments}:iPropsNewComment) => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<iNewComment>({
     mode: "onBlur",
@@ -44,42 +46,40 @@ export const NewComment = ({setListComments}:iPropsNewComment) => {
   });
 
   const requestComments = async () => {
-    try{
+    try {
       const responseComments = await api.get(
         `comments?serviceId=${params.serviceId}`
-        
       );
-      setListComments(responseComments.data)
-
-    } catch (error){
+      setListComments(responseComments.data);
+    } catch (error) {
       const currentError = error as AxiosError<iDefaultErrorResponse>;
       console.error(currentError.response?.data);
     }
-  }
-
+  };
 
   const submitNewComment = async (data: iNewComment) => {
-   data.serviceId = Number(params.serviceId)
-   data.service_rating = Number(data.service_rating)
-   data.userId = 1
-   const token = localStorage.getItem("@closework:commentToken")
-   if(token){
-    try{
-      setLoad(true)
-      const response = await api.post(`/comments`, data, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        }
-      }) 
-      requestComments()
-      }catch (error){
-      const currentError = error as AxiosError<iDefaultErrorResponse>;
-      console.error(currentError.response?.data);
-    }finally{
-      setLoad(false)
+    data.serviceId = Number(params.serviceId);
+    data.service_rating = Number(data.service_rating);
+    data.userId = 1;
+    const token = localStorage.getItem("@closework:commentToken");
+    if (token) {
+      try {
+        setLoad(true);
+        const response = await api.post(`/comments`, data, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        reset();
+        requestComments();
+      } catch (error) {
+        const currentError = error as AxiosError<iDefaultErrorResponse>;
+        console.error(currentError.response?.data);
+      } finally {
+        setLoad(false);
+      }
     }
-   };
-   }
+  };
 
   return (
     <ContainerNewComment onSubmit={handleSubmit(submitNewComment)}>
@@ -112,7 +112,19 @@ export const NewComment = ({setListComments}:iPropsNewComment) => {
           {errors.service_rating?.message}
         </Title>
       </Fieldset>
-      <Button style="blueDark" type="submit" name={load? "Carregando...":"Enviar Depoimento"} disabled={load} />
+      <Button style="blueDark" type="submit" disabled={load}>
+        {load ? (
+          <RotatingLines
+            strokeColor="white"
+            strokeWidth="5"
+            animationDuration="0.75"
+            width="30"
+            visible={true}
+          />
+        ) : (
+          "Enviar Depoimento"
+        )}
+      </Button>
     </ContainerNewComment>
   );
 };

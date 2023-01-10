@@ -2,6 +2,7 @@ import { AxiosError } from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Footer } from "../../components/Footer";
+import { LoadingFullPage } from "../../components/LoadingFullPage";
 import { Title } from "../../components/Title";
 import { iDefaultErrorResponse, iListComments } from "../../context/type";
 import { api } from "../../services/api";
@@ -32,8 +33,6 @@ export const MoreInfo = () => {
 
   const params = useParams();
 
-
-  
   useEffect(() => {
     const requestServices = async () => {
       try {
@@ -53,24 +52,27 @@ export const MoreInfo = () => {
         setLoadingPage(false);
       }
     };
-  
+
     const loginComments = async () => {
       const data = {
-        "email": "usercoments@gmail.com",
-        "password": "123456"
-      }
+        email: "usercoments@gmail.com",
+        password: "123456",
+      };
       try {
         const response = await api.post("/login", data);
-        localStorage.setItem("@closework:commentToken", response.data.accessToken);
-               
+        localStorage.setItem(
+          "@closework:commentToken",
+          response.data.accessToken
+        );
       } catch (error) {
         const currentError = error as AxiosError<iDefaultErrorResponse>;
         console.error(currentError.response?.data);
-       } finally {
-       }
+      } finally {
+      }
     };
 
-    requestServices(); loginComments()
+    requestServices();
+    loginComments();
   }, []);
 
   return (
@@ -88,17 +90,17 @@ export const MoreInfo = () => {
               Criar comentário
             </Title>
           </StyledService>
-          <NewComment setListComments = {setListComments}/>
+          <NewComment setListComments={setListComments} />
           <StyledService>
             <Title type="Heading2" colorTitle="blue-2">
               Comentários
             </Title>
           </StyledService>
-          <ListComments listCommentsProp={listComments}/>
+          <ListComments listCommentsProp={listComments} />
           <Footer />
         </StyledMoreInfo>
       ) : (
-        <h1>Carregando...</h1>
+        <LoadingFullPage />
       )}
     </>
   );

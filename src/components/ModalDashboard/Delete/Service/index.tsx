@@ -3,6 +3,7 @@ import { ServiceContext } from "../../../../context/ServiceContext";
 import { api } from "../../../../services/api";
 import { Button } from "../../../Button";
 import { Title } from "../../../Title";
+import { RotatingLines } from "react-loader-spinner";
 
 export const DeleteService = () => {
   const {
@@ -10,7 +11,9 @@ export const DeleteService = () => {
     idService,
     setLoadingButtonModal,
     requestRegisteredUserServices,
+    loadingButtonModal,
   } = useContext(ServiceContext);
+
   const onSubmitDeleteService = async () => {
     const token = localStorage.getItem("@closework:token");
     if (token) {
@@ -42,13 +45,25 @@ export const DeleteService = () => {
         <Button
           style="delete"
           type="button"
-          children="Excluir"
           action={() => onSubmitDeleteService()}
-        />
+          disabled={loadingButtonModal}
+        >
+          {loadingButtonModal ? (
+            <RotatingLines
+              strokeColor="black"
+              strokeWidth="5"
+              animationDuration="0.75"
+              width="30"
+              visible={true}
+            />
+          ) : (
+            "Excluir"
+          )}
+        </Button>
         <Button
           style="blueLight"
           type="button"
-          children="Manter"
+          name="Manter"
           action={() => setOpenModal(false)}
         />
       </div>

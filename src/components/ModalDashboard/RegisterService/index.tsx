@@ -13,6 +13,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { api } from "../../../services/api";
 import { iRegisterServiceSubmit } from "./type";
 import { registerServiceSchema } from "./registerServiceSchema";
+import { RotatingLines } from "react-loader-spinner";
 
 export const RegisterService = () => {
   const {
@@ -84,12 +85,19 @@ export const RegisterService = () => {
             linkForm={register("description")}
             error={errors.description?.message}
           />
-          <Button
-            style="blueLight"
-            type="submit"
-            disabled={loadingButtonModal}
-            name={loadingButtonModal ? "Carregando..." : "Cadastrar Serviço"}
-          />
+          <Button style="blueLight" type="submit" disabled={loadingButtonModal}>
+            {loadingButtonModal ? (
+              <RotatingLines
+                strokeColor="black"
+                strokeWidth="5"
+                animationDuration="0.75"
+                width="30"
+                visible={true}
+              />
+            ) : (
+              "Cadastrar Serviço"
+            )}
+          </Button>
         </FormRegister>
       </DivRegister>
     </DivModal>

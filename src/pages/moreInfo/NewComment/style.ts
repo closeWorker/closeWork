@@ -7,34 +7,35 @@ export const ContainerNewComment = styled.form`
   padding: 20px 16px;
 
   margin: 0 auto;
-  input{
+  input {
     background-color: var(--color-blue-6);
-    border:none;
-    width:100%;
+    border: none;
+    width: 100%;
   }
 
-  textarea{
+  textarea {
     background-color: var(--color-blue-6);
   }
-  label{
-    color:var(--color-blue-1);
+  label {
+    color: var(--color-blue-1);
   }
 
-  button{
+  button {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 200px;
   }
 `;
 
 export const Fieldset = styled.fieldset`
   display: flex;
   flex-direction: row;
-  align-items:center;
+  align-items: center;
   gap: 25px;
   width: 100%;
   border: none;
   padding: 20px 0;
   label {
-    color:var(--color-blue-1);
+    color: var(--color-blue-1);
     font-size: 22px;
     font-weight: 700;
     line-height: 27px;
@@ -51,7 +52,6 @@ export const Fieldset = styled.fieldset`
     padding: 0 15px;
     border-radius: 4px;
     border: 2px solid var(--color-blue-5);
-    border:none;
+    border: none;
   }
-
 `;

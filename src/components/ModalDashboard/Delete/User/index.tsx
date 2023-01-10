@@ -4,6 +4,7 @@ import { UserContext } from "../../../../context/UserContext";
 import { api } from "../../../../services/api";
 import { Button } from "../../../Button";
 import { Title } from "../../../Title";
+import { RotatingLines } from "react-loader-spinner";
 
 export const DeleteUser = () => {
   const {
@@ -11,6 +12,7 @@ export const DeleteUser = () => {
     idUser,
     setLoadingButtonModal,
     requestRegisteredUserServices,
+    loadingButtonModal,
   } = useContext(ServiceContext);
   const { handleLogout } = useContext(UserContext);
   const onSubmitDeleteUser = async () => {
@@ -44,16 +46,27 @@ export const DeleteUser = () => {
         <Button
           style="delete"
           type="button"
-          children="Excluir"
           action={() => {
             onSubmitDeleteUser();
             handleLogout();
           }}
-        />
+        >
+          {loadingButtonModal ? (
+            <RotatingLines
+              strokeColor="black"
+              strokeWidth="5"
+              animationDuration="0.75"
+              width="30"
+              visible={true}
+            />
+          ) : (
+            "Excluir"
+          )}
+        </Button>
         <Button
           style="blueLight"
           type="button"
-          children="Manter"
+          name="Manter"
           action={() => setOpenModal(false)}
         />
       </div>

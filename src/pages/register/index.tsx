@@ -5,7 +5,6 @@ import { Button } from "../../components/Button";
 
 import { UserContext } from "../../context/UserContext";
 import { useContext } from "react";
-import { ServiceContext } from "../../context/ServiceContext";
 
 import { LinkNavigation } from "../../components/LinkNavigation";
 import { StyledRegister } from "./style";
@@ -15,6 +14,7 @@ import workersImg from "../../assets/workers-img.svg";
 import { Input } from "../../components/Input";
 import { Title } from "../../components/Title";
 import { Link } from "react-router-dom";
+import { RotatingLines } from "react-loader-spinner";
 
 interface IRegisterFormData {
   name: string;
@@ -103,12 +103,19 @@ export const Register = () => {
             error={errors.contact?.message}
           />
 
-          <Button
-            type="submit"
-            style="blueDark"
-            name={loadingButton ? "Carregando..." : "Cadastrar"}
-            disabled={loadingButton}
-          />
+          <Button type="submit" style="blueDark" disabled={loadingButton}>
+            {loadingButton ? (
+              <RotatingLines
+                strokeColor="white"
+                strokeWidth="5"
+                animationDuration="0.75"
+                width="30"
+                visible={true}
+              />
+            ) : (
+              "Cadastrar"
+            )}
+          </Button>
         </form>
         <div>
           <p>Já possui conta? Realize seu login agora!</p>

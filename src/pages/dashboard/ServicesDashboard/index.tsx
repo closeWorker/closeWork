@@ -10,6 +10,7 @@ import { CardDashboard } from "../cardDashboard";
 import { Title } from "../../../components/Title";
 import { useContext } from "react";
 import { ServiceContext } from "../../../context/ServiceContext";
+import { LoadingContainer } from "../../../components/LoadingContainer";
 
 export const ServicesDashboard = () => {
   const {
@@ -52,7 +53,8 @@ export const ServicesDashboard = () => {
             <h1>Não existe serviços cadastrados</h1>
           )
         ) : (
-          <h1>Carregando ....</h1>
+          <LoadingContainer />
+          // <h1>Carregando ....</h1>
         )}
       </ContainerHome>
     </StyledServicesDashboard>

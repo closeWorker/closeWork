@@ -13,6 +13,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { editServiceSchema } from "./editServiceSchema";
 import { iEditServiceSubmit } from "./type";
 import { api } from "../../../services/api";
+import { RotatingLines } from "react-loader-spinner";
 
 export const EditService = () => {
   const {
@@ -92,11 +93,19 @@ export const EditService = () => {
             linkForm={register("description")}
             error={errors.description?.message}
           />
-          <Button
-            style="blueLight"
-            type="submit"
-            name={loadingButtonModal ? "Carregando..." : "Atualizar Serviço"}
-          />
+          <Button style="blueLight" type="submit">
+            {loadingButtonModal ? (
+              <RotatingLines
+                strokeColor="black"
+                strokeWidth="5"
+                animationDuration="0.75"
+                width="30"
+                visible={true}
+              />
+            ) : (
+              "Atualizar Serviço"
+            )}
+          </Button>
         </FormEdit>
       </DivEdit>
     </DivModal>

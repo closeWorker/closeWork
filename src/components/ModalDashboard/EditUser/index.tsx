@@ -3,7 +3,7 @@ import { DivModal } from "../style";
 import { DivEdit, FormEdit } from "./style";
 import { Input } from "../../Input";
 import { HeaderModal } from "../HeaderModal";
-import { useContext, useEffect, useRef } from "react";
+import { useContext } from "react";
 import { ServiceContext } from "../../../context/ServiceContext";
 import { useOutClick } from "../../../hooks/useOutClick";
 import { UserContext } from "../../../context/UserContext";
@@ -11,6 +11,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { editProfileSchema } from "./editUserSchema";
 import { api } from "../../../services/api";
+import { RotatingLines } from "react-loader-spinner";
 
 interface iEditProfileSubmit {
   name: string;
@@ -105,12 +106,19 @@ export const EditUser = () => {
             error={errors.avatar?.message}
           />
 
-          <Button
-            name={loadingButtonModal ? "Carregando..." : "Atualizar Perfil"}
-            style="blueLight"
-            type="submit"
-            disabled={loadingButtonModal}
-          />
+          <Button style="blueLight" type="submit" disabled={loadingButtonModal}>
+            {loadingButtonModal ? (
+              <RotatingLines
+                strokeColor="black"
+                strokeWidth="5"
+                animationDuration="0.75"
+                width="30"
+                visible={true}
+              />
+            ) : (
+              "Atualizar Perfil"
+            )}
+          </Button>
 
           <Button
             name="Excluir Perfil"

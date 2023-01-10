@@ -54,6 +54,7 @@ export const UserProvider = ({ children }: iPropsUserProvider) => {
 
   const onSubmitRegister: SubmitHandler<IRegisterFormData> = async (data) => {
     delete data.confirmPassword;
+    data.avatar = "";
     try {
       setLoadingButton(true);
       const response = await api.post("/register", data);

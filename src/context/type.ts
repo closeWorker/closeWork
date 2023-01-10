@@ -33,7 +33,7 @@ export interface iListServiceHome {
   service_provider_avatar: string;
   kind_of_service: string;
   phone_number: string;
-  link_instagram: string;
+  description: string;
   id: number;
 }
 
@@ -68,8 +68,13 @@ export interface iServiceContext {
   setInfosModalEditService: React.Dispatch<
     React.SetStateAction<iInfoModalEditService>
   >;
+  idUser: number;
+  setIdUser: React.Dispatch<React.SetStateAction<number>>;
+  idService: number;
+  setIdService: React.Dispatch<React.SetStateAction<number>>;
   listComments: iListComments[];
   setListComments: React.Dispatch<React.SetStateAction<iListComments[]>>;
+  listServiceHome: iListServiceHome[];
 }
 
 export interface iListServiceUserLogged {
@@ -107,4 +112,5 @@ export interface IRegisterFormData {
   password: string;
   confirmPassword?: string;
   contact: string;
+  avatar?: string;
 }

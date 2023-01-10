@@ -1,15 +1,11 @@
 import { MdEdit } from "react-icons/md";
-import {
-  StyledName,
-  StyledProfile,
-  StyledProfileDescription,
-} from "./style";
+import { StyledName, StyledProfile, StyledProfileDescription } from "./style";
 import { ContainerHome } from "../style";
 import { Title } from "../../../components/Title";
 import { ImgProfile } from "../../../components/ImgProfile";
+import { iPropsProfileMoreInfo } from "../type";
 
-export const ProfileMoreInfo = () => {
-
+export const ProfileMoreInfo = ({ service }: iPropsProfileMoreInfo) => {
   return (
     <StyledProfile>
       <ContainerHome>
@@ -17,18 +13,15 @@ export const ProfileMoreInfo = () => {
           <ImgProfile
             alt="imagem de perfil do usuário"
             type="profile"
-            srcLink={"userProfile.avatar"}
+            srcLink={service.service_provider_avatar}
           />
           <StyledName>
             <div>
               <Title colorTitle="white" type="Heading1">
-                {"userProfile.name"}
+                {service.service_provider}
               </Title>
               <Title colorTitle="white" type="Body">
-                {"userProfile.email"}
-              </Title>
-              <Title colorTitle="white" type="Body">
-                {"userProfile.contact"}
+                {service.phone_number}
               </Title>
             </div>
           </StyledName>

@@ -14,7 +14,7 @@ import { UserContext } from "../../../context/UserContext";
 import { ImgProfile } from "../../../components/ImgProfile";
 
 export const ProfileDashboard = () => {
-  const { setOpenModal, setTypeModal } = useContext(ServiceContext);
+  const { setOpenModal, setTypeModal, setIdUser } = useContext(ServiceContext);
   const { userProfile } = useContext(UserContext);
 
   return (
@@ -27,6 +27,7 @@ export const ProfileDashboard = () => {
             action={() => {
               setOpenModal(true);
               setTypeModal("EditUser");
+              setIdUser(userProfile.id);
             }}
           >
             <MdEdit />

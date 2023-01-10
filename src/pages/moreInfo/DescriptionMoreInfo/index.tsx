@@ -13,20 +13,26 @@ export const DescriptionMoreInfo = ({
 }: iPropsDescriptionMoreInfo) => {
   let averageRate;
 
+const ratingReduce = (listComments.reduce(
+  (currentSum, currentRate) => currentSum + currentRate.service_rating,
+  0) / listComments.length).toFixed(1)
+
   listComments.length !== 0
-    ? (averageRate =
-        listComments.reduce(
-          (currentSum, currentRate) => currentSum + currentRate.service_rating,
-          0
-        ) / listComments.length).toFixed(2)
+    ? averageRate = Number(ratingReduce)
+        
     : (averageRate = "Sem avaliações no momento");
 
   return (
     <StyledDescription>
       <div>
+        <div>
+      <Title colorTitle="blue-1" type="Heading3">Tipo de serviço:</Title>
         <Title colorTitle="blue-1" type="Heading2">
           {service.kind_of_service}
         </Title>
+        </div>
+        <div>
+        <Title colorTitle="blue-1" type="Heading3">Avaliação:</Title>
         <StyledContainerStars>
           {typeof averageRate === "number" && <img src={star} alt="" />}
 
@@ -34,6 +40,9 @@ export const DescriptionMoreInfo = ({
             {averageRate}
           </Title>
         </StyledContainerStars>
+        </div>
+      
+        <Title colorTitle="blue-1" type="Heading3">Descrição do serviço:</Title>
         <Title colorTitle="blue-1" type="Headline">
           {service.description}
         </Title>

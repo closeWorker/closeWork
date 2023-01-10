@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import { AxiosError } from "axios";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Footer } from "../../components/Footer";
 import { Title } from "../../components/Title";
-import { ServiceContext } from "../../context/ServiceContext";
-import { iListComments } from "../../context/type";
+import { iDefaultErrorResponse, iListComments } from "../../context/type";
 import { api } from "../../services/api";
 import { DescriptionMoreInfo } from "./DescriptionMoreInfo";
 import { HeaderMoreInfo } from "./HeaderMoreInfo";
@@ -32,6 +32,8 @@ export const MoreInfo = () => {
 
   const params = useParams();
 
+
+  
   useEffect(() => {
     const requestServices = async () => {
       try {
@@ -40,12 +42,10 @@ export const MoreInfo = () => {
           `comments?serviceId=${params.serviceId}`
         );
         setServiceMoreInfo(response.data);
-        console.log(response.data);
         setListComments(responseComments.data);
-        console.log(responseComments.data);
         setTimeout(() => {
           setLoadingPage(true);
-        }, 1000);
+        }, 500);
       } catch (error) {
         setLoadingPage(false);
         console.error(error);
@@ -53,7 +53,24 @@ export const MoreInfo = () => {
         setLoadingPage(false);
       }
     };
-    requestServices();
+  
+    const loginComments = async () => {
+      const data = {
+        "email": "usercoments@gmail.com",
+        "password": "123456"
+      }
+      try {
+        const response = await api.post("/login", data);
+        localStorage.setItem("@closework:commentToken", response.data.accessToken);
+               
+      } catch (error) {
+        const currentError = error as AxiosError<iDefaultErrorResponse>;
+        console.error(currentError.response?.data);
+       } finally {
+       }
+    };
+
+    requestServices(); loginComments()
   }, []);
 
   return (
@@ -71,13 +88,13 @@ export const MoreInfo = () => {
               Criar comentário
             </Title>
           </StyledService>
-          <NewComment />
+          <NewComment setListComments = {setListComments}/>
           <StyledService>
             <Title type="Heading2" colorTitle="blue-2">
               Comentários
             </Title>
           </StyledService>
-          <ListComments />
+          <ListComments listCommentsProp={listComments}/>
           <Footer />
         </StyledMoreInfo>
       ) : (

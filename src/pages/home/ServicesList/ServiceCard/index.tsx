@@ -34,7 +34,7 @@ export const ServiceCard = ({ service }: iServiceCardProps) => {
         <ImgProfile
           alt="Foto do trabalhador"
           srcLink={service.service_provider_avatar}
-          type="modal"
+          type="home"
         />
       </div>
       <div>

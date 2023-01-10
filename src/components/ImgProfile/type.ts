@@ -1,5 +1,5 @@
 export interface iImgProfileProps {
   alt: string;
   srcLink: string;
-  type: "profile" | "modal";
+  type: "profile" | "modal" | "home";
 }

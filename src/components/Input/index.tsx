@@ -10,6 +10,8 @@ export const Input = ({
   linkForm,
   error,
   disabled,
+  onChange,
+  maxLength,
 }: iInput) => {
   return (
     <>
@@ -21,6 +23,8 @@ export const Input = ({
           placeholder={placeholder}
           {...linkForm}
           disabled={disabled}
+          onChange={onChange}
+          maxLength={maxLength}
         />
 
         <Title type="Body-600" colorTitle="negative">

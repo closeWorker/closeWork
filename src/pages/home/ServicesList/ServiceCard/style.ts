@@ -44,10 +44,18 @@ export const StyledCard = styled.li`
     position: absolute;
     bottom: 19px;
     right: 1px;
+
+    overflow: visible;
   }
   > div:nth-child(4) > a > img {
     width: 100%;
     object-fit: cover;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    transition: 150ms ease-in-out;
   }
 `;
 

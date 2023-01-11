@@ -4,6 +4,7 @@ import { ServiceContext } from "../../../context/ServiceContext";
 import { ServiceCard } from "./ServiceCard";
 import { StyledList, WarningTextBox } from "./style";
 import { Oval } from "react-loader-spinner";
+import { FramerMotionCards } from "../../../components/FramerMotion";
 
 export const ServicesList = () => {
   const {
@@ -35,11 +36,13 @@ export const ServicesList = () => {
           </Title>
         )}
       </WarningTextBox>
-      <StyledList>
-        {services.map((service, index) => (
-          <ServiceCard key={index} service={service} />
-        ))}
-      </StyledList>
+      <FramerMotionCards>
+        <StyledList>
+          {services.map((service, index) => (
+            <ServiceCard key={index} service={service} />
+          ))}
+        </StyledList>
+      </FramerMotionCards>
     </>
   );
 };

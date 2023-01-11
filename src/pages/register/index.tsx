@@ -15,6 +15,7 @@ import { Input } from "../../components/Input";
 import { Title } from "../../components/Title";
 import { Link } from "react-router-dom";
 import { RotatingLines } from "react-loader-spinner";
+import { FramerMotionLoginRegister } from "../../components/FramerMotion";
 
 interface IRegisterFormData {
   name: string;
@@ -39,15 +40,15 @@ export const Register = () => {
 
   return (
     <StyledRegister>
-      <section className="img-section">
+      <FramerMotionLoginRegister className="img-section">
         <img src={fullLogo} className="logo" alt="Logo Close Worker" />
         <img
           src={workersImg}
           className="workers-img"
           alt="imagem de profissões"
         />
-      </section>
-      <section className="form-section">
+      </FramerMotionLoginRegister>
+      <FramerMotionLoginRegister className="form-section">
         <Title colorTitle="blue-2" type="Heading1">
           Cadastro
         </Title>
@@ -128,7 +129,7 @@ export const Register = () => {
             linkTo="/login"
           ></LinkNavigation>
         </div>
-      </section>
+      </FramerMotionLoginRegister>
     </StyledRegister>
   );
 };

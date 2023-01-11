@@ -27,7 +27,7 @@ export const EditService = () => {
   const { userProfile } = useContext(UserContext);
 
   const modalRef = useOutClick(() => {
-    closeModal;
+    closeModal();
   });
 
   const {

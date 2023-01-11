@@ -2,6 +2,7 @@ import { AxiosError } from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Footer } from "../../components/Footer";
+import { FramerMotionHomeDashboardMoreInfo } from "../../components/FramerMotion";
 import { LoadingFullPage } from "../../components/LoadingFullPage";
 import { Title } from "../../components/Title";
 import { iDefaultErrorResponse, iListComments } from "../../context/type";
@@ -78,27 +79,29 @@ export const MoreInfo = () => {
   return (
     <>
       {loadingPage ? (
-        <StyledMoreInfo>
-          <HeaderMoreInfo />
-          <ProfileMoreInfo service={serviceMoreInfo} />
-          <DescriptionMoreInfo
-            service={serviceMoreInfo}
-            listComments={listComments}
-          />
-          <StyledService>
-            <Title type="Heading2" colorTitle="blue-2">
-              Criar comentário
-            </Title>
-          </StyledService>
-          <NewComment setListComments={setListComments} />
-          <StyledService>
-            <Title type="Heading2" colorTitle="blue-2">
-              Comentários
-            </Title>
-          </StyledService>
-          <ListComments listCommentsProp={listComments} />
-          <Footer />
-        </StyledMoreInfo>
+        <FramerMotionHomeDashboardMoreInfo>
+          <StyledMoreInfo>
+            <HeaderMoreInfo />
+            <ProfileMoreInfo service={serviceMoreInfo} />
+            <DescriptionMoreInfo
+              service={serviceMoreInfo}
+              listComments={listComments}
+            />
+            <StyledService>
+              <Title type="Heading2" colorTitle="blue-2">
+                Criar comentário
+              </Title>
+            </StyledService>
+            <NewComment setListComments={setListComments} />
+            <StyledService>
+              <Title type="Heading2" colorTitle="blue-2">
+                Comentários
+              </Title>
+            </StyledService>
+            <ListComments listCommentsProp={listComments} />
+            <Footer />
+          </StyledMoreInfo>
+        </FramerMotionHomeDashboardMoreInfo>
       ) : (
         <LoadingFullPage />
       )}

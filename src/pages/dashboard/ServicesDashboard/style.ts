@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledServicesDashboard = styled.div`
+export const StyledServicesDashboard = styled.main`
   display: flex;
   flex-direction: column;
 `;

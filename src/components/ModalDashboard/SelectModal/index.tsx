@@ -11,7 +11,21 @@ export const SelectModal = ({
   error,
   disabled,
 }: iSelect) => {
-  const { kindOfServices } = useContext(ServiceContext);
+  const kindOfServices = [
+    "Pedreiro",
+    "Servente de Pedreiro",
+    "Encanador",
+    "Doceira",
+    "Costureira",
+    "Babá",
+    "Cozinheira",
+    "Manicure e Pedicure",
+    "Barbeiro",
+    "Cabelereira",
+    "Diarista",
+    "Outros",
+  ];
+
   return (
     <>
       <Fieldset>

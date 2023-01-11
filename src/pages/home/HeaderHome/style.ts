@@ -22,7 +22,7 @@ export const StyledHeader = styled.header`
     display: flex;
     flex-direction: column-reverse;
     gap: 18px;
-    @media (min-width: 518px) {
+    @media (min-width: 550px) {
       flex-direction: row-reverse;
       justify-content: space-between;
       align-items: center;
@@ -31,18 +31,25 @@ export const StyledHeader = styled.header`
 
   > div > div:nth-child(1) {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     gap: 14px;
+    @media (min-width: 550px) {
+      justify-content: flex-end;
+    }
   }
 
   > div > div:nth-child(2) {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 
-    @media (min-width: 518px) {
+    @media (min-width: 550px) {
       justify-content: center;
     }
+  }
+
+  a {
+    width: 120px;
   }
 `;

@@ -16,7 +16,7 @@ export const StyledList = styled.ul`
 
   padding-bottom: 62px;
 
-  max-height: 438px;
+  max-height: 600px;
 
   overflow-y: scroll;
   overflow-x: hidden;

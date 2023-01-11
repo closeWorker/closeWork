@@ -51,7 +51,7 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
     "Cozinheira",
     "Manicure e Pedicure",
     "Barbeiro",
-    "Cabelereira",
+    "Cabeleireira",
     "Outros",
   ];
 

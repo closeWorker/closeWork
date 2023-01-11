@@ -5,6 +5,7 @@ import { Home } from "../pages/home";
 import { Login } from "../pages/login";
 import { MoreInfo } from "../pages/moreInfo";
 import { Register } from "../pages/register";
+import { ViewMore } from "../pages/viewMore";
 
 export const RoutesApp = () => {
   return (
@@ -17,6 +18,7 @@ export const RoutesApp = () => {
 
         <Route element={<ProtectedRoutes />}>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/view_more/:serviceId" element={<ViewMore />} />
         </Route>
 
         <Route path="*" element={<Navigate to="/home" />} />

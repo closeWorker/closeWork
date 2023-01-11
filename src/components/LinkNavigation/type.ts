@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 export interface iLinkProps {
-  name: string;
+  name?: string;
   linkTo: string;
   style: "blueDark" | "blueLight" | "icon";
   children?: ReactNode;

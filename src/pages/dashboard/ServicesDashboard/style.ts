@@ -25,6 +25,8 @@ export const StyledServices = styled.ul`
   overflow: auto;
   height: fit-content;
   margin-bottom: 40px;
+  align-items: center;
+  justify-content: center;
 
   li {
     background-color: var(--color-blue-6);

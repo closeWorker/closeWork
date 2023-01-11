@@ -31,12 +31,18 @@ export const StyledServices = styled.ul`
     gap: 50px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+
     padding: 20px 0;
     width: 100%;
     min-width: 260px;
     max-width: 340px;
     text-align: center;
     border-radius: 4px;
+
+    div:nth-child(1) {
+      height: 70px;
+    }
 
     @media (min-width: 376px) {
       min-width: 340px;
@@ -92,12 +98,23 @@ export const StyledRegisterServices = styled.div`
   gap: 20px;
   padding: 20px 10px;
   text-align: center;
-  /* p {
-    font-weight: 600;
-    font-style: 16px;
-  } */
+
   button {
     padding: 10px 60px;
     height: max-content;
+  }
+`;
+
+export const ContainerHome = styled.div`
+  width: 1200px;
+  max-width: 100%;
+
+  padding: 0 16px;
+
+  margin: 0 auto;
+
+  & > h3 {
+    padding-top: 5px;
+    text-align: center;
   }
 `;

@@ -5,7 +5,7 @@ import {
   StyledServicesDashboard,
 } from "./style";
 import { Button } from "../../../components/Button";
-import { ContainerHome } from "../style";
+import { ContainerHome } from "./style";
 import { CardDashboard } from "../cardDashboard";
 import { Title } from "../../../components/Title";
 import { useContext } from "react";
@@ -50,11 +50,12 @@ export const ServicesDashboard = () => {
               })}
             </StyledServices>
           ) : (
-            <h1>Não existe serviços cadastrados</h1>
+            <Title colorTitle="blue-1" type="Heading2">
+              Não existem serviços cadastrados
+            </Title>
           )
         ) : (
           <LoadingContainer />
-          // <h1>Carregando ....</h1>
         )}
       </ContainerHome>
     </StyledServicesDashboard>

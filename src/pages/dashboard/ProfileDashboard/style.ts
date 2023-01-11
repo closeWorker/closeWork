@@ -43,15 +43,19 @@ export const StyledProfileDescription = styled.div`
     flex-direction: column;
     align-items: center;
   }
-  img,
-  h2,
-  p {
-    width: max-content;
-  }
 `;
 
 export const StyledName = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  & > div {
+    h2:nth-child(1) {
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+      word-break: break-word;
+    }
+  }
 `;

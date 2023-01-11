@@ -5,11 +5,11 @@ import { Title } from "../../../components/Title";
 import { ImgProfile } from "../../../components/ImgProfile";
 import { iPropsProfileMoreInfo } from "../type";
 import whatsappIcon from "../../../assets/whatsapp-icon.svg";
+import { useContext } from "react";
+import { ServiceContext } from "../../../context/ServiceContext";
 
 export const ProfileMoreInfo = ({ service }: iPropsProfileMoreInfo) => {
-  const whatsNumber = (phoneNumber: string) =>
-    `55${phoneNumber?.replace(/[()\ \s-]+/g, "")}`;
-
+  const { whatsNumber } = useContext(ServiceContext);
   return (
     <StyledProfile>
       <ContainerHome>

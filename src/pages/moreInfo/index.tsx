@@ -30,7 +30,7 @@ export const MoreInfo = () => {
   );
 
   const [listComments, setListComments] = useState<iListComments[]>([]);
-  const [loadingPage, setLoadingPage] = useState(false);
+  const [loadingPage, setLoadingPage] = useState(true);
 
   const params = useParams();
 
@@ -43,14 +43,8 @@ export const MoreInfo = () => {
         );
         setServiceMoreInfo(response.data);
         setListComments(responseComments.data);
-        setTimeout(() => {
-          setLoadingPage(true);
-        }, 500);
       } catch (error) {
-        setLoadingPage(false);
         console.error(error);
-      } finally {
-        setLoadingPage(false);
       }
     };
 
@@ -69,9 +63,9 @@ export const MoreInfo = () => {
         const currentError = error as AxiosError<iDefaultErrorResponse>;
         console.error(currentError.response?.data);
       } finally {
+        setLoadingPage(false);
       }
     };
-
     requestServices();
     loginComments();
   }, []);
@@ -79,6 +73,8 @@ export const MoreInfo = () => {
   return (
     <>
       {loadingPage ? (
+        <LoadingFullPage />
+      ) : (
         <FramerMotionHomeDashboardMoreInfo>
           <StyledMoreInfo>
             <HeaderMoreInfo />
@@ -102,8 +98,6 @@ export const MoreInfo = () => {
             <Footer />
           </StyledMoreInfo>
         </FramerMotionHomeDashboardMoreInfo>
-      ) : (
-        <LoadingFullPage />
       )}
     </>
   );

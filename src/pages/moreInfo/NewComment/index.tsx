@@ -103,7 +103,9 @@ export const NewComment = ({ setListComments }: iPropsNewComment) => {
         error={errors.comment?.message}
       />
       <Fieldset>
-        <label>Avaliação:</label>
+        <Title type="Heading3" colorTitle="blue-1">
+          Avaliação:
+        </Title>
         <Rating
           name="rating"
           value={rating}

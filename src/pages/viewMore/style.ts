@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const StyledViewMore = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
+  min-height: 100vh;
 `;
 
 export const StyledService = styled.div`

@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { ServiceContext } from "../../../context/ServiceContext";
 import { iCardProps } from "./type";
 import { Link } from "react-router-dom";
+import { LinkNavigation } from "../../../components/LinkNavigation";
 
 export const CardDashboard = ({ item }: iCardProps) => {
   const { setOpenModal, setTypeModal, setInfosModalEditService, setIdService } =
@@ -17,13 +18,9 @@ export const CardDashboard = ({ item }: iCardProps) => {
         <Title type="Heading1" colorTitle="blue-1">
           {item.kind_of_service}
         </Title>
-        <Link to={`/view_more/${item.id}`}>
-          <Button
-            style="icon"
-            type="button"
-            children={<IoEyeSharp size={30} />}
-          />
-        </Link>
+        <LinkNavigation name="" style="icon" linkTo={`/view_more/${item.id}`}>
+          <IoEyeSharp size={30} />
+        </LinkNavigation>
       </StyledHeaderServices>
       <Buttons>
         <Button

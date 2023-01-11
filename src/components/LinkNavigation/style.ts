@@ -36,16 +36,20 @@ const switchStyleLink = (style: string) => {
     case "icon":
       return `
           border: none;
-          background-color: var(--color-neutral-white);
+          // background-color: var(--color-neutral-white);
           border-radius: 100%;
-          padding: 0 10px;
+          padding: 10px 10px;
         
           &:hover {
             background-color: var(--color-gray-9);
+            svg{
+              color:var(--color-gray-4);
+            }
           }
           svg {
             width: 2em;
             height: 2em;
+            color:var(--color-gray-3);
           }
           `;
       break;

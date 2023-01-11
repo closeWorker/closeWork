@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledProfile = styled.div`
+export const StyledProfile = styled.section`
   width: 100%;
   padding-top: 20px;
   padding-bottom: 55px;

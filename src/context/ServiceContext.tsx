@@ -9,7 +9,6 @@ import {
   iInfoModalEditService,
   iListComments,
 } from "./type";
-import { kindOfServices } from "./kindOfServices";
 
 export const ServiceContext = createContext({} as iServiceContext);
 
@@ -37,10 +36,24 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
   const [infosModalEditService, setInfosModalEditService] = useState(
     {} as iInfoModalEditService
   );
-
   const [listComments, setListComments] = useState<iListComments[]>([]);
 
   const navigate = useNavigate();
+
+  const kindOfServices = [
+    "Todos",
+    "Pedreiro",
+    "Servente de Pedreiro",
+    "Encanador",
+    "Doceira",
+    "Costureira",
+    "Babá",
+    "Cozinheira",
+    "Manicure e Pedicure",
+    "Barbeiro",
+    "Cabelereira",
+    "Outros",
+  ];
 
   const closeModal = () => {
     setClosing(true);
@@ -89,6 +102,7 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
   return (
     <ServiceContext.Provider
       value={{
+        kindOfServices,
         setListServiceHome,
         setKindOfServicesSelectedHome,
         filteredServicesHome,

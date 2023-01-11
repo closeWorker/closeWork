@@ -25,7 +25,8 @@ interface IRegisterFormData {
 }
 
 export const Register = () => {
-  const { loadingButton, onSubmitRegister } = useContext(UserContext);
+  const { loadingButton, onSubmitRegister, handlePhone } =
+    useContext(UserContext);
 
   const {
     register,
@@ -35,19 +36,6 @@ export const Register = () => {
     mode: "onChange",
     resolver: yupResolver(registerSchema),
   });
-
-  const handlePhone = (event: any) => {
-    let input = event.target;
-    input.value = phoneMask(input.value);
-  };
-
-  const phoneMask = (value: string) => {
-    if (!value) return "";
-    value = value.replace(/\D/g, "");
-    value = value.replace(/(\d{2})(\d)/, "($1) $2");
-    value = value.replace(/(\d)(\d{4})$/, "$1-$2");
-    return value;
-  };
 
   return (
     <StyledRegister>

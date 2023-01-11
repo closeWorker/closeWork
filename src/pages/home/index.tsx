@@ -10,13 +10,7 @@ import { Title } from "../../components/Title";
 import { Footer } from "../../components/Footer";
 import { ServicesList } from "./ServicesList";
 import { ServiceContext } from "../../context/ServiceContext";
-import { kindOfServices } from "../../context/kindOfServices";
 import { api } from "../../services/api";
-import worker1 from "../../assets/worker-1.svg";
-import worker2 from "../../assets/worker-2.svg";
-import worker3 from "../../assets/worker-3.svg";
-import worker4 from "../../assets/worker-4.svg";
-import worker5 from "../../assets/worker-5.svg";
 import { SlideImagesHome } from "../../components/SlideImagesHome";
 import { toast } from "react-toastify";
 
@@ -26,6 +20,7 @@ export const Home = () => {
     setListServiceHome,
     setLoadingListServiceHome,
     setListComments,
+    kindOfServices,
   } = useContext(ServiceContext);
 
   useEffect(() => {

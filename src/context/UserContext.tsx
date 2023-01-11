@@ -70,9 +70,7 @@ export const UserProvider = ({ children }: iPropsUserProvider) => {
   };
 
   const handleLogout = () => {
-    toast.success("Logout realizado com sucesso!", {
-      position: toast.POSITION.TOP_CENTER,
-    });
+    toast.success("Logout realizado com sucesso!");
     localStorage.removeItem("@closework:token");
     localStorage.removeItem("@closework:userId");
     setTokenIsValid(false);

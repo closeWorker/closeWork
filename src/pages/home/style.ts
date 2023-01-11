@@ -41,6 +41,8 @@ export const StyledFilterSection = styled.section`
   justify-content: center;
   align-items: center;
 
+  margin-bottom: 15px;
+
   fieldset {
     width: 375px;
     max-width: 100%;

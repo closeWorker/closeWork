@@ -9,7 +9,6 @@ import {
   iInfoModalEditService,
   iListComments,
 } from "./type";
-import { kindOfServices } from "./kindOfServices";
 
 export const ServiceContext = createContext({} as iServiceContext);
 
@@ -25,6 +24,7 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
     iListServiceUserLogged[]
   >([]);
   const [openModal, setOpenModal] = useState(false);
+  const [isClosing, setClosing] = useState(false);
   const [typeModal, setTypeModal] = useState("");
   const [idUser, setIdUser] = useState(0);
   const [idService, setIdService] = useState(0);
@@ -36,10 +36,32 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
   const [infosModalEditService, setInfosModalEditService] = useState(
     {} as iInfoModalEditService
   );
-
   const [listComments, setListComments] = useState<iListComments[]>([]);
 
   const navigate = useNavigate();
+
+  const kindOfServices = [
+    "Todos",
+    "Pedreiro",
+    "Servente de Pedreiro",
+    "Encanador",
+    "Doceira",
+    "Costureira",
+    "Babá",
+    "Cozinheira",
+    "Manicure e Pedicure",
+    "Barbeiro",
+    "Cabelereira",
+    "Outros",
+  ];
+
+  const closeModal = () => {
+    setClosing(true);
+    setTimeout(() => {
+      setClosing(false);
+      setOpenModal(false);
+    }, 200);
+  };
 
   const requestRegisteredUserServices = async () => {
     const token = localStorage.getItem("@closework:token");
@@ -80,6 +102,7 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
   return (
     <ServiceContext.Provider
       value={{
+        kindOfServices,
         setListServiceHome,
         setKindOfServicesSelectedHome,
         filteredServicesHome,
@@ -88,6 +111,8 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
         listServiceUserLogged,
         openModal,
         setOpenModal,
+        closeModal,
+        isClosing,
         typeModal,
         setTypeModal,
         requestRegisteredUserServices,

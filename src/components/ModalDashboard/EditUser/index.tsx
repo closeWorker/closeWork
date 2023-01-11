@@ -21,7 +21,7 @@ interface iEditProfileSubmit {
 
 export const EditUser = () => {
   const {
-    setOpenModal,
+    closeModal,
     setTypeModal,
     loadingButtonModal,
     setLoadingButtonModal,
@@ -29,10 +29,10 @@ export const EditUser = () => {
     infosModalEditService,
     requestRegisteredUserServices,
   } = useContext(ServiceContext);
-  const { userProfile, setUserProfile } = useContext(UserContext);
+  const { userProfile, setUserProfile, handlePhone } = useContext(UserContext);
 
   const modalRef = useOutClick(() => {
-    setOpenModal(false);
+    closeModal();
   });
 
   const {
@@ -101,9 +101,7 @@ export const EditUser = () => {
           delete user.password;
           setUserProfile(user);
           updateServiceInformation(user);
-          setTimeout(() => {
-            setOpenModal(false);
-          }, 500);
+          closeModal();
         } catch (error) {
           setLoadingButtonModal(true);
           console.log(error);
@@ -128,12 +126,14 @@ export const EditUser = () => {
             error={errors.name?.message}
           />
           <Input
-            id="contact"
+            id="input-contact"
             labelName="Contato"
-            placeholder="(xx)xxxxxxxxx"
-            type="text"
+            type="tel"
             linkForm={register("contact")}
+            placeholder="(11) 92222-3333"
             error={errors.contact?.message}
+            onChange={() => handlePhone(event)}
+            maxLength={15}
           />
           <Input
             id="avatar"

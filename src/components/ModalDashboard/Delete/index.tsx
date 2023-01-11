@@ -8,9 +8,9 @@ import { DivDelete } from "./style";
 import { DeleteUser } from "./User";
 
 export const Delete = () => {
-  const { setOpenModal, typeModal } = useContext(ServiceContext);
+  const { closeModal, typeModal } = useContext(ServiceContext);
   const modalRef = useOutClick(() => {
-    setOpenModal(false);
+    closeModal();
   });
   return (
     <DivModal ref={modalRef}>

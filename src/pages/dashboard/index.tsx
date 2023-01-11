@@ -8,13 +8,14 @@ import { useContext } from "react";
 import { ServiceContext } from "../../context/ServiceContext";
 import { UserContext } from "../../context/UserContext";
 import { LoadingFullPage } from "../../components/LoadingFullPage";
+import { FramerMotionHomeDashboardMoreInfo } from "../../components/FramerMotion";
 
 export const Dashboard = () => {
   const { openModal } = useContext(ServiceContext);
   const { userProfile } = useContext(UserContext);
 
   return (
-    <>
+    <FramerMotionHomeDashboardMoreInfo>
       {Object.keys(userProfile).length > 0 ? (
         <StyledDashboard>
           {openModal ? <ModalDashboard /> : ""}
@@ -26,6 +27,6 @@ export const Dashboard = () => {
       ) : (
         <LoadingFullPage />
       )}
-    </>
+    </FramerMotionHomeDashboardMoreInfo>
   );
 };

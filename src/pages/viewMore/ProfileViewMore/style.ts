@@ -32,18 +32,11 @@ export const StyledName = styled.div`
   flex-direction: column;
   gap: 10px;
   & > div {
-    gap: 3px;
     h2:nth-child(1) {
       width: 100%;
       max-width: 380px;
       text-align: center;
       word-break: break-word;
-    }
-    a {
-      width: 40px;
-    }
-    img {
-      width: 100%;
     }
   }
 `;

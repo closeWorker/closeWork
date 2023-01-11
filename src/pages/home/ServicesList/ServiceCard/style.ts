@@ -58,6 +58,9 @@ export const StyledCard = styled.li`
     }
   }
 
+  > div:nth-child(5) {
+    border: none;
+  }
   p {
     word-break: break-word;
     text-align: center;

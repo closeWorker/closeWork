@@ -1,15 +1,10 @@
-import { MdEdit } from "react-icons/md";
 import { StyledName, StyledProfile, StyledProfileDescription } from "./style";
-import { ContainerHome } from "../style";
 import { Title } from "../../../components/Title";
 import { ImgProfile } from "../../../components/ImgProfile";
-import { iPropsProfileMoreInfo } from "../type";
-import whatsappIcon from "../../../assets/whatsapp-icon.svg";
+import { ContainerHome } from "../../dashboard/style";
+import { iPropsProfileMoreInfo } from "../../moreInfo/type";
 
-export const ProfileMoreInfo = ({ service }: iPropsProfileMoreInfo) => {
-  const whatsNumber = (phoneNumber: string) =>
-    `55${phoneNumber?.replace(/[()\ \s-]+/g, "")}`;
-
+export const ProfileViewMore = ({ service }: iPropsProfileMoreInfo) => {
   return (
     <StyledProfile>
       <ContainerHome>
@@ -27,14 +22,6 @@ export const ProfileMoreInfo = ({ service }: iPropsProfileMoreInfo) => {
               <Title colorTitle="white" type="Body">
                 {service.phone_number}
               </Title>
-              <a
-                href={`https://api.whatsapp.com/send?phone=${whatsNumber(
-                  service.phone_number
-                )}`}
-                target="_blank"
-              >
-                <img src={whatsappIcon} alt="Ícone do whatsappp" />
-              </a>
             </div>
           </StyledName>
         </StyledProfileDescription>

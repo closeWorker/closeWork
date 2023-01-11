@@ -13,6 +13,7 @@ import { UserContext } from "../../context/UserContext";
 import { Title } from "../../components/Title";
 import { Link } from "react-router-dom";
 import { RotatingLines } from "react-loader-spinner";
+import { FramerMotionLoginRegister } from "../../components/FramerMotion";
 
 export const Login = () => {
   const { loadingButton, onSubmitLogin } = useContext(UserContext);
@@ -31,7 +32,7 @@ export const Login = () => {
   });
   return (
     <StyledLogin>
-      <section>
+      <FramerMotionLoginRegister>
         <Title colorTitle="blue-2" type="Heading1">
           Login
         </Title>
@@ -77,15 +78,15 @@ export const Login = () => {
             linkTo="/register"
           ></LinkNavigation>
         </div>
-      </section>
-      <section className="img-section-login">
+      </FramerMotionLoginRegister>
+      <FramerMotionLoginRegister className="img-section-login">
         <img src={fullLogo} className="logo-login" alt="Logo Close Worker" />
         <img
           src={workersImg}
           className="workers-img-login"
           alt="imagem de profissões"
         />
-      </section>
+      </FramerMotionLoginRegister>
     </StyledLogin>
   );
 };

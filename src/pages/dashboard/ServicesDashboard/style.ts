@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledServicesDashboard = styled.div`
+export const StyledServicesDashboard = styled.main`
   display: flex;
   flex-direction: column;
 `;
@@ -25,6 +25,8 @@ export const StyledServices = styled.ul`
   overflow: auto;
   height: fit-content;
   margin-bottom: 40px;
+  align-items: center;
+  justify-content: center;
 
   li {
     background-color: var(--color-blue-6);

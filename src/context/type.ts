@@ -1,6 +1,40 @@
 import React, { ReactNode } from "react";
 import { SubmitHandler } from "react-hook-form/dist/types/form";
 
+export interface iServiceContext {
+  kindOfServices: string[];
+  setListServiceHome: React.Dispatch<
+    React.SetStateAction<[] | iListServiceHome[]>
+  >;
+  setLoadingListServiceHome: React.Dispatch<React.SetStateAction<boolean>>;
+  filteredServicesHome: iListServiceHome[];
+  setKindOfServicesSelectedHome: React.Dispatch<React.SetStateAction<string>>;
+  loadingListServiceHome: boolean;
+  listServiceUserLogged: iListServiceUserLogged[];
+  openModal: boolean;
+  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+  closeModal: () => void;
+  isClosing: boolean;
+  typeModal: string;
+  setTypeModal: React.Dispatch<React.SetStateAction<string>>;
+  requestRegisteredUserServices: () => void;
+  validatelistServiceUserLogged: boolean;
+  loadingListServiceDashboard: boolean;
+  loadingButtonModal: boolean;
+  setLoadingButtonModal: React.Dispatch<React.SetStateAction<boolean>>;
+  infosModalEditService: iInfoModalEditService;
+  setInfosModalEditService: React.Dispatch<
+    React.SetStateAction<iInfoModalEditService>
+  >;
+  idUser: number;
+  setIdUser: React.Dispatch<React.SetStateAction<number>>;
+  idService: number;
+  setIdService: React.Dispatch<React.SetStateAction<number>>;
+  listComments: iListComments[];
+  setListComments: React.Dispatch<React.SetStateAction<iListComments[]>>;
+  listServiceHome: iListServiceHome[];
+}
+
 export interface iUserContext {
   loadingButton: boolean;
   userProfile: iUserProfile;
@@ -10,6 +44,7 @@ export interface iUserContext {
   userValid: boolean;
   setUserProfile: React.Dispatch<React.SetStateAction<iUserProfile>>;
   onSubmitRegister: SubmitHandler<IRegisterFormData>;
+  handlePhone: (event: any) => void;
 }
 
 export interface iPropsUserProvider {
@@ -44,37 +79,6 @@ export interface iListComments {
   comment: string;
   service_rating: number;
   id: number;
-}
-
-export interface iServiceContext {
-  setListServiceHome: React.Dispatch<
-    React.SetStateAction<[] | iListServiceHome[]>
-  >;
-  setLoadingListServiceHome: React.Dispatch<React.SetStateAction<boolean>>;
-  filteredServicesHome: iListServiceHome[];
-  setKindOfServicesSelectedHome: React.Dispatch<React.SetStateAction<string>>;
-  loadingListServiceHome: boolean;
-  listServiceUserLogged: iListServiceUserLogged[];
-  openModal: boolean;
-  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
-  typeModal: string;
-  setTypeModal: React.Dispatch<React.SetStateAction<string>>;
-  requestRegisteredUserServices: () => void;
-  validatelistServiceUserLogged: boolean;
-  loadingListServiceDashboard: boolean;
-  loadingButtonModal: boolean;
-  setLoadingButtonModal: React.Dispatch<React.SetStateAction<boolean>>;
-  infosModalEditService: iInfoModalEditService;
-  setInfosModalEditService: React.Dispatch<
-    React.SetStateAction<iInfoModalEditService>
-  >;
-  idUser: number;
-  setIdUser: React.Dispatch<React.SetStateAction<number>>;
-  idService: number;
-  setIdService: React.Dispatch<React.SetStateAction<number>>;
-  listComments: iListComments[];
-  setListComments: React.Dispatch<React.SetStateAction<iListComments[]>>;
-  listServiceHome: iListServiceHome[];
 }
 
 export interface iListServiceUserLogged {

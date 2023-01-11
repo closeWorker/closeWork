@@ -34,7 +34,6 @@ export const ViewMore = () => {
         setTimeout(() => {
           setLoadingPage(true);
         }, 500);
-        console.log(response);
       } catch (error) {
         setLoadingPage(false);
         console.error(error);

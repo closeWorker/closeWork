@@ -33,6 +33,7 @@ export interface iServiceContext {
   listComments: iListComments[];
   setListComments: React.Dispatch<React.SetStateAction<iListComments[]>>;
   listServiceHome: iListServiceHome[];
+  whatsNumber: (phoneNumber: string) => string;
 }
 
 export interface iUserContext {

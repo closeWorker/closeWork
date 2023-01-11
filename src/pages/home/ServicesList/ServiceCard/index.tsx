@@ -8,9 +8,10 @@ import { AiFillStar } from "react-icons/ai";
 import { BsStarHalf } from "react-icons/bs";
 import { ImgProfile } from "../../../../components/ImgProfile";
 import { LinkNavigation } from "../../../../components/LinkNavigation";
+import Rating from "@mui/material/Rating";
 
 export const ServiceCard = ({ service }: iServiceCardProps) => {
-  const { listComments } = useContext(ServiceContext);
+  const { listComments, whatsNumber } = useContext(ServiceContext);
 
   const ratingList = listComments.filter(
     (comment) => comment.serviceId === service.id
@@ -24,9 +25,6 @@ export const ServiceCard = ({ service }: iServiceCardProps) => {
           0
         ) / ratingList.length)
     : (averageRate = "Sem avaliações no momento");
-
-  const whatsNumber = (phoneNumber: string) =>
-    `55${phoneNumber?.replace(/[()\ \s-]+/g, "")}`;
 
   return (
     <StyledCard key={service.id}>
@@ -79,43 +77,14 @@ export const ServiceCard = ({ service }: iServiceCardProps) => {
           </Title>
         ) : (
           <StyledStars>
-            {averageRate === 0.5 ? (
-              <BsStarHalf color="FFD704" />
-            ) : (
-              <AiFillStar
-                color={averageRate >= 1 ? "FFD704" : "var(--color-gray-4)"}
-              />
-            )}
-            {averageRate === 1.5 ? (
-              <BsStarHalf color="FFD704" />
-            ) : (
-              <AiFillStar
-                color={averageRate >= 2 ? "FFD704" : "var(--color-gray-4)"}
-              />
-            )}
-            {averageRate === 2.5 ? (
-              <BsStarHalf color="FFD704" />
-            ) : (
-              <AiFillStar
-                color={averageRate >= 3 ? "FFD704" : "var(--color-gray-4)"}
-              />
-            )}
-            {averageRate === 3.5 ? (
-              <BsStarHalf color="FFD704" />
-            ) : (
-              <AiFillStar
-                color={averageRate >= 4 ? "FFD704" : "var(--color-gray-4)"}
-              />
-            )}
-            {averageRate === 4.5 ? (
-              <BsStarHalf color="FFD704" />
-            ) : (
-              <AiFillStar
-                color={averageRate >= 5 ? "FFD704" : "var(--color-gray-4)"}
-              />
-            )}
+            <Rating
+              name="half-rating-read"
+              defaultValue={averageRate}
+              precision={0.5}
+              readOnly
+            />
             <Title type="Headline" colorTitle="blue-1">
-              ({averageRate.toFixed(2).replace(".", ",")})
+              ({averageRate.toFixed(2).toString().replace(".", ",")})
             </Title>
           </StyledStars>
         )}

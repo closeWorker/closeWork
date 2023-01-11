@@ -31,7 +31,7 @@ export const Home = () => {
         setListServiceHome(response.data);
       } catch (error) {
         console.error(error);
-        toast.error("Erro na requisição dos serviços");
+        toast.error("Erro no servidor, atualize a página");
       }
     };
 
@@ -41,7 +41,6 @@ export const Home = () => {
         setListComments(response.data);
       } catch (error) {
         console.error(error);
-        toast.error("Erro na requisição dos comentários");
       } finally {
         setLoadingListServiceHome(false);
       }

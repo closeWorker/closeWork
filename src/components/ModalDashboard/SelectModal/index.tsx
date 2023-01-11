@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { ServiceContext } from "../../../context/ServiceContext";
 import { Title } from "../../Title";
 import { Fieldset } from "./style";
 import { iSelect } from "./type";
@@ -9,21 +11,7 @@ export const SelectModal = ({
   error,
   disabled,
 }: iSelect) => {
-  const kindOfServices = [
-    "Pedreiro",
-    "Servente de Pedreiro",
-    "Encanador",
-    "Doceira",
-    "Costureira",
-    "Babá",
-    "Cozinheira",
-    "Manicure e Pedicure",
-    "Barbeiro",
-    "Cabelereira",
-    "Diarista",
-    "Outros",
-  ];
-
+  const { kindOfServices } = useContext(ServiceContext);
   return (
     <>
       <Fieldset>

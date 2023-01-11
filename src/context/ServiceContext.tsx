@@ -99,6 +99,9 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
       : kindOfServiceSelectedHome === service.kind_of_service
   );
 
+  const whatsNumber = (phoneNumber: string) =>
+    `55${phoneNumber?.replace(/[()\ \s-]+/g, "")}`;
+
   return (
     <ServiceContext.Provider
       value={{
@@ -129,6 +132,7 @@ export const ServiceProvider = ({ children }: iPropsServiceProvider) => {
         listComments,
         setListComments,
         listServiceHome,
+        whatsNumber,
       }}
     >
       {children}

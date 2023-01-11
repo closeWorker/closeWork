@@ -19,7 +19,7 @@ export const SelectModal = ({
     "Cozinheira",
     "Manicure e Pedicure",
     "Barbeiro",
-    "Cabelereira",
+    "Cabeleireira",
     "Diarista",
     "Outros",
   ];

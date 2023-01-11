@@ -3,6 +3,7 @@ import { ContainerListComments, ContainerListNoComments } from "./style";
 import star from "../../../assets/star.svg";
 import { iPropsListComments } from "../type";
 import { StyledContainerStars } from "../DescriptionService/style";
+import Rating from "@mui/material/Rating";
 
 export const ReviewViewMore = ({ listCommentsProp }: iPropsListComments) => {
   return (
@@ -26,9 +27,19 @@ export const ReviewViewMore = ({ listCommentsProp }: iPropsListComments) => {
                       Avaliação:
                     </Title>
                     <StyledContainerStars>
-                      <img src={star} alt="" />
-                      <Title colorTitle="blue-1" type="Heading3">
-                        {list.service_rating}
+                      <Rating
+                        name="half-rating-read"
+                        defaultValue={list.service_rating}
+                        precision={0.5}
+                        readOnly
+                      />
+                      <Title type="Headline" colorTitle="blue-1">
+                        (
+                        {Number(list.service_rating)
+                          .toFixed(2)
+                          .toString()
+                          .replace(".", ",")}
+                        )
                       </Title>
                     </StyledContainerStars>
                   </div>

@@ -16,7 +16,6 @@ export const ServiceCard = ({ service }: iServiceCardProps) => {
   const ratingList = listComments.filter(
     (comment) => comment.serviceId === service.id
   );
-  console.log(ratingList);
 
   let averageRate;
   ratingList.length !== 0

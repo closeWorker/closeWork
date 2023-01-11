@@ -8,11 +8,6 @@ export const editProfileSchema = yup.object().shape({
   contact: yup
     .string()
     .required("Digite um número de telefone")
-    .matches(
-      /([0-9]{2,3})?(\([0-9]{2}\))([0-9]{4,5})([0-9]{4})/,
-      "Digite um número válido"
-    )
-    .min(12, "Precisa conter ao menos 12 caracteres")
-    .max(13, "Permitido no máximo 13 caracteres"),
+    .min(14, "Número inválido"),
   avatar: yup.string().required("Imagem de perfil é obrigatório"),
 });

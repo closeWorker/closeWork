@@ -6,7 +6,11 @@ export const registerSchema = yup.object().shape({
     .required("Nome obrigatório")
     .min(3, "O tamamano mínimo para o nome é de 3 caracteres")
     .max(128, "O nome excedeu o limite de 128 caracteres"),
-  email: yup.string().required("Email obrigatório").email("Email inválido"),
+  email: yup
+    .string()
+    .required("Email obrigatório")
+    .email("Email inválido")
+    .trim(),
   contact: yup
     .string()
     .required("Digite um número de telefone")

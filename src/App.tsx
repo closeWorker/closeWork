@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 export const App = () => {
   return (
-    <div className="App">
+    <>
       <RoutesApp />
       <GlobalStyle />
       <ToastContainer
@@ -19,6 +19,6 @@ export const App = () => {
         draggable
         pauseOnHover={false}
       />
-    </div>
+    </>
   );
 };

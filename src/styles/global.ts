@@ -15,9 +15,9 @@ export const GlobalStyle = createGlobalStyle`
 
   body,html{
     height: 100%;
+    scroll-behavior: smooth;
   }
 
-  
   
 :root {
  
@@ -45,8 +45,6 @@ export const GlobalStyle = createGlobalStyle`
   --color-sucess: #168821;
   --color-negative: #ADB5BD;
   --color-negative-hover: #E60000;
- 
- 
 
 }
 
@@ -65,4 +63,3 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 `;
-

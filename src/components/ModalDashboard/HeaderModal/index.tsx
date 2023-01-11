@@ -9,7 +9,7 @@ import { UserContext } from "../../../context/UserContext";
 import { ImgProfile } from "../../ImgProfile";
 
 export const HeaderModal = () => {
-  const { setOpenModal } = useContext(ServiceContext);
+  const { closeModal } = useContext(ServiceContext);
   const { userProfile } = useContext(UserContext);
   return (
     <Header>
@@ -32,7 +32,7 @@ export const HeaderModal = () => {
         style="transparent"
         type="button"
         children={<AiOutlineClose />}
-        action={() => setOpenModal(false)}
+        action={() => closeModal()}
       />
     </Header>
   );

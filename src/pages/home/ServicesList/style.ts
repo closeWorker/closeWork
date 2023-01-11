@@ -1,11 +1,8 @@
 import styled from "styled-components";
 
 export const WarningTextBox = styled.div`
-  height: 300px;
-
   display: flex;
   justify-content: center;
-  align-items: center;
 
   text-align: center;
 `;
@@ -13,7 +10,7 @@ export const WarningTextBox = styled.div`
 export const StyledList = styled.ul`
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   flex-wrap: wrap;
   gap: 21px;
 

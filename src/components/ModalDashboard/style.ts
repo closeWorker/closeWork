@@ -1,6 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { AnimationFade, AnimationFadeOut } from "../../styles/animation";
+import { iStyledModalProps } from "./type";
 
-export const Modal = styled.div`
+export const Modal = styled.div<iStyledModalProps>`
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -8,6 +10,20 @@ export const Modal = styled.div`
   align-items: center;
   justify-content: flex-start;
   background-color: rgba(0, 0, 0, 0.5);
+
+  > div {
+    ${({ isClosing }) => {
+      if (isClosing) {
+        return css`
+          animation: ${AnimationFadeOut} 0.3s forwards;
+        `;
+      } else {
+        return css`
+          animation: ${AnimationFade} 0.3s forwards;
+        `;
+      }
+    }}
+  }
 `;
 
 export const DivModal = styled.div`

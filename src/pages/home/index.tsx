@@ -10,14 +10,10 @@ import { Title } from "../../components/Title";
 import { Footer } from "../../components/Footer";
 import { ServicesList } from "./ServicesList";
 import { ServiceContext } from "../../context/ServiceContext";
-import { kindOfServices } from "../../context/kindOfServices";
 import { api } from "../../services/api";
-import worker1 from "../../assets/worker-1.svg";
-import worker2 from "../../assets/worker-2.svg";
-import worker3 from "../../assets/worker-3.svg";
-import worker4 from "../../assets/worker-4.svg";
-import worker5 from "../../assets/worker-5.svg";
 import { SlideImagesHome } from "../../components/SlideImagesHome";
+import { toast } from "react-toastify";
+import { FramerMotionHomeDashboardMoreInfo } from "../../components/FramerMotion";
 
 export const Home = () => {
   const {
@@ -25,6 +21,7 @@ export const Home = () => {
     setListServiceHome,
     setLoadingListServiceHome,
     setListComments,
+    kindOfServices,
   } = useContext(ServiceContext);
 
   useEffect(() => {
@@ -34,6 +31,7 @@ export const Home = () => {
         setListServiceHome(response.data);
       } catch (error) {
         console.error(error);
+        toast.error("Erro na requisição dos serviços");
       }
     };
 
@@ -43,6 +41,7 @@ export const Home = () => {
         setListComments(response.data);
       } catch (error) {
         console.error(error);
+        toast.error("Erro na requisição dos comentários");
       } finally {
         setLoadingListServiceHome(false);
       }
@@ -53,34 +52,36 @@ export const Home = () => {
   }, []);
 
   return (
-    <PageContainer>
-      <HeaderHome />
-      <main>
-        <SlideImagesHome />
-        <StyledFilterSection>
-          <fieldset>
-            <label htmlFor="filter">Filtrar por tipo de serviço</label>
-            <select
-              id="filter"
-              onChange={(event) =>
-                setKindOfServicesSelectedHome(event.target.value)
-              }
-            >
-              {kindOfServices.map((service, index) => (
-                <option key={index} value={service}>
-                  {service}
-                </option>
-              ))}
-            </select>
-          </fieldset>
-        </StyledFilterSection>
-        <section>
-          <ContainerHome>
-            <ServicesList />
-          </ContainerHome>
-        </section>
-      </main>
-      <Footer />
-    </PageContainer>
+    <FramerMotionHomeDashboardMoreInfo>
+      <PageContainer>
+        <HeaderHome />
+        <main>
+          <SlideImagesHome />
+          <StyledFilterSection>
+            <fieldset>
+              <label htmlFor="filter">Filtrar por tipo de serviço</label>
+              <select
+                id="filter"
+                onChange={(event) =>
+                  setKindOfServicesSelectedHome(event.target.value)
+                }
+              >
+                {kindOfServices.map((service, index) => (
+                  <option key={index} value={service}>
+                    {service}
+                  </option>
+                ))}
+              </select>
+            </fieldset>
+          </StyledFilterSection>
+          <section>
+            <ContainerHome>
+              <ServicesList />
+            </ContainerHome>
+          </section>
+        </main>
+        <Footer />
+      </PageContainer>
+    </FramerMotionHomeDashboardMoreInfo>
   );
 };

@@ -7,7 +7,7 @@ import { RotatingLines } from "react-loader-spinner";
 
 export const DeleteService = () => {
   const {
-    setOpenModal,
+    closeModal,
     idService,
     setLoadingButtonModal,
     requestRegisteredUserServices,
@@ -25,7 +25,7 @@ export const DeleteService = () => {
           },
         });
         requestRegisteredUserServices();
-        setOpenModal(false);
+        closeModal();
       } catch (error) {
         setLoadingButtonModal(true);
         console.log(error);
@@ -64,7 +64,7 @@ export const DeleteService = () => {
           style="blueLight"
           type="button"
           name="Manter"
-          action={() => setOpenModal(false)}
+          action={() => closeModal()}
         />
       </div>
     </>

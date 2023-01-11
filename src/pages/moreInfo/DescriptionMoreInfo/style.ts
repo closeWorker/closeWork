@@ -19,7 +19,8 @@ export const StyledDescription = styled.section`
     border-radius: 4px;
     & > div {
       display: flex;
-      gap: 10px;
+      flex-direction: column;
+      gap: 5px;
     }
   }
 `;

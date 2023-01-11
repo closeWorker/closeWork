@@ -9,7 +9,7 @@ export const WarningTextBox = styled.div`
 
 export const StyledList = styled.ul`
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: stretch;
   flex-wrap: wrap;
   gap: 21px;

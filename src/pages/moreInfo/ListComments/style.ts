@@ -20,8 +20,8 @@ export const ContainerListComments = styled.div`
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     width: 100%;
     min-height: 150px;
-    max-height: 200px;
-    overflow: auto;
+    max-height: 250px;
+    overflow-y: auto;
     background-color: var(--color-blue-5);
     display: flex;
     flex-direction: column;
@@ -30,7 +30,8 @@ export const ContainerListComments = styled.div`
     border-radius: 4px;
     & > div {
       display: flex;
-      gap: 10px;
+      flex-direction: column;
+      gap: 5px;
     }
   }
 `;

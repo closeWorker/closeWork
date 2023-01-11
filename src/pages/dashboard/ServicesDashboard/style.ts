@@ -26,7 +26,6 @@ export const StyledServices = styled.ul`
   height: fit-content;
   margin-bottom: 40px;
   align-items: center;
-  justify-content: center;
 
   li {
     background-color: var(--color-blue-6);
@@ -52,6 +51,7 @@ export const StyledServices = styled.ul`
   }
   @media (min-width: 768px) {
     overflow-y: hidden;
+
     flex-direction: row;
     flex-wrap: wrap;
   }

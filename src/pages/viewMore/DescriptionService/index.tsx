@@ -32,7 +32,7 @@ export const DescriptionService = ({
           <Title colorTitle="blue-1" type="Heading2">
             Tipo de serviço:
           </Title>
-          <Title colorTitle="blue-1" type="Heading3">
+          <Title colorTitle="blue-1" type="Headline">
             {service.kind_of_service}
           </Title>
         </div>

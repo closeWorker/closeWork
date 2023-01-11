@@ -16,3 +16,12 @@ export const StyledContent = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
+
+export const ContainerHome = styled.div`
+  width: 1200px;
+  max-width: 100%;
+
+  padding: 0;
+
+  margin: 0 auto;
+`;

@@ -10,6 +10,7 @@ export const ContainerListComments = styled.div`
 
   ul {
     width: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     gap: 25px;

@@ -44,6 +44,14 @@ export const StyledName = styled.div`
     }
     img {
       width: 100%;
+
+      object-fit: cover;
+
+      transition: 150ms ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 `;

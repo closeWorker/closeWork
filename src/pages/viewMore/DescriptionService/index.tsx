@@ -49,7 +49,7 @@ export const DescriptionService = ({
               <StyledContainerStars>
                 <Rating
                   name="half-rating-read"
-                  defaultValue={averageRate}
+                  value={averageRate}
                   precision={0.5}
                   readOnly
                 />

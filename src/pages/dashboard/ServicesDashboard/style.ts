@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const StyledServicesDashboard = styled.main`
   display: flex;
   flex-direction: column;
+
+  div:nth-child(3) {
+    min-height: 100px;
+  }
 `;
 
 export const StyledService = styled.div`

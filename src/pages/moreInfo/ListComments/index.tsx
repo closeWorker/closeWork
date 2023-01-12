@@ -29,7 +29,7 @@ export const ListComments = ({ listCommentsProp }: iPropsListComments) => {
                     <StyledContainerStars>
                       <Rating
                         name="half-rating-read"
-                        defaultValue={list.service_rating}
+                        value={list.service_rating}
                         precision={0.5}
                         readOnly
                       />

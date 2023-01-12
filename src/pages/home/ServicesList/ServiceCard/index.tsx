@@ -79,7 +79,7 @@ export const ServiceCard = ({ service }: iServiceCardProps) => {
           <StyledStars>
             <Rating
               name="half-rating-read"
-              defaultValue={averageRate}
+              value={averageRate}
               precision={0.5}
               readOnly
             />

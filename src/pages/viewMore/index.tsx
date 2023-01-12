@@ -12,77 +12,66 @@ import { api } from "../../services/api";
 import { AxiosError } from "axios";
 import { LoadingFullPage } from "../../components/LoadingFullPage";
 import { Title } from "../../components/Title";
+import { FramerMotionHomeDashboardMoreInfo } from "../../components/FramerMotion";
 
 export const ViewMore = () => {
   const [serviceMoreInfo, setServiceMoreInfo] = useState(
     {} as iServiceMoreInfo
   );
   const [listComments, setListComments] = useState<iListComments[]>([]);
-  const [loadingPage, setLoadingPage] = useState(false);
+  const [loadingPage, setLoadingPage] = useState(true);
 
   const params = useParams();
 
   useEffect(() => {
-    const requestServices = async () => {
+    const requestServicesAndComments = async () => {
       try {
-        const response = await api.get(`services/${params.serviceId}`);
+        const responseServices = await api.get(`services/${params.serviceId}`);
         const responseComments = await api.get(
           `comments?serviceId=${params.serviceId}`
         );
-        setServiceMoreInfo(response.data);
+        setServiceMoreInfo(responseServices.data);
         setListComments(responseComments.data);
-        setTimeout(() => {
-          setLoadingPage(true);
-        }, 500);
+
+        const data = {
+          email: "usercoments@gmail.com",
+          password: "123456",
+        };
+        const responseLogin = await api.post("/login", data);
+        localStorage.setItem(
+          "@closework:commentToken",
+          responseLogin.data.accessToken
+        );
       } catch (error) {
-        setLoadingPage(false);
         console.error(error);
       } finally {
         setLoadingPage(false);
       }
     };
-
-    const loginComments = async () => {
-      const data = {
-        email: "usercoments@gmail.com",
-        password: "123456",
-      };
-      try {
-        const response = await api.post("/login", data);
-        localStorage.setItem(
-          "@closework:commentToken",
-          response.data.accessToken
-        );
-      } catch (error) {
-        const currentError = error as AxiosError<iDefaultErrorResponse>;
-        console.error(currentError.response?.data);
-      } finally {
-      }
-    };
-
-    requestServices();
-    loginComments();
+    requestServicesAndComments();
   }, []);
   return (
     <>
       {loadingPage ? (
-        <StyledViewMore>
-          <HeaderViewMore />
-          <ProfileViewMore service={serviceMoreInfo} />
-          <DescriptionService
-            service={serviceMoreInfo}
-            listComments={listComments}
-          />
-          <StyledService>
-            <Title type="Heading2" colorTitle="blue-2">
-              Comentários
-            </Title>
-          </StyledService>
-          <ReviewViewMore listCommentsProp={listComments} />
-          <Footer />
-        </StyledViewMore>
-      ) : (
         <LoadingFullPage />
+      ) : (
+        <FramerMotionHomeDashboardMoreInfo>
+          <StyledViewMore>
+            <HeaderViewMore />
+            <ProfileViewMore service={serviceMoreInfo} />
+            <DescriptionService
+              service={serviceMoreInfo}
+              listComments={listComments}
+            />
+            <StyledService>
+              <Title type="Heading2" colorTitle="blue-2">
+                Comentários ({listComments.length})
+              </Title>
+            </StyledService>
+            <ReviewViewMore listCommentsProp={listComments} />
+            <Footer />
+          </StyledViewMore>
+        </FramerMotionHomeDashboardMoreInfo>
       )}
     </>
   );

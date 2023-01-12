@@ -91,7 +91,7 @@ export const MoreInfo = () => {
             <NewComment setListComments={setListComments} />
             <StyledService>
               <Title type="Heading2" colorTitle="blue-2">
-                Comentários
+                Comentários ({listComments.length})
               </Title>
             </StyledService>
             <ListComments listCommentsProp={listComments} />

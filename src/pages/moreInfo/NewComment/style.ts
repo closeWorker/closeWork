@@ -16,9 +16,6 @@ export const ContainerNewComment = styled.form`
   textarea {
     background-color: var(--color-blue-6);
   }
-  label {
-    color: var(--color-blue-1);
-  }
 
   button {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -28,30 +25,19 @@ export const ContainerNewComment = styled.form`
 
 export const Fieldset = styled.fieldset`
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 25px;
-  width: 100%;
-  border: none;
-  padding: 20px 0;
-  label {
-    color: var(--color-blue-1);
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 27px;
-  }
-  select {
-    height: 60px;
-    background-color: var(--color-blue-6);
-    color: var(--color-blue-1);
-    font-size: 22px;
-    font-weight: 400;
-    line-height: 27px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  flex-direction: column;
 
-    padding: 0 15px;
-    border-radius: 4px;
-    border: 2px solid var(--color-blue-5);
-    border: none;
+  border: none;
+  > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3px;
+    width: 100%;
+    padding: 20px 0;
+  }
+  > p {
+    margin-bottom: 20px;
+    margin-top: -20px;
   }
 `;

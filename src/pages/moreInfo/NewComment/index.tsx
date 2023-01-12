@@ -1,5 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { Button } from "../../../components/Button";
 import { Input } from "../../../components/Input";
 import { Textarea } from "../../../components/Textarea";
@@ -10,15 +10,16 @@ import { useParams } from "react-router-dom";
 import { AxiosError } from "axios";
 import { iDefaultErrorResponse, iListComments } from "../../../context/type";
 import { api } from "../../../services/api";
-import { useState } from "react";
+import React, { useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
+import Rating from "@mui/material/Rating";
 
 export interface iNewComment {
   name: string;
   userId?: number;
   serviceId?: number;
   comment: string;
-  service_rating: string | number;
+  service_rating: number;
 }
 
 export interface iPropsNewComment {
@@ -27,18 +28,21 @@ export interface iPropsNewComment {
 
 export const NewComment = ({ setListComments }: iPropsNewComment) => {
   const [load, setLoad] = useState(false);
+  const [rating, setRating] = useState<number | undefined | null>(undefined);
+
   const params = useParams();
 
   const newCommentSchema = yup.object().shape({
     name: yup.string().required("Nome é obrigatório"),
     comment: yup.string().required("Comentário é obrigatório"),
-    service_rating: yup.string().required("Avaliação é obrigatória"),
+    service_rating: yup.string().required("A avaliação é obrigatória"),
   });
 
   const {
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors },
   } = useForm<iNewComment>({
     mode: "onBlur",
@@ -59,8 +63,8 @@ export const NewComment = ({ setListComments }: iPropsNewComment) => {
 
   const submitNewComment = async (data: iNewComment) => {
     data.serviceId = Number(params.serviceId);
-    data.service_rating = Number(data.service_rating);
     data.userId = 1;
+    data.service_rating = Number(data.service_rating);
     const token = localStorage.getItem("@closework:commentToken");
     if (token) {
       try {
@@ -77,6 +81,7 @@ export const NewComment = ({ setListComments }: iPropsNewComment) => {
         console.error(currentError.response?.data);
       } finally {
         setLoad(false);
+        setRating(undefined);
       }
     }
   };
@@ -99,15 +104,32 @@ export const NewComment = ({ setListComments }: iPropsNewComment) => {
         error={errors.comment?.message}
       />
       <Fieldset>
-        <label>Avaliação:</label>
-        <select {...register("service_rating")}>
-          <option value="5">5,0</option>
-          <option value="4">4,0</option>
-          <option value="3">3,0</option>
-          <option value="2">2,0</option>
-          <option value="1">1,0</option>
-        </select>
-
+        <div>
+          <Title type="Heading3" colorTitle="blue-1">
+            Avaliação:
+          </Title>
+          <Controller
+            name="service_rating"
+            control={control}
+            defaultValue={undefined}
+            rules={{ required: true }}
+            render={({ field: { onChange, value } }) => (
+              <Rating
+                value={Number(value)}
+                name="half-rating-read"
+                precision={0.5}
+                onChange={(e: any) => {
+                  const value = Number(e.target.value);
+                  setRating(value);
+                  return onChange(value);
+                }}
+              />
+            )}
+          />
+          <Title type="Body-600" colorTitle="blue-1">
+            ({rating?.toFixed(2).toString().replace(".", ",")})
+          </Title>
+        </div>
         <Title type="Body-600" colorTitle="negative">
           {errors.service_rating?.message}
         </Title>

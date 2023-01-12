@@ -35,7 +35,7 @@ export const NewComment = ({ setListComments }: iPropsNewComment) => {
   const newCommentSchema = yup.object().shape({
     name: yup.string().required("Nome é obrigatório"),
     comment: yup.string().required("Comentário é obrigatório"),
-    service_rating: yup.string().required("A avaliação é obrigatória"),
+    service_rating: yup.string().required("Avaliação é obrigatória"),
   });
 
   const {

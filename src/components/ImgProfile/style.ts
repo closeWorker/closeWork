@@ -5,11 +5,18 @@ export const StyledContainerImgProfile = styled.div`
   height: 210px;
   background-color: transparent;
 
+  overflow: hidden;
+
+  border-radius: 100%;
+
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 100%;
+    transition: 250ms ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 `;
 

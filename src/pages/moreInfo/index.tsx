@@ -35,39 +35,31 @@ export const MoreInfo = () => {
   const params = useParams();
 
   useEffect(() => {
-    const requestServices = async () => {
+    const requestServicesAndComments = async () => {
       try {
-        const response = await api.get(`services/${params.serviceId}`);
+        const responseServices = await api.get(`services/${params.serviceId}`);
         const responseComments = await api.get(
           `comments?serviceId=${params.serviceId}`
         );
-        setServiceMoreInfo(response.data);
+        setServiceMoreInfo(responseServices.data);
         setListComments(responseComments.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
 
-    const loginComments = async () => {
-      const data = {
-        email: "usercoments@gmail.com",
-        password: "123456",
-      };
-      try {
-        const response = await api.post("/login", data);
+        const data = {
+          email: "usercoments@gmail.com",
+          password: "123456",
+        };
+        const responseLogin = await api.post("/login", data);
         localStorage.setItem(
           "@closework:commentToken",
-          response.data.accessToken
+          responseLogin.data.accessToken
         );
       } catch (error) {
-        const currentError = error as AxiosError<iDefaultErrorResponse>;
-        console.error(currentError.response?.data);
+        console.error(error);
       } finally {
         setLoadingPage(false);
       }
     };
-    requestServices();
-    loginComments();
+    requestServicesAndComments();
   }, []);
 
   return (
@@ -91,7 +83,7 @@ export const MoreInfo = () => {
             <NewComment setListComments={setListComments} />
             <StyledService>
               <Title type="Heading2" colorTitle="blue-2">
-                Comentários
+                Comentários ({listComments.length})
               </Title>
             </StyledService>
             <ListComments listCommentsProp={listComments} />

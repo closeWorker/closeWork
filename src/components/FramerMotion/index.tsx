@@ -27,9 +27,9 @@ export const FramerMotionLoginRegister = ({
     <>
       <motion.section
         className={className}
-        initial={{ scale: 1.05 }}
+        initial={{ scale: 1.02 }}
         animate={{ scale: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.3, ease: "linear" }}
       >
         {children}
       </motion.section>
